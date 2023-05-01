@@ -5,30 +5,61 @@ namespace MyFridge_Interface_MAUI.Mvvms.ViewModel.Detail
 {
     public class DetailGroceryViewModel : BindableObject
     {
+        #region Privates
         private readonly IClientService _clientService;
+        private GroceryCto grocery;
+        #endregion 
 
         #region Properties
-        public IngredientDto Grocery { get; set; }
-        public string Name
+        public GroceryCto Grocery
         {
-            get => Grocery.Name;
+            get => grocery;
             set
             {
-                Grocery.Name = value;
+                grocery = value;
 
-                OnPropertyChanged(nameof(Name));
+                OnPropertyChanged(nameof(Grocery));
             }
+        }
+        public string Brand
+        {
+            get => Grocery.Brand;
+        }
+        public float Price
+        {
+            get => Grocery.SalePrice;
+        }
+        public string ItemIdentifier
+        {
+            get => Grocery.ItemIdentifier;
+        }        
+        public float Amount
+        {
+            get => Grocery.IngredientAmount.Amount;
+        }
+        public string Name
+        {
+            get => Grocery.IngredientAmount.Ingredient.Name;
+        }
+        public string Category
+        {
+            get => Grocery.IngredientAmount.Ingredient.Category;
         }
         public string UnitStr
         {
             get
             {
-                if (Grocery.Unit == 2)
+                if (Grocery.IngredientAmount.Ingredient.Unit == 2)
                     return "gram";
-                if (Grocery.Unit == 1)
+                if (Grocery.IngredientAmount.Ingredient.Unit == 1)
                     return "ml";
                 else
-                    return "pieces";
+                {
+                    if (Amount > 1)
+                        return "pcs";
+                    else
+                        return "pc";
+                }
             }
         }
         #endregion

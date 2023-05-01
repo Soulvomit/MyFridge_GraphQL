@@ -21,14 +21,14 @@ namespace MyFridge_Interface_WebAPI.Controller
             _log = log;
         }
         [HttpPost]
-        public async Task<JsonResult> UpsertAsync([FromBody] IngredientAmountDto dto)
+        public async Task<JsonResult> UpsertAsync([FromBody] IngredientAmountCto dto)
         {
             if (!ModelState.IsValid) return new JsonResult(BadRequest());
 
-            if (dto.Id == 0) await _dataService.IngredientAmounts.CreateAsync(_map.ToIngredientAmount(from: dto));
+            if (dto.Id == 0) await _dataService.IngredientAmounts.CreateAsync(_map.ToIngredientAmountDto(from: dto));
             else
             {
-                bool success = await _dataService.IngredientAmounts.UpdateAsync(_map.ToIngredientAmount(from: dto));
+                bool success = await _dataService.IngredientAmounts.UpdateAsync(_map.ToIngredientAmountDto(from: dto));
 
                 if (!success) return new JsonResult(NotFound());
             }
@@ -40,21 +40,21 @@ namespace MyFridge_Interface_WebAPI.Controller
         [HttpGet]
         public async Task<JsonResult> GetAsync(int id)
         {
-            IngredientAmount? ingredientAmount = await _dataService.IngredientAmounts.GetAsync(id);
+            IngredientAmountDto? ingredientAmount = await _dataService.IngredientAmounts.GetAsync(id);
 
             if (ingredientAmount == null) return new JsonResult(NotFound());
 
-            return new JsonResult(_map.ToIngredientAmountDto(from: ingredientAmount));
+            return new JsonResult(_map.ToIngredientAmountCto(from: ingredientAmount));
         }
         [HttpGet]
         public async Task<JsonResult> GetAllAsync()
         {
-            List<IngredientAmountDto> dtos = new List<IngredientAmountDto>();
-            List<IngredientAmount> ingredientAmounts = await _dataService.IngredientAmounts.GetAllAsync();
+            List<IngredientAmountCto> dtos = new List<IngredientAmountCto>();
+            List<IngredientAmountDto> ingredientAmounts = await _dataService.IngredientAmounts.GetAllAsync();
 
-            foreach (IngredientAmount ingredientAmount in ingredientAmounts)
+            foreach (IngredientAmountDto ingredientAmount in ingredientAmounts)
             {
-                dtos.Add(_map.ToIngredientAmountDto(from: ingredientAmount));
+                dtos.Add(_map.ToIngredientAmountCto(from: ingredientAmount));
             }
 
             return new JsonResult(dtos);

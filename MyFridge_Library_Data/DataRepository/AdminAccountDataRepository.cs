@@ -6,18 +6,18 @@ using MyFridge_Library_Data.DataRepository.Interface;
 
 namespace MyFridge_Library_Data.DataRepository
 {
-    public class AdminAccountDataRepository : DataRepository<AdminAccount>, IAdminAccountDataRepository
+    public class AdminAccountDataRepository : DataRepository<AdminAccountDto>, IAdminAccountDataRepository
     {
         public AdminAccountDataRepository(ApplicationDbContext context, ILogger log)
             : base(context, log)
         {
         }
 
-        public override async Task<bool> UpdateAsync(AdminAccount updateEntity)
+        public override async Task<bool> UpdateAsync(AdminAccountDto updateEntity)
         {
             if (updateEntity == null) return false;
 
-            AdminAccount? entityInDb = await dbSet.FindAsync(updateEntity.Id);
+            AdminAccountDto? entityInDb = await dbSet.FindAsync(updateEntity.Id);
 
             if (entityInDb == null) return false;
 

@@ -4,7 +4,7 @@ using MyFridge_Library_Client_MAUI.ClientModel;
 
 namespace MyFridge_Library_Client_MAUI.ClientRepository
 {
-    public class AdminAccountClientRepository : ClientRepository<AdminAccountDto>, IAdminAccountClientRepository
+    public class AdminAccountClientRepository : ClientRepository<AdminAccountCto>, IAdminAccountClientRepository
     {
         public AdminAccountClientRepository(string baseAddress) : base(baseAddress) { }
     }

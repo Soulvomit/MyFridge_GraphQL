@@ -21,14 +21,14 @@ namespace MyFridge_Interface_WebAPI.Controller
             _log = log;
         }
         [HttpPost]
-        public async Task<JsonResult> UpsertAsync(int id, [FromBody] GroceryDto dto)
+        public async Task<JsonResult> UpsertAsync(int id, [FromBody] GroceryCto dto)
         {
             if(dto == null) return new JsonResult(NotFound());
 
-            Order? order = await _dataService.Orders.GetAsync(id);
+            OrderDto? order = await _dataService.Orders.GetAsync(id);
             if (order == null) return new JsonResult(NotFound());
 
-            await _dataService.Orders.AddGroceryAsync(order.Id, _map.ToGrocery(from: dto));
+            await _dataService.Orders.AddGroceryAsync(order.Id, _map.ToGroceryDto(from: dto));
 
             await _dataService.CompleteAsync();
 
@@ -37,27 +37,27 @@ namespace MyFridge_Interface_WebAPI.Controller
         [HttpGet]
         public async Task<JsonResult> GetAsync(int id, int groceryId)
         {
-            Order? order = await _dataService.Orders.GetAsync(id);
+            OrderDto? order = await _dataService.Orders.GetAsync(id);
             if (order == null) return new JsonResult(NotFound());
 
-            Grocery? grocery = order.Groceries.FirstOrDefault(g => g.Id == groceryId);
+            GroceryDto? grocery = order.Groceries.FirstOrDefault(g => g.Id == groceryId);
             if (grocery == null) return new JsonResult(NotFound());
 
-            return new JsonResult(_map.ToGroceryDto(from: grocery));
+            return new JsonResult(_map.ToGroceryCto(from: grocery));
         }
         [HttpGet]
         public async Task<JsonResult> GetAllAsync(int id)
         {
-            Order? order = await _dataService.Orders.GetAsync(id);
+            OrderDto? order = await _dataService.Orders.GetAsync(id);
             if (order == null) return new JsonResult(NotFound());
 
-            return new JsonResult(_map.ToOrderDto(from: order).Groceries);
+            return new JsonResult(_map.ToOrderCto(from: order).Groceries);
         }
         //delete
         [HttpDelete]
         public async Task<JsonResult> DeleteAsync(int id, int groceryId)
         {
-            Order? order = await _dataService.Orders.GetAsync(id);
+            OrderDto? order = await _dataService.Orders.GetAsync(id);
             if (order == null) return new JsonResult(NotFound());
 
             bool success = await _dataService.Orders.RemoveGroceryAsync(order.Id, groceryId);

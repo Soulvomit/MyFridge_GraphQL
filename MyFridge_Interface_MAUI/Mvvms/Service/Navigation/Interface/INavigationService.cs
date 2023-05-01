@@ -7,8 +7,8 @@ namespace MyFridge_Interface_MAUI.Mvvms.Service.Navigation.Interface
         public void SetDataStore(object data);
         public T GetDataStore<T>();
         public Task GoBack();
-        public Task GoToIngredientDetailAsync(IngredientAmountDto ingredientAmount);
-        public Task GoToRecipeDetailAsync(RecipeDto recipe);
+        public Task GoToIngredientDetailAsync(IngredientAmountCto ingredientAmount);
+        public Task GoToRecipeDetailAsync(RecipeCto recipe);
         public Task GoToGroceriesAsync();
         public Task GoToUserAbsoluteAsync();
         public Task GoToLoginAbsoluteAsync();

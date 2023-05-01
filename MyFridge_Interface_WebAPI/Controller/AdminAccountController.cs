@@ -23,14 +23,14 @@ namespace MyFridge_Interface_WebAPI.Controller
 
         //create/edit
         [HttpPost]
-        public async Task<JsonResult> UpsertAsync([FromBody] AdminAccountDto dto)
+        public async Task<JsonResult> UpsertAsync([FromBody] AdminAccountCto dto)
         {
             if (!ModelState.IsValid) return new JsonResult(BadRequest());
 
-            if (dto.Id == 0) await _dataService.Admins.CreateAsync(_map.ToAdminAccount(from: dto));
+            if (dto.Id == 0) await _dataService.Admins.CreateAsync(_map.ToAdminAccountDto(from: dto));
             else
             {
-                bool success = await _dataService.Admins.UpdateAsync(_map.ToAdminAccount(from: dto));
+                bool success = await _dataService.Admins.UpdateAsync(_map.ToAdminAccountDto(from: dto));
 
                 if (!success) return new JsonResult(NotFound());
             }
@@ -43,22 +43,22 @@ namespace MyFridge_Interface_WebAPI.Controller
         [HttpGet]
         public async Task<JsonResult> GetAsync(int id)
         {
-            AdminAccount? admin = await _dataService.Admins.GetAsync(id);
+            AdminAccountDto? admin = await _dataService.Admins.GetAsync(id);
 
             if (admin == null) return new JsonResult(NotFound());
 
-            return new JsonResult(_map.ToAdminAccountDto(from: admin));
+            return new JsonResult(_map.ToAdminAccountCto(from: admin));
         }
         //get all
         [HttpGet]
         public async Task<JsonResult> GetAllAsync()
         {
-            List<AdminAccountDto> dtos = new List<AdminAccountDto>();
-            List<AdminAccount> admins = await _dataService.Admins.GetAllAsync();
+            List<AdminAccountCto> dtos = new List<AdminAccountCto>();
+            List<AdminAccountDto> admins = await _dataService.Admins.GetAllAsync();
 
-            foreach (AdminAccount admin in admins)
+            foreach (AdminAccountDto admin in admins)
             {
-                dtos.Add(_map.ToAdminAccountDto(from: admin));
+                dtos.Add(_map.ToAdminAccountCto(from: admin));
             }
 
             return new JsonResult(dtos);

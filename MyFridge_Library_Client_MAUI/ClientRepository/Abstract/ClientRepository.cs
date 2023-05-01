@@ -15,14 +15,14 @@ namespace MyFridge_Library_Client_MAUI.ClientRepository.Abstract
 
                 string result = resolver switch
                 {
-                    nameof(AddressDto) => "Address",
-                    nameof(AdminAccountDto) => "AdminAccount",
-                    nameof(GroceryDto) => "Grocery",
-                    nameof(IngredientAmountDto) => "IngredientAmount",
-                    nameof(IngredientDto) => "Ingredient",
-                    nameof(OrderDto) => "Order",
-                    nameof(RecipeDto) => "Recipe",
-                    nameof(UserAccountDto) => "UserAccount",
+                    nameof(AddressCto) => "Address",
+                    nameof(AdminAccountCto) => "AdminAccount",
+                    nameof(GroceryCto) => "Grocery",
+                    nameof(IngredientAmountCto) => "IngredientAmount",
+                    nameof(IngredientCto) => "Ingredient",
+                    nameof(OrderCto) => "Order",
+                    nameof(RecipeCto) => "Recipe",
+                    nameof(UserAccountCto) => "UserAccount",
                     _ => throw new ArgumentException($"Unsupported type '{resolver}'.")
                 };
 

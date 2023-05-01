@@ -6,18 +6,18 @@ using MyFridge_Library_Data.DataRepository.Interface;
 
 namespace MyFridge_Library_Data.DataRepository
 {
-    public class AddressDataRepository : DataRepository<Address>, IAddressDataRepository
+    public class AddressDataRepository : DataRepository<AddressDto>, IAddressDataRepository
     {
         public AddressDataRepository(ApplicationDbContext context, ILogger log)
             : base(context, log)
         {
         }
 
-        public override async Task<bool> UpdateAsync(Address updateEntity)
+        public override async Task<bool> UpdateAsync(AddressDto updateEntity)
         {
             if (updateEntity == null) return false;
 
-            Address? entityInDb = await dbSet.FindAsync(updateEntity.Id);
+            AddressDto? entityInDb = await dbSet.FindAsync(updateEntity.Id);
 
             if (entityInDb == null) return false;
 

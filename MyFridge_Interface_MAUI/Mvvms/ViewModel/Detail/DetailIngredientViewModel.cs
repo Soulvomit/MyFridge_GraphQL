@@ -7,11 +7,11 @@ namespace MyFridge_Interface_MAUI.Mvvms.ViewModel.Detail
     {
         #region Privates
         private readonly IClientService _clientService;
-        private IngredientAmountDto ingredientAmount;
+        private IngredientAmountCto ingredientAmount;
         #endregion
 
         #region Properties
-        public IngredientAmountDto IngredientAmount
+        public IngredientAmountCto IngredientAmount
         {
             get => ingredientAmount;
             set
@@ -54,8 +54,8 @@ namespace MyFridge_Interface_MAUI.Mvvms.ViewModel.Detail
         {
             get
             {
-                UserAccountDto user = _clientService.UserClient.Lazy;
-                IngredientAmountDto test = user.IngredientAmounts
+                UserAccountCto user = _clientService.UserClient.Lazy;
+                IngredientAmountCto test = user.IngredientAmounts
                     .FirstOrDefault(i => i.Ingredient.Id == IngredientAmount.Ingredient.Id);
                 return test != null;
             }
@@ -79,10 +79,12 @@ namespace MyFridge_Interface_MAUI.Mvvms.ViewModel.Detail
                 if (IngredientAmount.Ingredient.Unit == 1)
                     return "ml";
                 else
-                    if (IngredientAmount.Amount < 2)
-                    return "piece";
-                else
-                    return "pieces";
+                {
+                    if (Amount > 1)
+                        return "pcs";
+                    else
+                        return "pc";
+                }
             }
         }
         public Color NameColor { get; set; } = Colors.White;
@@ -99,9 +101,9 @@ namespace MyFridge_Interface_MAUI.Mvvms.ViewModel.Detail
         }
         public void Update()
         {
-            UserAccountDto user = _clientService.UserClient.Lazy;
+            UserAccountCto user = _clientService.UserClient.Lazy;
 
-            IngredientAmountDto userIngredientAmount = user.IngredientAmounts
+            IngredientAmountCto userIngredientAmount = user.IngredientAmounts
                 .FirstOrDefault(ui => ui.Ingredient.Id == IngredientAmount.Ingredient.Id);
 
             NameColor = Color.FromArgb("#FF6B6B");

@@ -3,7 +3,7 @@ using MyFridge_Library_Client_MAUI.ClientModel;
 
 namespace MyFridge_Library_Client_MAUI.ClientRepository.Interface
 {
-    public interface IGroceryClientRepository : IClientRepository<GroceryDto>
+    public interface IGroceryClientRepository : IClientRepository<GroceryCto>
     {
     }
 }

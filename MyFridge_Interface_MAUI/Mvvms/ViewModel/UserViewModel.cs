@@ -5,11 +5,13 @@ namespace MyFridge_Interface_MAUI.Mvvms.ViewModel
 {
     public class UserViewModel : BindableObject
     {
+        #region Privates
         private readonly IClientService _clientService;
-        private UserAccountDto user;
+        private UserAccountCto user;
+        #endregion
 
         #region Properties
-        public UserAccountDto User 
+        public UserAccountCto User 
         {
             get => user;
             set 

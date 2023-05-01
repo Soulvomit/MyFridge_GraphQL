@@ -49,7 +49,7 @@ namespace MyFridge_Interface_MAUI.Mvvms.ViewModel
         }
         public void GetFilteredLazy(string filter)
         {
-            IEnumerable<RecipeDto> show;
+            IEnumerable<RecipeCto> show;
 
             if (toggle) show = _clientService.RecipeClient.AllLazies;
             else show = _clientService.RecipeClient.MakeableLazies;
@@ -59,10 +59,10 @@ namespace MyFridge_Interface_MAUI.Mvvms.ViewModel
                            ia.Ingredient.Name.ToLower().StartsWith(filter.ToLower())))
                 .OrderBy(recipe => recipe.Name));
         }
-        private ObservableCollection<DetailRecipeViewModel> ToViewModel(IEnumerable<RecipeDto> recipes)
+        private ObservableCollection<DetailRecipeViewModel> ToViewModel(IEnumerable<RecipeCto> recipes)
         {
             ObservableCollection<DetailRecipeViewModel> viewModels = new();
-            foreach (RecipeDto recipe in recipes)
+            foreach (RecipeCto recipe in recipes)
             {
                 DetailRecipeViewModel viewModel = new(_clientService)
                 {

@@ -25,133 +25,133 @@ namespace MyFridge_Library_Data.DataContext
         public static void IngredientSeed(ApplicationDbContext context)
         {
             context.Ingredients.AddRange(
-                new Ingredient { Id = 1, Name = "Carrot", Unit = EUnit.Gram },
-                new Ingredient { Id = 2, Name = "Ground Beef", Unit = EUnit.Gram },
-                new Ingredient { Id = 3, Name = "Salt", Unit = EUnit.Gram },
-                new Ingredient { Id = 4, Name = "Onion", Unit = EUnit.Gram },
-                new Ingredient { Id = 5, Name = "Chicken Breast", Unit = EUnit.Gram },
-                new Ingredient { Id = 6, Name = "Heavy Cream", Unit = EUnit.Milliliter },
-                new Ingredient { Id = 7, Name = "Packet Popcorn", Unit = EUnit.Piece },
-                new Ingredient { Id = 8, Name = "Butter", Unit = EUnit.Gram },
-                new Ingredient { Id = 9, Name = "Water", Unit = EUnit.Milliliter },
-                new Ingredient { Id = 10, Name = "Instant Coffee", Unit = EUnit.Gram },
-                new Ingredient { Id = 11, Name = "Milk", Unit = EUnit.Milliliter },
-                new Ingredient { Id = 12, Name = "Apple", Unit = EUnit.Piece },
-                new Ingredient { Id = 13, Name = "Banana", Unit = EUnit.Piece },
-                new Ingredient { Id = 14, Name = "Wheat Flour", Unit = EUnit.Gram },
-                new Ingredient { Id = 15, Name = "Kefir", Unit = EUnit.Milliliter },
-                new Ingredient { Id = 16, Name = "Sugar", Unit = EUnit.Gram },
-                new Ingredient { Id = 17, Name = "Brown Sugar", Unit = EUnit.Gram },
-                new Ingredient { Id = 18, Name = "Egg", Unit = EUnit.Piece },
-                new Ingredient { Id = 19, Name = "Baking Powder", Unit = EUnit.Gram },
-                new Ingredient { Id = 20, Name = "Baking Soda", Unit = EUnit.Gram },
-                new Ingredient { Id = 21, Name = "Olive Oil", Unit = EUnit.Milliliter },
-                new Ingredient { Id = 22, Name = "Vegetable Oil", Unit = EUnit.Milliliter },
-                new Ingredient { Id = 23, Name = "Canola Oil", Unit = EUnit.Milliliter },
-                new Ingredient { Id = 24, Name = "Rice", Unit = EUnit.Gram },
-                new Ingredient { Id = 25, Name = "Pasta", Unit = EUnit.Gram },
-                new Ingredient { Id = 26, Name = "Bread", Unit = EUnit.Piece },
-                new Ingredient { Id = 27, Name = "Garlic", Unit = EUnit.Gram },
-                new Ingredient { Id = 28, Name = "Ginger", Unit = EUnit.Gram },
-                new Ingredient { Id = 29, Name = "Black Pepper", Unit = EUnit.Gram },
-                new Ingredient { Id = 30, Name = "Cumin", Unit = EUnit.Gram },
-                new Ingredient { Id = 31, Name = "Paprika", Unit = EUnit.Gram },
-                new Ingredient { Id = 32, Name = "Cayenne Pepper", Unit = EUnit.Gram },
-                new Ingredient { Id = 33, Name = "Chili Powder", Unit = EUnit.Piece },
-                new Ingredient { Id = 34, Name = "Red Pepper Flakes", Unit = EUnit.Gram },
-                new Ingredient { Id = 35, Name = "Oregano", Unit = EUnit.Gram },
-                new Ingredient { Id = 36, Name = "Basil", Unit = EUnit.Gram },
-                new Ingredient { Id = 37, Name = "Parsley", Unit = EUnit.Gram },
-                new Ingredient { Id = 38, Name = "Thyme", Unit = EUnit.Gram },
-                new Ingredient { Id = 39, Name = "Rosemary", Unit = EUnit.Gram },
-                new Ingredient { Id = 40, Name = "Lemon", Unit = EUnit.Piece },
-                new Ingredient { Id = 41, Name = "Lime", Unit = EUnit.Piece },
-                new Ingredient { Id = 42, Name = "Orange", Unit = EUnit.Piece },
-                new Ingredient { Id = 43, Name = "Soy Sauce", Unit = EUnit.Milliliter },
-                new Ingredient { Id = 44, Name = "Worcestershire Sauce", Unit = EUnit.Milliliter },
-                new Ingredient { Id = 45, Name = "Honey", Unit = EUnit.Gram },
-                new Ingredient { Id = 46, Name = "Maple Syrup", Unit = EUnit.Milliliter },
-                new Ingredient { Id = 47, Name = "Tomato", Unit = EUnit.Piece },
-                new Ingredient { Id = 48, Name = "Potato", Unit = EUnit.Piece },
-                new Ingredient { Id = 49, Name = "Sweet Potato", Unit = EUnit.Piece },
-                new Ingredient { Id = 50, Name = "Peas", Unit = EUnit.Gram },
-                new Ingredient { Id = 51, Name = "Corn", Unit = EUnit.Gram },
-                new Ingredient { Id = 52, Name = "Bell Pepper", Unit = EUnit.Piece },
-                new Ingredient { Id = 53, Name = "Broccoli", Unit = EUnit.Gram },
-                new Ingredient { Id = 54, Name = "Cauliflower", Unit = EUnit.Gram },
-                new Ingredient { Id = 55, Name = "Spinach", Unit = EUnit.Gram },
-                new Ingredient { Id = 56, Name = "Kale", Unit = EUnit.Gram },
-                new Ingredient { Id = 57, Name = "Mushroom", Unit = EUnit.Gram },
-                new Ingredient { Id = 58, Name = "Cabbage", Unit = EUnit.Gram },
-                new Ingredient { Id = 59, Name = "Green Beans", Unit = EUnit.Gram },
-                new Ingredient { Id = 60, Name = "Zucchini", Unit = EUnit.Gram },
-                new Ingredient { Id = 61, Name = "Eggplant", Unit = EUnit.Gram },
-                new Ingredient { Id = 62, Name = "Cucumber", Unit = EUnit.Piece },
-                new Ingredient { Id = 63, Name = "Lettuce", Unit = EUnit.Gram },
-                new Ingredient { Id = 64, Name = "Celery", Unit = EUnit.Gram },
-                new Ingredient { Id = 65, Name = "Cheese", Unit = EUnit.Gram },
-                new Ingredient { Id = 66, Name = "Sour Cream", Unit = EUnit.Gram },
-                new Ingredient { Id = 67, Name = "Yogurt", Unit = EUnit.Gram },
-                new Ingredient { Id = 68, Name = "Cottage Cheese", Unit = EUnit.Gram },
-                new Ingredient { Id = 69, Name = "Cream Cheese", Unit = EUnit.Gram },
-                new Ingredient { Id = 70, Name = "Parmesan Cheese", Unit = EUnit.Gram },
-                new Ingredient { Id = 71, Name = "Mozzarella Cheese", Unit = EUnit.Gram },
-                new Ingredient { Id = 72, Name = "Cheddar Cheese", Unit = EUnit.Gram },
-                new Ingredient { Id = 73, Name = "Bacon", Unit = EUnit.Gram },
-                new Ingredient { Id = 74, Name = "Ham", Unit = EUnit.Gram },
-                new Ingredient { Id = 75, Name = "Sausage", Unit = EUnit.Gram },
-                new Ingredient { Id = 76, Name = "Pork", Unit = EUnit.Gram },
-                new Ingredient { Id = 77, Name = "Fish", Unit = EUnit.Gram },
-                new Ingredient { Id = 78, Name = "Shrimp", Unit = EUnit.Gram },
-                new Ingredient { Id = 79, Name = "Crab", Unit = EUnit.Gram },
-                new Ingredient { Id = 80, Name = "Lobster", Unit = EUnit.Gram },
-                new Ingredient { Id = 81, Name = "Tofu", Unit = EUnit.Gram },
-                new Ingredient { Id = 82, Name = "Peanut Butter", Unit = EUnit.Gram },
-                new Ingredient { Id = 83, Name = "Almond Butter", Unit = EUnit.Gram },
-                new Ingredient { Id = 84, Name = "Cashew Butter", Unit = EUnit.Gram },
-                new Ingredient { Id = 85, Name = "Sunflower Seed Butter", Unit = EUnit.Gram },
-                new Ingredient { Id = 86, Name = "Vanilla Extract", Unit = EUnit.Milliliter },
-                new Ingredient { Id = 87, Name = "Almond Extract", Unit = EUnit.Milliliter },
-                new Ingredient { Id = 88, Name = "Nutmeg", Unit = EUnit.Gram },
-                new Ingredient { Id = 89, Name = "Cinnamon", Unit = EUnit.Gram },
-                new Ingredient { Id = 90, Name = "Cocoa Powder", Unit = EUnit.Gram },
-                new Ingredient { Id = 91, Name = "Chocolate Chips", Unit = EUnit.Gram },
-                new Ingredient { Id = 92, Name = "White Chocolate Chips", Unit = EUnit.Gram },
-                new Ingredient { Id = 93, Name = "Raisins", Unit = EUnit.Gram },
-                new Ingredient { Id = 94, Name = "Dried Cranberries", Unit = EUnit.Gram },
-                new Ingredient { Id = 95, Name = "Dried Apricots", Unit = EUnit.Gram },
-                new Ingredient { Id = 96, Name = "Dried Figs", Unit = EUnit.Gram },
-                new Ingredient { Id = 97, Name = "Pecans", Unit = EUnit.Gram },
-                new Ingredient { Id = 98, Name = "Walnuts", Unit = EUnit.Gram },
-                new Ingredient { Id = 99, Name = "Hazelnuts", Unit = EUnit.Gram },
-                new Ingredient { Id = 100, Name = "Almonds", Unit = EUnit.Gram },
-                new Ingredient { Id = 101, Name = "Cashews", Unit = EUnit.Gram },
-                new Ingredient { Id = 102, Name = "Pine Nuts", Unit = EUnit.Gram },
-                new Ingredient { Id = 103, Name = "Peanuts", Unit = EUnit.Gram },
-                new Ingredient { Id = 104, Name = "Sunflower Seeds", Unit = EUnit.Gram },
-                new Ingredient { Id = 105, Name = "Pumpkin Seeds", Unit = EUnit.Gram },
-                new Ingredient { Id = 106, Name = "Flaxseed", Unit = EUnit.Gram },
-                new Ingredient { Id = 107, Name = "Chia Seeds", Unit = EUnit.Gram },
-                new Ingredient { Id = 108, Name = "Sesame Seeds", Unit = EUnit.Gram },
-                new Ingredient { Id = 109, Name = "Quinoa", Unit = EUnit.Gram },
-                new Ingredient { Id = 110, Name = "Couscous", Unit = EUnit.Gram },
-                new Ingredient { Id = 111, Name = "Bulgur", Unit = EUnit.Gram },
-                new Ingredient { Id = 112, Name = "Farro", Unit = EUnit.Gram },
-                new Ingredient { Id = 113, Name = "Barley", Unit = EUnit.Gram },
-                new Ingredient { Id = 114, Name = "Oats", Unit = EUnit.Gram },
-                new Ingredient { Id = 115, Name = "Cornmeal", Unit = EUnit.Gram },
-                new Ingredient { Id = 116, Name = "Canned Tomatoes", Unit = EUnit.Gram },
-                new Ingredient { Id = 117, Name = "Tomato Paste", Unit = EUnit.Gram },
-                new Ingredient { Id = 118, Name = "Paprika", Unit = EUnit.Gram },
-                new Ingredient { Id = 119, Name = "Mayonnaise", Unit = EUnit.Milliliter },
-                new Ingredient { Id = 120, Name = "Ketchup", Unit = EUnit.Milliliter },
-                new Ingredient { Id = 121, Name = "Mustard", Unit = EUnit.Milliliter },
-                new Ingredient { Id = 122, Name = "Croutons", Unit = EUnit.Gram },
-                new Ingredient { Id = 123, Name = "Syrup", Unit = EUnit.Milliliter },
-                new Ingredient { Id = 124, Name = "Maple Syrup", Unit = EUnit.Milliliter },
-                new Ingredient { Id = 125, Name = "Beef Broth", Unit = EUnit.Milliliter },
-                new Ingredient { Id = 126, Name = "Chicken Broth", Unit = EUnit.Milliliter },
-                new Ingredient { Id = 127, Name = "Vegetable Broth", Unit = EUnit.Milliliter }
+                new IngredientDto { Id = 1, Name = "Carrot", Unit = EUnit.Gram },
+                new IngredientDto { Id = 2, Name = "Ground Beef", Unit = EUnit.Gram },
+                new IngredientDto { Id = 3, Name = "Salt", Unit = EUnit.Gram },
+                new IngredientDto { Id = 4, Name = "Onion", Unit = EUnit.Gram },
+                new IngredientDto { Id = 5, Name = "Chicken Breast", Unit = EUnit.Gram },
+                new IngredientDto { Id = 6, Name = "Heavy Cream", Unit = EUnit.Milliliter },
+                new IngredientDto { Id = 7, Name = "Packet Popcorn", Unit = EUnit.Piece },
+                new IngredientDto { Id = 8, Name = "Butter", Unit = EUnit.Gram },
+                new IngredientDto { Id = 9, Name = "Water", Unit = EUnit.Milliliter },
+                new IngredientDto { Id = 10, Name = "Instant Coffee", Unit = EUnit.Gram },
+                new IngredientDto { Id = 11, Name = "Milk", Unit = EUnit.Milliliter },
+                new IngredientDto { Id = 12, Name = "Apple", Unit = EUnit.Piece },
+                new IngredientDto { Id = 13, Name = "Banana", Unit = EUnit.Piece },
+                new IngredientDto { Id = 14, Name = "Wheat Flour", Unit = EUnit.Gram },
+                new IngredientDto { Id = 15, Name = "Kefir", Unit = EUnit.Milliliter },
+                new IngredientDto { Id = 16, Name = "Sugar", Unit = EUnit.Gram },
+                new IngredientDto { Id = 17, Name = "Brown Sugar", Unit = EUnit.Gram },
+                new IngredientDto { Id = 18, Name = "Egg", Unit = EUnit.Piece },
+                new IngredientDto { Id = 19, Name = "Baking Powder", Unit = EUnit.Gram },
+                new IngredientDto { Id = 20, Name = "Baking Soda", Unit = EUnit.Gram },
+                new IngredientDto { Id = 21, Name = "Olive Oil", Unit = EUnit.Milliliter },
+                new IngredientDto { Id = 22, Name = "Vegetable Oil", Unit = EUnit.Milliliter },
+                new IngredientDto { Id = 23, Name = "Canola Oil", Unit = EUnit.Milliliter },
+                new IngredientDto { Id = 24, Name = "Rice", Unit = EUnit.Gram },
+                new IngredientDto { Id = 25, Name = "Pasta", Unit = EUnit.Gram },
+                new IngredientDto { Id = 26, Name = "Bread", Unit = EUnit.Piece },
+                new IngredientDto { Id = 27, Name = "Garlic", Unit = EUnit.Gram },
+                new IngredientDto { Id = 28, Name = "Ginger", Unit = EUnit.Gram },
+                new IngredientDto { Id = 29, Name = "Black Pepper", Unit = EUnit.Gram },
+                new IngredientDto { Id = 30, Name = "Cumin", Unit = EUnit.Gram },
+                new IngredientDto { Id = 31, Name = "Paprika", Unit = EUnit.Gram },
+                new IngredientDto { Id = 32, Name = "Cayenne Pepper", Unit = EUnit.Gram },
+                new IngredientDto { Id = 33, Name = "Chili Powder", Unit = EUnit.Piece },
+                new IngredientDto { Id = 34, Name = "Red Pepper Flakes", Unit = EUnit.Gram },
+                new IngredientDto { Id = 35, Name = "Oregano", Unit = EUnit.Gram },
+                new IngredientDto { Id = 36, Name = "Basil", Unit = EUnit.Gram },
+                new IngredientDto { Id = 37, Name = "Parsley", Unit = EUnit.Gram },
+                new IngredientDto { Id = 38, Name = "Thyme", Unit = EUnit.Gram },
+                new IngredientDto { Id = 39, Name = "Rosemary", Unit = EUnit.Gram },
+                new IngredientDto { Id = 40, Name = "Lemon", Unit = EUnit.Piece },
+                new IngredientDto { Id = 41, Name = "Lime", Unit = EUnit.Piece },
+                new IngredientDto { Id = 42, Name = "Orange", Unit = EUnit.Piece },
+                new IngredientDto { Id = 43, Name = "Soy Sauce", Unit = EUnit.Milliliter },
+                new IngredientDto { Id = 44, Name = "Worcestershire Sauce", Unit = EUnit.Milliliter },
+                new IngredientDto { Id = 45, Name = "Honey", Unit = EUnit.Gram },
+                new IngredientDto { Id = 46, Name = "Maple Syrup", Unit = EUnit.Milliliter },
+                new IngredientDto { Id = 47, Name = "Tomato", Unit = EUnit.Piece },
+                new IngredientDto { Id = 48, Name = "Potato", Unit = EUnit.Piece },
+                new IngredientDto { Id = 49, Name = "Sweet Potato", Unit = EUnit.Piece },
+                new IngredientDto { Id = 50, Name = "Peas", Unit = EUnit.Gram },
+                new IngredientDto { Id = 51, Name = "Corn", Unit = EUnit.Gram },
+                new IngredientDto { Id = 52, Name = "Bell Pepper", Unit = EUnit.Piece },
+                new IngredientDto { Id = 53, Name = "Broccoli", Unit = EUnit.Gram },
+                new IngredientDto { Id = 54, Name = "Cauliflower", Unit = EUnit.Gram },
+                new IngredientDto { Id = 55, Name = "Spinach", Unit = EUnit.Gram },
+                new IngredientDto { Id = 56, Name = "Kale", Unit = EUnit.Gram },
+                new IngredientDto { Id = 57, Name = "Mushroom", Unit = EUnit.Gram },
+                new IngredientDto { Id = 58, Name = "Cabbage", Unit = EUnit.Gram },
+                new IngredientDto { Id = 59, Name = "Green Beans", Unit = EUnit.Gram },
+                new IngredientDto { Id = 60, Name = "Zucchini", Unit = EUnit.Gram },
+                new IngredientDto { Id = 61, Name = "Eggplant", Unit = EUnit.Gram },
+                new IngredientDto { Id = 62, Name = "Cucumber", Unit = EUnit.Piece },
+                new IngredientDto { Id = 63, Name = "Lettuce", Unit = EUnit.Gram },
+                new IngredientDto { Id = 64, Name = "Celery", Unit = EUnit.Gram },
+                new IngredientDto { Id = 65, Name = "Cheese", Unit = EUnit.Gram },
+                new IngredientDto { Id = 66, Name = "Sour Cream", Unit = EUnit.Gram },
+                new IngredientDto { Id = 67, Name = "Yogurt", Unit = EUnit.Gram },
+                new IngredientDto { Id = 68, Name = "Cottage Cheese", Unit = EUnit.Gram },
+                new IngredientDto { Id = 69, Name = "Cream Cheese", Unit = EUnit.Gram },
+                new IngredientDto { Id = 70, Name = "Parmesan Cheese", Unit = EUnit.Gram },
+                new IngredientDto { Id = 71, Name = "Mozzarella Cheese", Unit = EUnit.Gram },
+                new IngredientDto { Id = 72, Name = "Cheddar Cheese", Unit = EUnit.Gram },
+                new IngredientDto { Id = 73, Name = "Bacon", Unit = EUnit.Gram },
+                new IngredientDto { Id = 74, Name = "Ham", Unit = EUnit.Gram },
+                new IngredientDto { Id = 75, Name = "Sausage", Unit = EUnit.Gram },
+                new IngredientDto { Id = 76, Name = "Pork", Unit = EUnit.Gram },
+                new IngredientDto { Id = 77, Name = "Fish", Unit = EUnit.Gram },
+                new IngredientDto { Id = 78, Name = "Shrimp", Unit = EUnit.Gram },
+                new IngredientDto { Id = 79, Name = "Crab", Unit = EUnit.Gram },
+                new IngredientDto { Id = 80, Name = "Lobster", Unit = EUnit.Gram },
+                new IngredientDto { Id = 81, Name = "Tofu", Unit = EUnit.Gram },
+                new IngredientDto { Id = 82, Name = "Peanut Butter", Unit = EUnit.Gram },
+                new IngredientDto { Id = 83, Name = "Almond Butter", Unit = EUnit.Gram },
+                new IngredientDto { Id = 84, Name = "Cashew Butter", Unit = EUnit.Gram },
+                new IngredientDto { Id = 85, Name = "Sunflower Seed Butter", Unit = EUnit.Gram },
+                new IngredientDto { Id = 86, Name = "Vanilla Extract", Unit = EUnit.Milliliter },
+                new IngredientDto { Id = 87, Name = "Almond Extract", Unit = EUnit.Milliliter },
+                new IngredientDto { Id = 88, Name = "Nutmeg", Unit = EUnit.Gram },
+                new IngredientDto { Id = 89, Name = "Cinnamon", Unit = EUnit.Gram },
+                new IngredientDto { Id = 90, Name = "Cocoa Powder", Unit = EUnit.Gram },
+                new IngredientDto { Id = 91, Name = "Chocolate Chips", Unit = EUnit.Gram },
+                new IngredientDto { Id = 92, Name = "White Chocolate Chips", Unit = EUnit.Gram },
+                new IngredientDto { Id = 93, Name = "Raisins", Unit = EUnit.Gram },
+                new IngredientDto { Id = 94, Name = "Dried Cranberries", Unit = EUnit.Gram },
+                new IngredientDto { Id = 95, Name = "Dried Apricots", Unit = EUnit.Gram },
+                new IngredientDto { Id = 96, Name = "Dried Figs", Unit = EUnit.Gram },
+                new IngredientDto { Id = 97, Name = "Pecans", Unit = EUnit.Gram },
+                new IngredientDto { Id = 98, Name = "Walnuts", Unit = EUnit.Gram },
+                new IngredientDto { Id = 99, Name = "Hazelnuts", Unit = EUnit.Gram },
+                new IngredientDto { Id = 100, Name = "Almonds", Unit = EUnit.Gram },
+                new IngredientDto { Id = 101, Name = "Cashews", Unit = EUnit.Gram },
+                new IngredientDto { Id = 102, Name = "Pine Nuts", Unit = EUnit.Gram },
+                new IngredientDto { Id = 103, Name = "Peanuts", Unit = EUnit.Gram },
+                new IngredientDto { Id = 104, Name = "Sunflower Seeds", Unit = EUnit.Gram },
+                new IngredientDto { Id = 105, Name = "Pumpkin Seeds", Unit = EUnit.Gram },
+                new IngredientDto { Id = 106, Name = "Flaxseed", Unit = EUnit.Gram },
+                new IngredientDto { Id = 107, Name = "Chia Seeds", Unit = EUnit.Gram },
+                new IngredientDto { Id = 108, Name = "Sesame Seeds", Unit = EUnit.Gram },
+                new IngredientDto { Id = 109, Name = "Quinoa", Unit = EUnit.Gram },
+                new IngredientDto { Id = 110, Name = "Couscous", Unit = EUnit.Gram },
+                new IngredientDto { Id = 111, Name = "Bulgur", Unit = EUnit.Gram },
+                new IngredientDto { Id = 112, Name = "Farro", Unit = EUnit.Gram },
+                new IngredientDto { Id = 113, Name = "Barley", Unit = EUnit.Gram },
+                new IngredientDto { Id = 114, Name = "Oats", Unit = EUnit.Gram },
+                new IngredientDto { Id = 115, Name = "Cornmeal", Unit = EUnit.Gram },
+                new IngredientDto { Id = 116, Name = "Canned Tomatoes", Unit = EUnit.Gram },
+                new IngredientDto { Id = 117, Name = "Tomato Paste", Unit = EUnit.Gram },
+                new IngredientDto { Id = 118, Name = "Paprika", Unit = EUnit.Gram },
+                new IngredientDto { Id = 119, Name = "Mayonnaise", Unit = EUnit.Milliliter },
+                new IngredientDto { Id = 120, Name = "Ketchup", Unit = EUnit.Milliliter },
+                new IngredientDto { Id = 121, Name = "Mustard", Unit = EUnit.Milliliter },
+                new IngredientDto { Id = 122, Name = "Croutons", Unit = EUnit.Gram },
+                new IngredientDto { Id = 123, Name = "Syrup", Unit = EUnit.Milliliter },
+                new IngredientDto { Id = 124, Name = "Maple Syrup", Unit = EUnit.Milliliter },
+                new IngredientDto { Id = 125, Name = "Beef Broth", Unit = EUnit.Milliliter },
+                new IngredientDto { Id = 126, Name = "Chicken Broth", Unit = EUnit.Milliliter },
+                new IngredientDto { Id = 127, Name = "Vegetable Broth", Unit = EUnit.Milliliter }
                 );
         }
         #endregion
@@ -159,176 +159,176 @@ namespace MyFridge_Library_Data.DataContext
         #region GrocerySeed
         public static void GrocerySeed(ApplicationDbContext context)
         {
-            List<Grocery> tempGroceries = new List<Grocery>()
+            List<GroceryDto> tempGroceries = new List<GroceryDto>()
             {
-                new Grocery() { Brand = "VeggiesCo", SalePrice = 12, IngredientAmount = new IngredientAmount { Amount = 750, IngredientId = 4 } },
-                new Grocery() {
+                new GroceryDto() { Brand = "VeggiesCo", SalePrice = 12, IngredientAmount = new IngredientAmountDto { Amount = 750, IngredientId = 4 } },
+                new GroceryDto() {
                     Brand = "Meat N Greet",
                     SalePrice = 40,
-                    IngredientAmount = new IngredientAmount
+                    IngredientAmount = new IngredientAmountDto
                     {
                         Amount = 500,
                         IngredientId = 5
                     }
                 },
-                new Grocery()
+                new GroceryDto()
                 {
                     Brand = "Arla",
                     SalePrice = 7,
-                    IngredientAmount = new IngredientAmount
+                    IngredientAmount = new IngredientAmountDto
                     {
                         Amount = 1000,
                         IngredientId = 6
                     }
                 },
-                new Grocery() { Brand = "VeggiesCo", SalePrice = 1.50f, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 1 } },
-                new Grocery() { Brand = "MeatyDelights", SalePrice = 12, IngredientAmount = new IngredientAmount { Amount = 750, IngredientId = 2 } },
-                new Grocery() { Brand = "SaltKing", SalePrice = 0.50f, IngredientAmount = new IngredientAmount { Amount = 400, IngredientId = 3 } },
-                new Grocery() { Brand = "VeggiesCo", SalePrice = 1, IngredientAmount = new IngredientAmount { Amount = 300, IngredientId = 4 } },
-                new Grocery() { Brand = "FarmFresh", SalePrice = 8, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 5 } },
-                new Grocery() { Brand = "CreamyTreats", SalePrice = 4.50f, IngredientAmount = new IngredientAmount { Amount = 950, IngredientId = 6 } },
-                new Grocery() { Brand = "PopcornPalace", SalePrice = 3, IngredientAmount = new IngredientAmount { Amount = 5, IngredientId = 7 } },
-                new Grocery() { Brand = "ButterFarms", SalePrice = 2.50f, IngredientAmount = new IngredientAmount { Amount = 400, IngredientId = 8 } },
-                new Grocery() { Brand = "WholesomeBroths", SalePrice = 2, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 125 } },
-                new Grocery() { Brand = "WholesomeBroths", SalePrice = 2, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 126 } },
-                new Grocery() { Brand = "WholesomeBroths", SalePrice = 2, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 127 } },
-                new Grocery() { Brand = "VeggiesCo", SalePrice = 12, IngredientAmount = new IngredientAmount { Amount = 750, IngredientId = 4 } },
-                new Grocery() { Brand = "CarrotKing", SalePrice = 4, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 1 } },
-                new Grocery() { Brand = "BeefyGoodness", SalePrice = 40, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 2 } },
-                new Grocery() { Brand = "SaltShaker", SalePrice = 2, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 3 } },
-                new Grocery() { Brand = "TastyChick", SalePrice = 22, IngredientAmount = new IngredientAmount { Amount = 800, IngredientId = 5 } },
-                new Grocery() { Brand = "CreamDelight", SalePrice = 10, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 6 } },
-                new Grocery() { Brand = "PopcornPalooza", SalePrice = 8, IngredientAmount = new IngredientAmount { Amount = 10, IngredientId = 7 } },
-                new Grocery() { Brand = "ButterBuddies", SalePrice = 7, IngredientAmount = new IngredientAmount { Amount = 400, IngredientId = 8 } },
-                new Grocery() { Brand = "AquaPure", SalePrice = 1, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 9 } },
-                new Grocery() { Brand = "CaffeineCrush", SalePrice = 6, IngredientAmount = new IngredientAmount { Amount = 100, IngredientId = 10 } },
-                new Grocery() { Brand = "MilkMasters", SalePrice = 5, IngredientAmount = new IngredientAmount { Amount = 2000, IngredientId = 11 } },
-                new Grocery() { Brand = "AppleAvenue", SalePrice = 10, IngredientAmount = new IngredientAmount { Amount = 12, IngredientId = 12 } },
-                new Grocery() { Brand = "BananaBunch", SalePrice = 9, IngredientAmount = new IngredientAmount { Amount = 7, IngredientId = 13 } },
-                new Grocery() { Brand = "FlourFiesta", SalePrice = 8, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 14 } },
-                new Grocery() { Brand = "KefirKraze", SalePrice = 6, IngredientAmount = new IngredientAmount { Amount = 750, IngredientId = 15 } },
-                new Grocery() { Brand = "SweetSensation", SalePrice = 3, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 16 } },
-                new Grocery() { Brand = "BrownSugarBakery", SalePrice = 4, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 17 } },
-                new Grocery() { Brand = "Eggcellent", SalePrice = 12, IngredientAmount = new IngredientAmount { Amount = 18, IngredientId = 18 } },
-                new Grocery() { Brand = "BakingBoost", SalePrice = 3, IngredientAmount = new IngredientAmount { Amount = 250, IngredientId = 19 } },
-                new Grocery() { Brand = "SodaSupreme", SalePrice = 2, IngredientAmount = new IngredientAmount { Amount = 230, IngredientId = 20 } },
-                new Grocery() { Brand = "CheesyChoice", SalePrice = 15, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 21 } },
-                new Grocery() { Brand = "PastaPerfection", SalePrice = 10, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 22 } },
-                new Grocery() { Brand = "RiceRendezvous", SalePrice = 11, IngredientAmount = new IngredientAmount { Amount = 2000, IngredientId = 23 } },
-                new Grocery() { Brand = "BreadBounty", SalePrice = 6, IngredientAmount = new IngredientAmount { Amount = 1, IngredientId = 24 } },
-                new Grocery() { Brand = "OliveOilOasis", SalePrice = 20, IngredientAmount = new IngredientAmount { Amount = 750, IngredientId = 25 } },
-                new Grocery() { Brand = "VinegarVoyage", SalePrice = 10, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 26 } },
-                new Grocery() { Brand = "HoneyHarvest", SalePrice = 18, IngredientAmount = new IngredientAmount { Amount = 450, IngredientId = 27 } },
-                new Grocery() { Brand = "SpiceSensation", SalePrice = 7, IngredientAmount = new IngredientAmount { Amount = 50, IngredientId = 28 } },
-                new Grocery() { Brand = "SoySauceSavvy", SalePrice = 4, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 29 } },
-                new Grocery() { Brand = "MustardMarvel", SalePrice = 3, IngredientAmount = new IngredientAmount { Amount = 250, IngredientId = 30 } },
-                new Grocery() { Brand = "KetchupKingdom", SalePrice = 3, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 31 } },
-                new Grocery() { Brand = "MayoMagic", SalePrice = 5, IngredientAmount = new IngredientAmount { Amount = 450, IngredientId = 32 } },
-                new Grocery() { Brand = "LettuceLand", SalePrice = 8, IngredientAmount = new IngredientAmount { Amount = 300, IngredientId = 33 } },
-                new Grocery() { Brand = "TomatoTerritory", SalePrice = 5, IngredientAmount = new IngredientAmount { Amount = 600, IngredientId = 34 } },
-                new Grocery() { Brand = "CucumberCorner", SalePrice = 6, IngredientAmount = new IngredientAmount { Amount = 400, IngredientId = 35 } },
-                new Grocery() { Brand = "PepperPatch", SalePrice = 7, IngredientAmount = new IngredientAmount { Amount = 200, IngredientId = 36 } },
-                new Grocery() { Brand = "OnionOrbit", SalePrice = 3, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 37 } },
-                new Grocery() { Brand = "GarlicGrove", SalePrice = 4, IngredientAmount = new IngredientAmount { Amount = 250, IngredientId = 38 } },
-                new Grocery() { Brand = "LemonLagoon", SalePrice = 6, IngredientAmount = new IngredientAmount { Amount = 5, IngredientId = 39 } },
-                new Grocery() { Brand = "OrangeOdyssey", SalePrice = 8, IngredientAmount = new IngredientAmount { Amount = 10, IngredientId = 40 } },
-                new Grocery() { Brand = "CheesyChoice", SalePrice = 15, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 21 } },
-                new Grocery() { Brand = "CheesyChoice", SalePrice = 8, IngredientAmount = new IngredientAmount { Amount = 200, IngredientId = 41 } },
-                new Grocery() { Brand = "PastaPerfection", SalePrice = 10, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 22 } },
-                new Grocery() { Brand = "PastaPerfection", SalePrice = 6, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 42 } },
-                new Grocery() { Brand = "RiceRendezvous", SalePrice = 11, IngredientAmount = new IngredientAmount { Amount = 2000, IngredientId = 23 } },
-                new Grocery() { Brand = "RiceRendezvous", SalePrice = 7, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 43 } },
-                new Grocery() { Brand = "BreadBounty", SalePrice = 6, IngredientAmount = new IngredientAmount { Amount = 1, IngredientId = 24 } },
-                new Grocery() { Brand = "BreadBounty", SalePrice = 4, IngredientAmount = new IngredientAmount { Amount = 1, IngredientId = 44 } },
-                new Grocery() { Brand = "OliveOilOasis", SalePrice = 20, IngredientAmount = new IngredientAmount { Amount = 750, IngredientId = 25 } },
-                new Grocery() { Brand = "OliveOilOasis", SalePrice = 12, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 45 } },
-                new Grocery() { Brand = "VinegarVoyage", SalePrice = 10, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 26 } },
-                new Grocery() { Brand = "VinegarVoyage", SalePrice = 7, IngredientAmount = new IngredientAmount { Amount = 250, IngredientId = 46 } },
-                new Grocery() { Brand = "HoneyHarvest", SalePrice = 18, IngredientAmount = new IngredientAmount { Amount = 450, IngredientId = 27 } },
-                new Grocery() { Brand = "HoneyHarvest", SalePrice = 10, IngredientAmount = new IngredientAmount { Amount = 250, IngredientId = 47 } },
-                new Grocery() { Brand = "SpiceSensation", SalePrice = 7, IngredientAmount = new IngredientAmount { Amount = 50, IngredientId = 28 } },
-                new Grocery() { Brand = "SpiceSensation", SalePrice = 4, IngredientAmount = new IngredientAmount { Amount = 25, IngredientId = 48 } },
-                new Grocery() { Brand = "SoySauceSavvy", SalePrice = 4, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 29 } },
-                new Grocery() { Brand = "SoySauceSavvy", SalePrice = 2, IngredientAmount = new IngredientAmount { Amount = 250, IngredientId = 49 } },
-                new Grocery() { Brand = "MustardMarvel", SalePrice = 3, IngredientAmount = new IngredientAmount { Amount = 250, IngredientId = 30 } },
-                new Grocery() { Brand = "MustardMarvel", SalePrice = 2, IngredientAmount = new IngredientAmount { Amount = 100, IngredientId = 50 } },
-                new Grocery() { Brand = "KetchupKingdom", SalePrice = 4, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 51 } },
-                new Grocery() { Brand = "KetchupKingdom", SalePrice = 2, IngredientAmount = new IngredientAmount { Amount = 250, IngredientId = 52 } },
-                new Grocery() { Brand = "SugarSupreme", SalePrice = 8, IngredientAmount = new IngredientAmount { Amount = 2000, IngredientId = 53 } },
-                new Grocery() { Brand = "SugarSupreme", SalePrice = 5, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 54 } },
-                new Grocery() { Brand = "SaltSanctuary", SalePrice = 3, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 55 } },
-                new Grocery() { Brand = "SaltSanctuary", SalePrice = 2, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 56 } },
-                new Grocery() { Brand = "PepperParadise", SalePrice = 6, IngredientAmount = new IngredientAmount { Amount = 100, IngredientId = 57 } },
-                new Grocery() { Brand = "PepperParadise", SalePrice = 4, IngredientAmount = new IngredientAmount { Amount = 50, IngredientId = 58 } },
-                new Grocery() { Brand = "MayoMagic", SalePrice = 5, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 59 } },
-                new Grocery() { Brand = "MayoMagic", SalePrice = 3, IngredientAmount = new IngredientAmount { Amount = 250, IngredientId = 60 } },
-                new Grocery() { Brand = "ButterBliss", SalePrice = 8, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 61 } },
-                new Grocery() { Brand = "ButterBliss", SalePrice = 5, IngredientAmount = new IngredientAmount { Amount = 250, IngredientId = 62 } },
-                new Grocery() { Brand = "EggEmporium", SalePrice = 4, IngredientAmount = new IngredientAmount { Amount = 12, IngredientId = 63 } },
-                new Grocery() { Brand = "EggEmporium", SalePrice = 2, IngredientAmount = new IngredientAmount { Amount = 6, IngredientId = 64 } },
-                new Grocery() { Brand = "MilkMastery", SalePrice = 4, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 65 } },
-                new Grocery() { Brand = "MilkMastery", SalePrice = 2, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 66 } },
-                new Grocery() { Brand = "YogurtYard", SalePrice = 6, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 67 } },
-                new Grocery() { Brand = "YogurtYard", SalePrice = 4, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 68 } },
-                new Grocery() { Brand = "FlourFinesse", SalePrice = 6, IngredientAmount = new IngredientAmount { Amount = 2000, IngredientId = 69 } },
-                new Grocery() { Brand = "FlourFinesse", SalePrice = 4, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 70 } },
-                new Grocery() { Brand = "BakingSodaBazaar", SalePrice = 2, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 71 } },
-                new Grocery() { Brand = "BakingSodaBazaar", SalePrice = 1, IngredientAmount = new IngredientAmount { Amount = 250, IngredientId = 72 } },
-                new Grocery() { Brand = "BakingPowderPalace", SalePrice = 3, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 73 } },
-                new Grocery() { Brand = "BakingPowderPalace", SalePrice = 2, IngredientAmount = new IngredientAmount { Amount = 250, IngredientId = 74 } },
-                new Grocery() { Brand = "VanillaVilla", SalePrice = 8, IngredientAmount = new IngredientAmount { Amount = 100, IngredientId = 75 } },
-                new Grocery() { Brand = "VanillaVilla", SalePrice = 5, IngredientAmount = new IngredientAmount { Amount = 50, IngredientId = 76 } },
-                new Grocery() { Brand = "CinnamonCity", SalePrice = 4, IngredientAmount = new IngredientAmount { Amount = 100, IngredientId = 77 } },
-                new Grocery() { Brand = "CinnamonCity", SalePrice = 2, IngredientAmount = new IngredientAmount { Amount = 50, IngredientId = 78 } },
-                new Grocery() { Brand = "NutmegNook", SalePrice = 6, IngredientAmount = new IngredientAmount { Amount = 100, IngredientId = 79 } },
-                new Grocery() { Brand = "NutmegNook", SalePrice = 4, IngredientAmount = new IngredientAmount { Amount = 50, IngredientId = 80 } },
-                new Grocery() { Brand = "HoneyHaven", SalePrice = 10, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 81 } },
-                new Grocery() { Brand = "HoneyHaven", SalePrice = 6, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 82 } },
-                new Grocery() { Brand = "MapleSyrupSanctum", SalePrice = 12, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 83 } },
-                new Grocery() { Brand = "MapleSyrupSanctum", SalePrice = 8, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 84 } },
-                new Grocery() { Brand = "OliveOilOasis", SalePrice = 10, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 85 } },
-                new Grocery() { Brand = "OliveOilOasis", SalePrice = 6, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 86 } },
-                new Grocery() { Brand = "VinegarValley", SalePrice = 4, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 87 } },
-                new Grocery() { Brand = "VinegarValley", SalePrice = 2, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 88 } },
-                new Grocery() { Brand = "LemonJuiceLagoon", SalePrice = 3, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 89 } },
-                new Grocery() { Brand = "LemonJuiceLagoon", SalePrice = 2, IngredientAmount = new IngredientAmount { Amount = 250, IngredientId = 90 } },
-                new Grocery() { Brand = "LimeJuiceLair", SalePrice = 3, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 91 } },
-                new Grocery() { Brand = "LimeJuiceLair", SalePrice = 2, IngredientAmount = new IngredientAmount { Amount = 250, IngredientId = 92 } },
-                new Grocery() { Brand = "SoySauceShack", SalePrice = 5, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 93 } },
-                new Grocery() { Brand = "SoySauceShack", SalePrice = 3, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 94 } },
-                new Grocery() { Brand = "TeriyakiTerrace", SalePrice = 7, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 95 } },
-                new Grocery() { Brand = "TeriyakiTerrace", SalePrice = 4, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 96 } },
-                new Grocery() { Brand = "FishSauceFalls", SalePrice = 6, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 97 } },
-                new Grocery() { Brand = "FishSauceFalls", SalePrice = 4, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 98 } },
-                new Grocery() { Brand = "WorcestershireWorld", SalePrice = 6, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 99 } },
-                new Grocery() { Brand = "WorcestershireWorld", SalePrice = 4, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 100 } },
-                new Grocery() { Brand = "KetchupKingdom", SalePrice = 4, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 101 } },
-                new Grocery() { Brand = "KetchupKingdom", SalePrice = 2, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 102 } },
-                new Grocery() { Brand = "MustardMetropolis", SalePrice = 3, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 103 } },
-                new Grocery() { Brand = "MustardMetropolis", SalePrice = 2, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 104 } },
-                new Grocery() { Brand = "MayoMeadow", SalePrice = 5, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 105 } },
-                new Grocery() { Brand = "MayoMeadow", SalePrice = 3, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 106 } },
-                new Grocery() { Brand = "HotSauceHills", SalePrice = 7, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 107 } },
-                new Grocery() { Brand = "HotSauceHills", SalePrice = 4, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 108 } },
-                new Grocery() { Brand = "BBQSauceBeach", SalePrice = 6, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 109 } },
-                new Grocery() { Brand = "BBQSauceBeach", SalePrice = 4, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 110 } },
-                new Grocery() { Brand = "PeanutButterParadise", SalePrice = 6, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 111 } },
-                new Grocery() { Brand = "PeanutButterParadise", SalePrice = 4, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 112 } },
-                new Grocery() { Brand = "AlmondButterAlley", SalePrice = 10, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 113 } },
-                new Grocery() { Brand = "AlmondButterAlley", SalePrice = 6, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 114 } },
-                new Grocery() { Brand = "CashewButterCove", SalePrice = 12, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 115 } },
-                new Grocery() { Brand = "CashewButterCove", SalePrice = 8, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 116 } },
-                new Grocery() { Brand = "TahiniTown", SalePrice = 9, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 117 } },
-                new Grocery() { Brand = "TahiniTown", SalePrice = 6, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 118 } },
-                new Grocery() { Brand = "JamJunction", SalePrice = 6, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 119 } },
-                new Grocery() { Brand = "JamJunction", SalePrice = 4, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 120 } },
-                new Grocery() { Brand = "JellyJubilee", SalePrice = 5, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 121 } },
-                new Grocery() { Brand = "JellyJubilee", SalePrice = 3, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 122 } },
-                new Grocery() { Brand = "PreservesPark", SalePrice = 7, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 123 } },
-                new Grocery() { Brand = "PreservesPark", SalePrice = 5, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 124 } },
-                new Grocery() { Brand = "MarmaladeMeadows", SalePrice = 8, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 125 } },
-                new Grocery() { Brand = "MarmaladeMeadows", SalePrice = 6, IngredientAmount = new IngredientAmount { Amount = 500, IngredientId = 126 } },
-                new Grocery() { Brand = "ChocolateChipsCreek", SalePrice = 7, IngredientAmount = new IngredientAmount { Amount = 1000, IngredientId = 127 } }
+                new GroceryDto() { Brand = "VeggiesCo", SalePrice = 1.50f, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 1 } },
+                new GroceryDto() { Brand = "MeatyDelights", SalePrice = 12, IngredientAmount = new IngredientAmountDto { Amount = 750, IngredientId = 2 } },
+                new GroceryDto() { Brand = "SaltKing", SalePrice = 0.50f, IngredientAmount = new IngredientAmountDto { Amount = 400, IngredientId = 3 } },
+                new GroceryDto() { Brand = "VeggiesCo", SalePrice = 1, IngredientAmount = new IngredientAmountDto { Amount = 300, IngredientId = 4 } },
+                new GroceryDto() { Brand = "FarmFresh", SalePrice = 8, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 5 } },
+                new GroceryDto() { Brand = "CreamyTreats", SalePrice = 4.50f, IngredientAmount = new IngredientAmountDto { Amount = 950, IngredientId = 6 } },
+                new GroceryDto() { Brand = "PopcornPalace", SalePrice = 3, IngredientAmount = new IngredientAmountDto { Amount = 5, IngredientId = 7 } },
+                new GroceryDto() { Brand = "ButterFarms", SalePrice = 2.50f, IngredientAmount = new IngredientAmountDto { Amount = 400, IngredientId = 8 } },
+                new GroceryDto() { Brand = "WholesomeBroths", SalePrice = 2, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 125 } },
+                new GroceryDto() { Brand = "WholesomeBroths", SalePrice = 2, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 126 } },
+                new GroceryDto() { Brand = "WholesomeBroths", SalePrice = 2, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 127 } },
+                new GroceryDto() { Brand = "VeggiesCo", SalePrice = 12, IngredientAmount = new IngredientAmountDto { Amount = 750, IngredientId = 4 } },
+                new GroceryDto() { Brand = "CarrotKing", SalePrice = 4, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 1 } },
+                new GroceryDto() { Brand = "BeefyGoodness", SalePrice = 40, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 2 } },
+                new GroceryDto() { Brand = "SaltShaker", SalePrice = 2, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 3 } },
+                new GroceryDto() { Brand = "TastyChick", SalePrice = 22, IngredientAmount = new IngredientAmountDto { Amount = 800, IngredientId = 5 } },
+                new GroceryDto() { Brand = "CreamDelight", SalePrice = 10, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 6 } },
+                new GroceryDto() { Brand = "PopcornPalooza", SalePrice = 8, IngredientAmount = new IngredientAmountDto { Amount = 10, IngredientId = 7 } },
+                new GroceryDto() { Brand = "ButterBuddies", SalePrice = 7, IngredientAmount = new IngredientAmountDto { Amount = 400, IngredientId = 8 } },
+                new GroceryDto() { Brand = "AquaPure", SalePrice = 1, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 9 } },
+                new GroceryDto() { Brand = "CaffeineCrush", SalePrice = 6, IngredientAmount = new IngredientAmountDto { Amount = 100, IngredientId = 10 } },
+                new GroceryDto() { Brand = "MilkMasters", SalePrice = 5, IngredientAmount = new IngredientAmountDto { Amount = 2000, IngredientId = 11 } },
+                new GroceryDto() { Brand = "AppleAvenue", SalePrice = 10, IngredientAmount = new IngredientAmountDto { Amount = 12, IngredientId = 12 } },
+                new GroceryDto() { Brand = "BananaBunch", SalePrice = 9, IngredientAmount = new IngredientAmountDto { Amount = 7, IngredientId = 13 } },
+                new GroceryDto() { Brand = "FlourFiesta", SalePrice = 8, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 14 } },
+                new GroceryDto() { Brand = "KefirKraze", SalePrice = 6, IngredientAmount = new IngredientAmountDto { Amount = 750, IngredientId = 15 } },
+                new GroceryDto() { Brand = "SweetSensation", SalePrice = 3, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 16 } },
+                new GroceryDto() { Brand = "BrownSugarBakery", SalePrice = 4, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 17 } },
+                new GroceryDto() { Brand = "Eggcellent", SalePrice = 12, IngredientAmount = new IngredientAmountDto { Amount = 18, IngredientId = 18 } },
+                new GroceryDto() { Brand = "BakingBoost", SalePrice = 3, IngredientAmount = new IngredientAmountDto { Amount = 250, IngredientId = 19 } },
+                new GroceryDto() { Brand = "SodaSupreme", SalePrice = 2, IngredientAmount = new IngredientAmountDto { Amount = 230, IngredientId = 20 } },
+                new GroceryDto() { Brand = "CheesyChoice", SalePrice = 15, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 21 } },
+                new GroceryDto() { Brand = "PastaPerfection", SalePrice = 10, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 22 } },
+                new GroceryDto() { Brand = "RiceRendezvous", SalePrice = 11, IngredientAmount = new IngredientAmountDto { Amount = 2000, IngredientId = 23 } },
+                new GroceryDto() { Brand = "BreadBounty", SalePrice = 6, IngredientAmount = new IngredientAmountDto { Amount = 1, IngredientId = 24 } },
+                new GroceryDto() { Brand = "OliveOilOasis", SalePrice = 20, IngredientAmount = new IngredientAmountDto { Amount = 750, IngredientId = 25 } },
+                new GroceryDto() { Brand = "VinegarVoyage", SalePrice = 10, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 26 } },
+                new GroceryDto() { Brand = "HoneyHarvest", SalePrice = 18, IngredientAmount = new IngredientAmountDto { Amount = 450, IngredientId = 27 } },
+                new GroceryDto() { Brand = "SpiceSensation", SalePrice = 7, IngredientAmount = new IngredientAmountDto { Amount = 50, IngredientId = 28 } },
+                new GroceryDto() { Brand = "SoySauceSavvy", SalePrice = 4, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 29 } },
+                new GroceryDto() { Brand = "MustardMarvel", SalePrice = 3, IngredientAmount = new IngredientAmountDto { Amount = 250, IngredientId = 30 } },
+                new GroceryDto() { Brand = "KetchupKingdom", SalePrice = 3, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 31 } },
+                new GroceryDto() { Brand = "MayoMagic", SalePrice = 5, IngredientAmount = new IngredientAmountDto { Amount = 450, IngredientId = 32 } },
+                new GroceryDto() { Brand = "LettuceLand", SalePrice = 8, IngredientAmount = new IngredientAmountDto { Amount = 300, IngredientId = 33 } },
+                new GroceryDto() { Brand = "TomatoTerritory", SalePrice = 5, IngredientAmount = new IngredientAmountDto { Amount = 600, IngredientId = 34 } },
+                new GroceryDto() { Brand = "CucumberCorner", SalePrice = 6, IngredientAmount = new IngredientAmountDto { Amount = 400, IngredientId = 35 } },
+                new GroceryDto() { Brand = "PepperPatch", SalePrice = 7, IngredientAmount = new IngredientAmountDto { Amount = 200, IngredientId = 36 } },
+                new GroceryDto() { Brand = "OnionOrbit", SalePrice = 3, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 37 } },
+                new GroceryDto() { Brand = "GarlicGrove", SalePrice = 4, IngredientAmount = new IngredientAmountDto { Amount = 250, IngredientId = 38 } },
+                new GroceryDto() { Brand = "LemonLagoon", SalePrice = 6, IngredientAmount = new IngredientAmountDto { Amount = 5, IngredientId = 39 } },
+                new GroceryDto() { Brand = "OrangeOdyssey", SalePrice = 8, IngredientAmount = new IngredientAmountDto { Amount = 10, IngredientId = 40 } },
+                new GroceryDto() { Brand = "CheesyChoice", SalePrice = 15, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 21 } },
+                new GroceryDto() { Brand = "CheesyChoice", SalePrice = 8, IngredientAmount = new IngredientAmountDto { Amount = 200, IngredientId = 41 } },
+                new GroceryDto() { Brand = "PastaPerfection", SalePrice = 10, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 22 } },
+                new GroceryDto() { Brand = "PastaPerfection", SalePrice = 6, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 42 } },
+                new GroceryDto() { Brand = "RiceRendezvous", SalePrice = 11, IngredientAmount = new IngredientAmountDto { Amount = 2000, IngredientId = 23 } },
+                new GroceryDto() { Brand = "RiceRendezvous", SalePrice = 7, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 43 } },
+                new GroceryDto() { Brand = "BreadBounty", SalePrice = 6, IngredientAmount = new IngredientAmountDto { Amount = 1, IngredientId = 24 } },
+                new GroceryDto() { Brand = "BreadBounty", SalePrice = 4, IngredientAmount = new IngredientAmountDto { Amount = 1, IngredientId = 44 } },
+                new GroceryDto() { Brand = "OliveOilOasis", SalePrice = 20, IngredientAmount = new IngredientAmountDto { Amount = 750, IngredientId = 25 } },
+                new GroceryDto() { Brand = "OliveOilOasis", SalePrice = 12, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 45 } },
+                new GroceryDto() { Brand = "VinegarVoyage", SalePrice = 10, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 26 } },
+                new GroceryDto() { Brand = "VinegarVoyage", SalePrice = 7, IngredientAmount = new IngredientAmountDto { Amount = 250, IngredientId = 46 } },
+                new GroceryDto() { Brand = "HoneyHarvest", SalePrice = 18, IngredientAmount = new IngredientAmountDto { Amount = 450, IngredientId = 27 } },
+                new GroceryDto() { Brand = "HoneyHarvest", SalePrice = 10, IngredientAmount = new IngredientAmountDto { Amount = 250, IngredientId = 47 } },
+                new GroceryDto() { Brand = "SpiceSensation", SalePrice = 7, IngredientAmount = new IngredientAmountDto { Amount = 50, IngredientId = 28 } },
+                new GroceryDto() { Brand = "SpiceSensation", SalePrice = 4, IngredientAmount = new IngredientAmountDto { Amount = 25, IngredientId = 48 } },
+                new GroceryDto() { Brand = "SoySauceSavvy", SalePrice = 4, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 29 } },
+                new GroceryDto() { Brand = "SoySauceSavvy", SalePrice = 2, IngredientAmount = new IngredientAmountDto { Amount = 250, IngredientId = 49 } },
+                new GroceryDto() { Brand = "MustardMarvel", SalePrice = 3, IngredientAmount = new IngredientAmountDto { Amount = 250, IngredientId = 30 } },
+                new GroceryDto() { Brand = "MustardMarvel", SalePrice = 2, IngredientAmount = new IngredientAmountDto { Amount = 100, IngredientId = 50 } },
+                new GroceryDto() { Brand = "KetchupKingdom", SalePrice = 4, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 51 } },
+                new GroceryDto() { Brand = "KetchupKingdom", SalePrice = 2, IngredientAmount = new IngredientAmountDto { Amount = 250, IngredientId = 52 } },
+                new GroceryDto() { Brand = "SugarSupreme", SalePrice = 8, IngredientAmount = new IngredientAmountDto { Amount = 2000, IngredientId = 53 } },
+                new GroceryDto() { Brand = "SugarSupreme", SalePrice = 5, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 54 } },
+                new GroceryDto() { Brand = "SaltSanctuary", SalePrice = 3, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 55 } },
+                new GroceryDto() { Brand = "SaltSanctuary", SalePrice = 2, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 56 } },
+                new GroceryDto() { Brand = "PepperParadise", SalePrice = 6, IngredientAmount = new IngredientAmountDto { Amount = 100, IngredientId = 57 } },
+                new GroceryDto() { Brand = "PepperParadise", SalePrice = 4, IngredientAmount = new IngredientAmountDto { Amount = 50, IngredientId = 58 } },
+                new GroceryDto() { Brand = "MayoMagic", SalePrice = 5, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 59 } },
+                new GroceryDto() { Brand = "MayoMagic", SalePrice = 3, IngredientAmount = new IngredientAmountDto { Amount = 250, IngredientId = 60 } },
+                new GroceryDto() { Brand = "ButterBliss", SalePrice = 8, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 61 } },
+                new GroceryDto() { Brand = "ButterBliss", SalePrice = 5, IngredientAmount = new IngredientAmountDto { Amount = 250, IngredientId = 62 } },
+                new GroceryDto() { Brand = "EggEmporium", SalePrice = 4, IngredientAmount = new IngredientAmountDto { Amount = 12, IngredientId = 63 } },
+                new GroceryDto() { Brand = "EggEmporium", SalePrice = 2, IngredientAmount = new IngredientAmountDto { Amount = 6, IngredientId = 64 } },
+                new GroceryDto() { Brand = "MilkMastery", SalePrice = 4, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 65 } },
+                new GroceryDto() { Brand = "MilkMastery", SalePrice = 2, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 66 } },
+                new GroceryDto() { Brand = "YogurtYard", SalePrice = 6, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 67 } },
+                new GroceryDto() { Brand = "YogurtYard", SalePrice = 4, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 68 } },
+                new GroceryDto() { Brand = "FlourFinesse", SalePrice = 6, IngredientAmount = new IngredientAmountDto { Amount = 2000, IngredientId = 69 } },
+                new GroceryDto() { Brand = "FlourFinesse", SalePrice = 4, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 70 } },
+                new GroceryDto() { Brand = "BakingSodaBazaar", SalePrice = 2, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 71 } },
+                new GroceryDto() { Brand = "BakingSodaBazaar", SalePrice = 1, IngredientAmount = new IngredientAmountDto { Amount = 250, IngredientId = 72 } },
+                new GroceryDto() { Brand = "BakingPowderPalace", SalePrice = 3, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 73 } },
+                new GroceryDto() { Brand = "BakingPowderPalace", SalePrice = 2, IngredientAmount = new IngredientAmountDto { Amount = 250, IngredientId = 74 } },
+                new GroceryDto() { Brand = "VanillaVilla", SalePrice = 8, IngredientAmount = new IngredientAmountDto { Amount = 100, IngredientId = 75 } },
+                new GroceryDto() { Brand = "VanillaVilla", SalePrice = 5, IngredientAmount = new IngredientAmountDto { Amount = 50, IngredientId = 76 } },
+                new GroceryDto() { Brand = "CinnamonCity", SalePrice = 4, IngredientAmount = new IngredientAmountDto { Amount = 100, IngredientId = 77 } },
+                new GroceryDto() { Brand = "CinnamonCity", SalePrice = 2, IngredientAmount = new IngredientAmountDto { Amount = 50, IngredientId = 78 } },
+                new GroceryDto() { Brand = "NutmegNook", SalePrice = 6, IngredientAmount = new IngredientAmountDto { Amount = 100, IngredientId = 79 } },
+                new GroceryDto() { Brand = "NutmegNook", SalePrice = 4, IngredientAmount = new IngredientAmountDto { Amount = 50, IngredientId = 80 } },
+                new GroceryDto() { Brand = "HoneyHaven", SalePrice = 10, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 81 } },
+                new GroceryDto() { Brand = "HoneyHaven", SalePrice = 6, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 82 } },
+                new GroceryDto() { Brand = "MapleSyrupSanctum", SalePrice = 12, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 83 } },
+                new GroceryDto() { Brand = "MapleSyrupSanctum", SalePrice = 8, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 84 } },
+                new GroceryDto() { Brand = "OliveOilOasis", SalePrice = 10, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 85 } },
+                new GroceryDto() { Brand = "OliveOilOasis", SalePrice = 6, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 86 } },
+                new GroceryDto() { Brand = "VinegarValley", SalePrice = 4, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 87 } },
+                new GroceryDto() { Brand = "VinegarValley", SalePrice = 2, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 88 } },
+                new GroceryDto() { Brand = "LemonJuiceLagoon", SalePrice = 3, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 89 } },
+                new GroceryDto() { Brand = "LemonJuiceLagoon", SalePrice = 2, IngredientAmount = new IngredientAmountDto { Amount = 250, IngredientId = 90 } },
+                new GroceryDto() { Brand = "LimeJuiceLair", SalePrice = 3, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 91 } },
+                new GroceryDto() { Brand = "LimeJuiceLair", SalePrice = 2, IngredientAmount = new IngredientAmountDto { Amount = 250, IngredientId = 92 } },
+                new GroceryDto() { Brand = "SoySauceShack", SalePrice = 5, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 93 } },
+                new GroceryDto() { Brand = "SoySauceShack", SalePrice = 3, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 94 } },
+                new GroceryDto() { Brand = "TeriyakiTerrace", SalePrice = 7, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 95 } },
+                new GroceryDto() { Brand = "TeriyakiTerrace", SalePrice = 4, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 96 } },
+                new GroceryDto() { Brand = "FishSauceFalls", SalePrice = 6, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 97 } },
+                new GroceryDto() { Brand = "FishSauceFalls", SalePrice = 4, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 98 } },
+                new GroceryDto() { Brand = "WorcestershireWorld", SalePrice = 6, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 99 } },
+                new GroceryDto() { Brand = "WorcestershireWorld", SalePrice = 4, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 100 } },
+                new GroceryDto() { Brand = "KetchupKingdom", SalePrice = 4, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 101 } },
+                new GroceryDto() { Brand = "KetchupKingdom", SalePrice = 2, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 102 } },
+                new GroceryDto() { Brand = "MustardMetropolis", SalePrice = 3, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 103 } },
+                new GroceryDto() { Brand = "MustardMetropolis", SalePrice = 2, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 104 } },
+                new GroceryDto() { Brand = "MayoMeadow", SalePrice = 5, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 105 } },
+                new GroceryDto() { Brand = "MayoMeadow", SalePrice = 3, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 106 } },
+                new GroceryDto() { Brand = "HotSauceHills", SalePrice = 7, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 107 } },
+                new GroceryDto() { Brand = "HotSauceHills", SalePrice = 4, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 108 } },
+                new GroceryDto() { Brand = "BBQSauceBeach", SalePrice = 6, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 109 } },
+                new GroceryDto() { Brand = "BBQSauceBeach", SalePrice = 4, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 110 } },
+                new GroceryDto() { Brand = "PeanutButterParadise", SalePrice = 6, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 111 } },
+                new GroceryDto() { Brand = "PeanutButterParadise", SalePrice = 4, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 112 } },
+                new GroceryDto() { Brand = "AlmondButterAlley", SalePrice = 10, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 113 } },
+                new GroceryDto() { Brand = "AlmondButterAlley", SalePrice = 6, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 114 } },
+                new GroceryDto() { Brand = "CashewButterCove", SalePrice = 12, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 115 } },
+                new GroceryDto() { Brand = "CashewButterCove", SalePrice = 8, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 116 } },
+                new GroceryDto() { Brand = "TahiniTown", SalePrice = 9, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 117 } },
+                new GroceryDto() { Brand = "TahiniTown", SalePrice = 6, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 118 } },
+                new GroceryDto() { Brand = "JamJunction", SalePrice = 6, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 119 } },
+                new GroceryDto() { Brand = "JamJunction", SalePrice = 4, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 120 } },
+                new GroceryDto() { Brand = "JellyJubilee", SalePrice = 5, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 121 } },
+                new GroceryDto() { Brand = "JellyJubilee", SalePrice = 3, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 122 } },
+                new GroceryDto() { Brand = "PreservesPark", SalePrice = 7, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 123 } },
+                new GroceryDto() { Brand = "PreservesPark", SalePrice = 5, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 124 } },
+                new GroceryDto() { Brand = "MarmaladeMeadows", SalePrice = 8, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 125 } },
+                new GroceryDto() { Brand = "MarmaladeMeadows", SalePrice = 6, IngredientAmount = new IngredientAmountDto { Amount = 500, IngredientId = 126 } },
+                new GroceryDto() { Brand = "ChocolateChipsCreek", SalePrice = 7, IngredientAmount = new IngredientAmountDto { Amount = 1000, IngredientId = 127 } }
             };
             context.Groceries.AddRange(tempGroceries);
         }
@@ -337,7 +337,7 @@ namespace MyFridge_Library_Data.DataContext
         #region OrderSeed
         private static void OrderSeed(ApplicationDbContext context)
         {
-            List<Order> tempOrders = new List<Order>()
+            List<OrderDto> tempOrders = new List<OrderDto>()
             {
 
             };
@@ -348,9 +348,9 @@ namespace MyFridge_Library_Data.DataContext
         #region RecipeSeed
         public static void RecipeSeed(ApplicationDbContext context)
         {
-            List<Recipe> tempRecipes = new List<Recipe>()
+            List<RecipeDto> tempRecipes = new List<RecipeDto>()
             {
-                new Recipe()
+                new RecipeDto()
                 {
                     Name = "Spaghetti Bolognese",
                     Method = """
@@ -361,22 +361,22 @@ namespace MyFridge_Library_Data.DataContext
                         5: Cook spaghetti according to package instructions.
                         6: Serve spaghetti topped with Bolognese sauce.
                         """,
-                    IngredientAmounts = new List<IngredientAmount>()
+                    IngredientAmounts = new List<IngredientAmountDto>()
                     {
-                        new IngredientAmount() { IngredientId = 2, Amount = 125 }, // Ground Beef
-                        new IngredientAmount() { IngredientId = 4, Amount = 25 }, // Onion
-                        new IngredientAmount() { IngredientId = 25, Amount = 100 }, // Pasta (Spaghetti)
-                        new IngredientAmount() { IngredientId = 116, Amount = 100 }, // Tomato (canned)
-                        new IngredientAmount() { IngredientId = 117, Amount = 25 }, // Tomato Paste
-                        new IngredientAmount() { IngredientId = 3, Amount = 1.25f }, // Salt
-                        new IngredientAmount() { IngredientId = 29, Amount = 1.25f }, // Black Pepper
-                        new IngredientAmount() { IngredientId = 21, Amount = 1.25f }, // Olive Oil
-                        new IngredientAmount() { IngredientId = 36, Amount = 1.25f }, // Basil (part of Italian seasoning)
-                        new IngredientAmount() { IngredientId = 35, Amount = 1.25f }, // Oregano (part of Italian seasoning)
-                        new IngredientAmount() { IngredientId = 27, Amount = 6.25f } // Garlic
+                        new IngredientAmountDto() { IngredientId = 2, Amount = 125 }, // Ground Beef
+                        new IngredientAmountDto() { IngredientId = 4, Amount = 25 }, // Onion
+                        new IngredientAmountDto() { IngredientId = 25, Amount = 100 }, // Pasta (Spaghetti)
+                        new IngredientAmountDto() { IngredientId = 116, Amount = 100 }, // Tomato (canned)
+                        new IngredientAmountDto() { IngredientId = 117, Amount = 25 }, // Tomato Paste
+                        new IngredientAmountDto() { IngredientId = 3, Amount = 1.25f }, // Salt
+                        new IngredientAmountDto() { IngredientId = 29, Amount = 1.25f }, // Black Pepper
+                        new IngredientAmountDto() { IngredientId = 21, Amount = 1.25f }, // Olive Oil
+                        new IngredientAmountDto() { IngredientId = 36, Amount = 1.25f }, // Basil (part of Italian seasoning)
+                        new IngredientAmountDto() { IngredientId = 35, Amount = 1.25f }, // Oregano (part of Italian seasoning)
+                        new IngredientAmountDto() { IngredientId = 27, Amount = 6.25f } // Garlic
                     }
                 },
-                new Recipe()
+                new RecipeDto()
                 {
                     Name = "Grilled Chicken Salad",
                     Method = """
@@ -386,19 +386,19 @@ namespace MyFridge_Library_Data.DataContext
                         4: Slice grilled chicken and add to the salad.
                         5: Drizzle with your favorite dressing and serve.
                         """,
-                    IngredientAmounts = new List<IngredientAmount>()
+                    IngredientAmounts = new List<IngredientAmountDto>()
                     {
-                        new IngredientAmount() { IngredientId = 5, Amount = 100 }, // Chicken Breast
-                        new IngredientAmount() { IngredientId = 3, Amount = 1.25f }, // Salt
-                        new IngredientAmount() { IngredientId = 29, Amount = 1.25f }, // Black Pepper
-                        new IngredientAmount() { IngredientId = 118, Amount = 1.25f }, // Paprika
-                        new IngredientAmount() { IngredientId = 63, Amount = 50 }, // Lettuce
-                        new IngredientAmount() { IngredientId = 47, Amount = 0.5f }, // Tomato
-                        new IngredientAmount() { IngredientId = 62, Amount = 0.25f }, // Cucumber
-                        new IngredientAmount() { IngredientId = 52, Amount = 0.25f } // Bell Pepper
+                        new IngredientAmountDto() { IngredientId = 5, Amount = 100 }, // Chicken Breast
+                        new IngredientAmountDto() { IngredientId = 3, Amount = 1.25f }, // Salt
+                        new IngredientAmountDto() { IngredientId = 29, Amount = 1.25f }, // Black Pepper
+                        new IngredientAmountDto() { IngredientId = 118, Amount = 1.25f }, // Paprika
+                        new IngredientAmountDto() { IngredientId = 63, Amount = 50 }, // Lettuce
+                        new IngredientAmountDto() { IngredientId = 47, Amount = 0.5f }, // Tomato
+                        new IngredientAmountDto() { IngredientId = 62, Amount = 0.25f }, // Cucumber
+                        new IngredientAmountDto() { IngredientId = 52, Amount = 0.25f } // Bell Pepper
                     }
                 },
-                new Recipe()
+                new RecipeDto()
                 {
                     Name = "Fried Rice",
                     Method = """
@@ -410,23 +410,23 @@ namespace MyFridge_Library_Data.DataContext
                         6: Create a well in the center of the rice and pour in the beaten eggs. Scramble and mix with rice.
                         7: Serve hot.
                         """,
-                    IngredientAmounts = new List<IngredientAmount>()
+                    IngredientAmounts = new List<IngredientAmountDto>()
                     {
-                        new IngredientAmount() { IngredientId = 24, Amount = 75 },
-                        new IngredientAmount() { IngredientId = 22, Amount = 10 },
-                        new IngredientAmount() { IngredientId = 4, Amount = 25 },
-                        new IngredientAmount() { IngredientId = 27, Amount = 4 },
-                        new IngredientAmount() { IngredientId = 1, Amount = 25 },
-                        new IngredientAmount() { IngredientId = 51, Amount = 25 },
-                        new IngredientAmount() { IngredientId = 50, Amount = 25 },
-                        new IngredientAmount() { IngredientId = 52, Amount = 0.25f },
-                        new IngredientAmount() { IngredientId = 43, Amount = 10 },
-                        new IngredientAmount() { IngredientId = 3, Amount = 1.25f },
-                        new IngredientAmount() { IngredientId = 29, Amount = 0.5f },
-                        new IngredientAmount() { IngredientId = 18, Amount = 0.5f }
+                        new IngredientAmountDto() { IngredientId = 24, Amount = 75 },
+                        new IngredientAmountDto() { IngredientId = 22, Amount = 10 },
+                        new IngredientAmountDto() { IngredientId = 4, Amount = 25 },
+                        new IngredientAmountDto() { IngredientId = 27, Amount = 4 },
+                        new IngredientAmountDto() { IngredientId = 1, Amount = 25 },
+                        new IngredientAmountDto() { IngredientId = 51, Amount = 25 },
+                        new IngredientAmountDto() { IngredientId = 50, Amount = 25 },
+                        new IngredientAmountDto() { IngredientId = 52, Amount = 0.25f },
+                        new IngredientAmountDto() { IngredientId = 43, Amount = 10 },
+                        new IngredientAmountDto() { IngredientId = 3, Amount = 1.25f },
+                        new IngredientAmountDto() { IngredientId = 29, Amount = 0.5f },
+                        new IngredientAmountDto() { IngredientId = 18, Amount = 0.5f }
                     }
                 },
-                new Recipe()
+                new RecipeDto()
                 {
                     Name = "Cheese Omelette",
                     Method = """
@@ -436,16 +436,16 @@ namespace MyFridge_Library_Data.DataContext
                         4: Fold the omelette in half and cook until the cheese is melted.
                         5: Serve hot.
                         """,
-                    IngredientAmounts = new List<IngredientAmount>()
+                    IngredientAmounts = new List<IngredientAmountDto>()
                     {
-                        new IngredientAmount() { IngredientId = 18, Amount = 2 }, // Eggs
-                        new IngredientAmount() { IngredientId = 3, Amount = 2 }, // Salt
-                        new IngredientAmount() { IngredientId = 29, Amount = 2 }, // Pepper
-                        new IngredientAmount() { IngredientId = 21, Amount = 10 }, // Olive oil
-                        new IngredientAmount() { IngredientId = 72, Amount = 30 } // Grated Cheese
+                        new IngredientAmountDto() { IngredientId = 18, Amount = 2 }, // Eggs
+                        new IngredientAmountDto() { IngredientId = 3, Amount = 2 }, // Salt
+                        new IngredientAmountDto() { IngredientId = 29, Amount = 2 }, // Pepper
+                        new IngredientAmountDto() { IngredientId = 21, Amount = 10 }, // Olive oil
+                        new IngredientAmountDto() { IngredientId = 72, Amount = 30 } // Grated Cheese
                     }
                 },
-                new Recipe()
+                new RecipeDto()
                 {
                     Name = "Caesar Salad",
                     Method = """
@@ -455,19 +455,19 @@ namespace MyFridge_Library_Data.DataContext
                         4: Top with croutons and extra grated Parmesan cheese.
                         5: Serve immediately.
                         """,
-                    IngredientAmounts = new List<IngredientAmount>()
+                    IngredientAmounts = new List<IngredientAmountDto>()
                     {
-                        new IngredientAmount() { IngredientId = 63, Amount = 67 }, // Romaine lettuce
-                        new IngredientAmount() { IngredientId = 119, Amount = 33 }, // Mayonnaise
-                        new IngredientAmount() { IngredientId = 40, Amount = 0.25f }, // Lemon juice
-                        new IngredientAmount() { IngredientId = 24, Amount = 2 },  // Garlic
-                        new IngredientAmount() { IngredientId = 38, Amount = 2 },  // Worcestershire sauce
-                        new IngredientAmount() { IngredientId = 121, Amount = 3 },  // Dijon mustard
-                        new IngredientAmount() { IngredientId = 70, Amount = 17 }, // Grated Parmesan cheese
-                        new IngredientAmount() { IngredientId = 122, Amount = 17 }  // Croutons
+                        new IngredientAmountDto() { IngredientId = 63, Amount = 67 }, // Romaine lettuce
+                        new IngredientAmountDto() { IngredientId = 119, Amount = 33 }, // Mayonnaise
+                        new IngredientAmountDto() { IngredientId = 40, Amount = 0.25f }, // Lemon juice
+                        new IngredientAmountDto() { IngredientId = 24, Amount = 2 },  // Garlic
+                        new IngredientAmountDto() { IngredientId = 38, Amount = 2 },  // Worcestershire sauce
+                        new IngredientAmountDto() { IngredientId = 121, Amount = 3 },  // Dijon mustard
+                        new IngredientAmountDto() { IngredientId = 70, Amount = 17 }, // Grated Parmesan cheese
+                        new IngredientAmountDto() { IngredientId = 122, Amount = 17 }  // Croutons
                     }
                 },
-                new Recipe()
+                new RecipeDto()
                 {
                     Name = "Grilled Cheese Sandwich",
                     Method = """
@@ -477,14 +477,14 @@ namespace MyFridge_Library_Data.DataContext
                         4: Place the sandwich in the pan and cook until golden brown on each side and cheese is melted.
                         5: Serve hot.
                         """,
-                    IngredientAmounts = new List<IngredientAmount>()
+                    IngredientAmounts = new List<IngredientAmountDto>()
                     {
-                        new IngredientAmount() { IngredientId = 26, Amount = 2 }, // Slice of bread
-                        new IngredientAmount() { IngredientId = 8, Amount = 10 },  // Butter
-                        new IngredientAmount() { IngredientId = 72, Amount = 40 } // Cheddar cheese
+                        new IngredientAmountDto() { IngredientId = 26, Amount = 2 }, // Slice of bread
+                        new IngredientAmountDto() { IngredientId = 8, Amount = 10 },  // Butter
+                        new IngredientAmountDto() { IngredientId = 72, Amount = 40 } // Cheddar cheese
                     }
                 },
-                new Recipe()
+                new RecipeDto()
                 {
                     Name = "Chicken and Vegetable Stir Fry",
                     Method = """
@@ -496,19 +496,19 @@ namespace MyFridge_Library_Data.DataContext
                         6: Add soy sauce and cook for an additional 2 minutes, stirring to combine.
                         7: Serve over cooked rice.
                         """,
-                    IngredientAmounts = new List<IngredientAmount>()
+                    IngredientAmounts = new List<IngredientAmountDto>()
                     {
-                        new IngredientAmount() { IngredientId = 5, Amount = 150 }, // Chicken Breast
-                        new IngredientAmount() { IngredientId = 1, Amount = 100 }, // Carrot
-                        new IngredientAmount() { IngredientId = 52, Amount = 1 },  // Bell Pepper
-                        new IngredientAmount() { IngredientId = 4, Amount = 100 }, // Onion
-                        new IngredientAmount() { IngredientId = 53, Amount = 100 }, // Broccoli
-                        new IngredientAmount() { IngredientId = 22, Amount = 15 },  // Vegetable Oil
-                        new IngredientAmount() { IngredientId = 43, Amount = 30 },  // Soy Sauce
-                        new IngredientAmount() { IngredientId = 24, Amount = 150 }  // Rice
+                        new IngredientAmountDto() { IngredientId = 5, Amount = 150 }, // Chicken Breast
+                        new IngredientAmountDto() { IngredientId = 1, Amount = 100 }, // Carrot
+                        new IngredientAmountDto() { IngredientId = 52, Amount = 1 },  // Bell Pepper
+                        new IngredientAmountDto() { IngredientId = 4, Amount = 100 }, // Onion
+                        new IngredientAmountDto() { IngredientId = 53, Amount = 100 }, // Broccoli
+                        new IngredientAmountDto() { IngredientId = 22, Amount = 15 },  // Vegetable Oil
+                        new IngredientAmountDto() { IngredientId = 43, Amount = 30 },  // Soy Sauce
+                        new IngredientAmountDto() { IngredientId = 24, Amount = 150 }  // Rice
                     }
                 },
-                new Recipe()
+                new RecipeDto()
                 {
                     Name = "Creamy Tomato Pasta",
                     Method = """
@@ -520,19 +520,19 @@ namespace MyFridge_Library_Data.DataContext
                         6: Drain the cooked pasta and add it to the sauce, stirring to combine.
                         7: Serve hot, garnished with grated parmesan cheese.
                         """,
-                    IngredientAmounts = new List<IngredientAmount>()
+                    IngredientAmounts = new List<IngredientAmountDto>()
                     {
-                        new IngredientAmount() { IngredientId = 25, Amount = 100 }, // Pasta
-                        new IngredientAmount() { IngredientId = 21, Amount = 15 },  // Olive Oil
-                        new IngredientAmount() { IngredientId = 27, Amount = 10 },  // Garlic
-                        new IngredientAmount() { IngredientId = 116, Amount = 400 }, // Canned Tomatoes
-                        new IngredientAmount() { IngredientId = 3, Amount = 2 },  // Salt
-                        new IngredientAmount() { IngredientId = 29, Amount = 1 },  // Black Pepper
-                        new IngredientAmount() { IngredientId = 6, Amount = 120 },  // Heavy Cream
-                        new IngredientAmount() { IngredientId = 70, Amount = 20 }  // Parmesan Cheese
+                        new IngredientAmountDto() { IngredientId = 25, Amount = 100 }, // Pasta
+                        new IngredientAmountDto() { IngredientId = 21, Amount = 15 },  // Olive Oil
+                        new IngredientAmountDto() { IngredientId = 27, Amount = 10 },  // Garlic
+                        new IngredientAmountDto() { IngredientId = 116, Amount = 400 }, // Canned Tomatoes
+                        new IngredientAmountDto() { IngredientId = 3, Amount = 2 },  // Salt
+                        new IngredientAmountDto() { IngredientId = 29, Amount = 1 },  // Black Pepper
+                        new IngredientAmountDto() { IngredientId = 6, Amount = 120 },  // Heavy Cream
+                        new IngredientAmountDto() { IngredientId = 70, Amount = 20 }  // Parmesan Cheese
                     }
                 },
-                new Recipe()
+                new RecipeDto()
                 {
                     Name = "Pancakes",
                     Method = """
@@ -542,19 +542,19 @@ namespace MyFridge_Library_Data.DataContext
                         4: Repeat with the remaining batter.
                         5: Serve pancakes with maple syrup or your favorite toppings.
                         """,
-                    IngredientAmounts = new List<IngredientAmount>()
+                    IngredientAmounts = new List<IngredientAmountDto>()
                     {
-                        new IngredientAmount() { IngredientId = 14, Amount = 50 }, // Flour
-                        new IngredientAmount() { IngredientId = 19, Amount = 1 }, // Baking powder
-                        new IngredientAmount() { IngredientId = 3, Amount = 1.25f }, // Salt
-                        new IngredientAmount() { IngredientId = 16, Amount = 5 }, // Sugar
-                        new IngredientAmount() { IngredientId = 11, Amount = 62.5f }, // Milk
-                        new IngredientAmount() { IngredientId = 18, Amount = 0.25f }, // Eggs
-                        new IngredientAmount() { IngredientId = 8, Amount = 12.5f }, // Butter
-                        new IngredientAmount() { IngredientId = 124, Amount = 50 }, // Maple syrup or other toppings
+                        new IngredientAmountDto() { IngredientId = 14, Amount = 50 }, // Flour
+                        new IngredientAmountDto() { IngredientId = 19, Amount = 1 }, // Baking powder
+                        new IngredientAmountDto() { IngredientId = 3, Amount = 1.25f }, // Salt
+                        new IngredientAmountDto() { IngredientId = 16, Amount = 5 }, // Sugar
+                        new IngredientAmountDto() { IngredientId = 11, Amount = 62.5f }, // Milk
+                        new IngredientAmountDto() { IngredientId = 18, Amount = 0.25f }, // Eggs
+                        new IngredientAmountDto() { IngredientId = 8, Amount = 12.5f }, // Butter
+                        new IngredientAmountDto() { IngredientId = 124, Amount = 50 }, // Maple syrup or other toppings
                     }
                 },
-                new Recipe()
+                new RecipeDto()
                 {
                     Name = "Tomato Soup",
                     Method = """
@@ -565,19 +565,19 @@ namespace MyFridge_Library_Data.DataContext
                         5: Stir in heavy cream and heat through.
                         6: Serve hot with crusty bread.
                         """,
-                    IngredientAmounts = new List<IngredientAmount>()
+                    IngredientAmounts = new List<IngredientAmountDto>()
                     {
-                        new IngredientAmount() { IngredientId = 4, Amount = 12.5f },
-                        new IngredientAmount() { IngredientId = 27, Amount = 2.5f },
-                        new IngredientAmount() { IngredientId = 116, Amount = 200 },
-                        new IngredientAmount() { IngredientId = 127, Amount = 125 },
-                        new IngredientAmount() { IngredientId = 3, Amount = 1.25f },
-                        new IngredientAmount() { IngredientId = 29, Amount = 1.25f },
-                        new IngredientAmount() { IngredientId = 6, Amount = 25 },
-                        new IngredientAmount() { IngredientId = 26, Amount = 1 }
+                        new IngredientAmountDto() { IngredientId = 4, Amount = 12.5f },
+                        new IngredientAmountDto() { IngredientId = 27, Amount = 2.5f },
+                        new IngredientAmountDto() { IngredientId = 116, Amount = 200 },
+                        new IngredientAmountDto() { IngredientId = 127, Amount = 125 },
+                        new IngredientAmountDto() { IngredientId = 3, Amount = 1.25f },
+                        new IngredientAmountDto() { IngredientId = 29, Amount = 1.25f },
+                        new IngredientAmountDto() { IngredientId = 6, Amount = 25 },
+                        new IngredientAmountDto() { IngredientId = 26, Amount = 1 }
                     }
                 },
-                new Recipe()
+                new RecipeDto()
                 {
                     Name = "Chicken Alfredo",
                     Method = """
@@ -588,19 +588,19 @@ namespace MyFridge_Library_Data.DataContext
                         5: Slice cooked chicken and add to the sauce. Mix in the cooked fettuccine.
                         6: Serve hot.
                         """,
-                    IngredientAmounts = new List<IngredientAmount>()
+                    IngredientAmounts = new List<IngredientAmountDto>()
                     {
-                        new IngredientAmount() { IngredientId = 5, Amount = 100 },
-                        new IngredientAmount() { IngredientId = 3, Amount = 1.25f },
-                        new IngredientAmount() { IngredientId = 21, Amount = 1.25f },
-                        new IngredientAmount() { IngredientId = 80, Amount = 75 },
-                        new IngredientAmount() { IngredientId = 8, Amount = 12.5f },
-                        new IngredientAmount() { IngredientId = 24, Amount = 2.5f },
-                        new IngredientAmount() { IngredientId = 6, Amount = 62.5f },
-                        new IngredientAmount() { IngredientId = 70, Amount = 25 }
+                        new IngredientAmountDto() { IngredientId = 5, Amount = 100 },
+                        new IngredientAmountDto() { IngredientId = 3, Amount = 1.25f },
+                        new IngredientAmountDto() { IngredientId = 21, Amount = 1.25f },
+                        new IngredientAmountDto() { IngredientId = 80, Amount = 75 },
+                        new IngredientAmountDto() { IngredientId = 8, Amount = 12.5f },
+                        new IngredientAmountDto() { IngredientId = 24, Amount = 2.5f },
+                        new IngredientAmountDto() { IngredientId = 6, Amount = 62.5f },
+                        new IngredientAmountDto() { IngredientId = 70, Amount = 25 }
                     }
                 },
-                new Recipe()
+                new RecipeDto()
                 {
                     Name = "Chicken and Vegetable Pie",
                     Method = """
@@ -615,22 +615,22 @@ namespace MyFridge_Library_Data.DataContext
                             9: Roll out the remaining dough and place it on top of the pie, sealing the edges with a fork or your fingers. Cut a few slits in the top crust to allow steam to escape.
                             10: Bake the pie in the preheated oven for 25-30 minutes, or until the crust is golden brown. Remove from the oven and let it cool for a few minutes before serving. Enjoy your savory vegetable and chicken pie!
                             """,
-                    IngredientAmounts = new List<IngredientAmount>()
+                    IngredientAmounts = new List<IngredientAmountDto>()
                     {
-                        new IngredientAmount() { IngredientId = 5, Amount = 100 }, // Chicken Breast
-                        new IngredientAmount() { IngredientId = 50, Amount = 50 }, // Peas
-                        new IngredientAmount() { IngredientId = 53, Amount = 50 }, // Broccoli
-                        new IngredientAmount() { IngredientId = 4, Amount = 25 }, // Onion
-                        new IngredientAmount() { IngredientId = 27, Amount = 5 }, // Garlic
-                        new IngredientAmount() { IngredientId = 65, Amount = 20 }, // Cheese
-                        new IngredientAmount() { IngredientId = 6, Amount = 60 }, // Heavy Cream
-                        new IngredientAmount() { IngredientId = 8, Amount = 15 }, // Butter
-                        new IngredientAmount() { IngredientId = 14, Amount = 60 }, // Wheat Flour
-                        new IngredientAmount() { IngredientId = 3, Amount = 1 }, // Salt
-                        new IngredientAmount() { IngredientId = 29, Amount = 1 } // Black Pepper
+                        new IngredientAmountDto() { IngredientId = 5, Amount = 100 }, // Chicken Breast
+                        new IngredientAmountDto() { IngredientId = 50, Amount = 50 }, // Peas
+                        new IngredientAmountDto() { IngredientId = 53, Amount = 50 }, // Broccoli
+                        new IngredientAmountDto() { IngredientId = 4, Amount = 25 }, // Onion
+                        new IngredientAmountDto() { IngredientId = 27, Amount = 5 }, // Garlic
+                        new IngredientAmountDto() { IngredientId = 65, Amount = 20 }, // Cheese
+                        new IngredientAmountDto() { IngredientId = 6, Amount = 60 }, // Heavy Cream
+                        new IngredientAmountDto() { IngredientId = 8, Amount = 15 }, // Butter
+                        new IngredientAmountDto() { IngredientId = 14, Amount = 60 }, // Wheat Flour
+                        new IngredientAmountDto() { IngredientId = 3, Amount = 1 }, // Salt
+                        new IngredientAmountDto() { IngredientId = 29, Amount = 1 } // Black Pepper
                     }
                 },
-                new Recipe()
+                new RecipeDto()
                 {
                     Name = "Beef Lasagna",
                     Method = """
@@ -654,20 +654,20 @@ namespace MyFridge_Library_Data.DataContext
                             18: Let the lasagna cool for a few minutes before serving. 
                             19: Enjoy your beef lasagna!
                             """,
-                    IngredientAmounts = new List<IngredientAmount>()
+                    IngredientAmounts = new List<IngredientAmountDto>()
                     {
-                        new IngredientAmount { IngredientId = 2, Amount = 200 },
-                        new IngredientAmount { IngredientId = 3, Amount = 3 },
-                        new IngredientAmount { IngredientId = 21, Amount = 21 },
-                        new IngredientAmount { IngredientId = 29, Amount = 1 },
-                        new IngredientAmount { IngredientId = 35, Amount = 2 },
-                        new IngredientAmount { IngredientId = 36, Amount = 2 },
-                        new IngredientAmount { IngredientId = 70, Amount = 25 },
-                        new IngredientAmount { IngredientId = 71, Amount = 50 },
-                        new IngredientAmount { IngredientId = 116, Amount = 200 }
+                        new IngredientAmountDto { IngredientId = 2, Amount = 200 },
+                        new IngredientAmountDto { IngredientId = 3, Amount = 3 },
+                        new IngredientAmountDto { IngredientId = 21, Amount = 21 },
+                        new IngredientAmountDto { IngredientId = 29, Amount = 1 },
+                        new IngredientAmountDto { IngredientId = 35, Amount = 2 },
+                        new IngredientAmountDto { IngredientId = 36, Amount = 2 },
+                        new IngredientAmountDto { IngredientId = 70, Amount = 25 },
+                        new IngredientAmountDto { IngredientId = 71, Amount = 50 },
+                        new IngredientAmountDto { IngredientId = 116, Amount = 200 }
                     }
                 },
-                new Recipe() 
+                new RecipeDto() 
                 { 
                     Name = "Buttered Popcorn", 
                     Method = """
@@ -675,13 +675,13 @@ namespace MyFridge_Library_Data.DataContext
                             2: Add butter to popcorn and wait until melted. 
                             3: Done.
                             """, 
-                    IngredientAmounts = new List<IngredientAmount>()
+                    IngredientAmounts = new List<IngredientAmountDto>()
                     {
-                        new IngredientAmount() { IngredientId = 7, Amount = 1 },
-                        new IngredientAmount() { IngredientId = 8, Amount = 100 }
+                        new IngredientAmountDto() { IngredientId = 7, Amount = 1 },
+                        new IngredientAmountDto() { IngredientId = 8, Amount = 100 }
                     },
                 },
-                new Recipe() 
+                new RecipeDto() 
                 { 
                     Name = "Cafe Latte", 
                     Method = """
@@ -690,11 +690,11 @@ namespace MyFridge_Library_Data.DataContext
                             3: Whip milk and to coffee. 
                             4: Done.
                             """,
-                    IngredientAmounts = new List<IngredientAmount>()
+                    IngredientAmounts = new List<IngredientAmountDto>()
                     {
-                        new IngredientAmount() { IngredientId = 9, Amount = 50 },
-                        new IngredientAmount() { IngredientId = 10, Amount = 10 },
-                        new IngredientAmount() { IngredientId = 11, Amount = 70 }
+                        new IngredientAmountDto() { IngredientId = 9, Amount = 50 },
+                        new IngredientAmountDto() { IngredientId = 10, Amount = 10 },
+                        new IngredientAmountDto() { IngredientId = 11, Amount = 70 }
                     }
                 }
             };
@@ -705,14 +705,14 @@ namespace MyFridge_Library_Data.DataContext
         #region UserAccountSeed
         public static void UserAccountSeed(ApplicationDbContext context)
         {
-            List<UserAccount> tempUsers = new List<UserAccount>()
+            List<UserAccountDto> tempUsers = new List<UserAccountDto>()
             {
-                new UserAccount
+                new UserAccountDto
                 {
                     FirstName = "Jonas",
                     LastName = "Brown",
                     Password = "password",
-                    Address = new Address()
+                    Address = new AddressDto()
                     {
                         Id = 1,
                         Street = "Cambridge Street 231",
@@ -725,36 +725,36 @@ namespace MyFridge_Library_Data.DataContext
                     Email = "email@email.com",
                     PhoneNumber = 4540302010,
                     BirthDate = new DateTime(1983, 02, 09, 00, 00, 00),
-                    IngredientAmounts = new List<IngredientAmount>()
+                    IngredientAmounts = new List<IngredientAmountDto>()
                     {
-                        new IngredientAmount()
+                        new IngredientAmountDto()
                         {
                             IngredientId = 12,
                             Amount = 10
                         },
-                        new IngredientAmount()
+                        new IngredientAmountDto()
                         {
                             IngredientId = 13,
                             Amount = 3
                         },
-                        new IngredientAmount()
+                        new IngredientAmountDto()
                         {
                             IngredientId = 14,
                             Amount = 1000
                         },
-                        new IngredientAmount()
+                        new IngredientAmountDto()
                         {
                             IngredientId = 15,
                             Amount = 1000
                         }
                     }
                 },
-                new UserAccount
+                new UserAccountDto
                 {
                     FirstName = "Bertram Vandsted",
                     LastName = "Brown",
                     Password = "password1",
-                    Address = new Address()
+                    Address = new AddressDto()
                     {
                         Id = 2,
                         Street = "Skellet 1",
@@ -768,12 +768,12 @@ namespace MyFridge_Library_Data.DataContext
                     PhoneNumber = 4540302010,
                     BirthDate = new DateTime(2022, 01, 29, 00, 00, 00)
                 },
-                new UserAccount
+                new UserAccountDto
                 {
                     FirstName = "Ada-Noelle Kirsten Vandsted",
                     LastName = "Brown",
                     Password = "password2",
-                    Address = new Address()
+                    Address = new AddressDto()
                     {
                         Id = 3,
                         Street = "Holmvej 259",

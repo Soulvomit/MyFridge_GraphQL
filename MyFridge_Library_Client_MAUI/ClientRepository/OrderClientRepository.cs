@@ -4,7 +4,7 @@ using MyFridge_Library_Client_MAUI.ClientModel;
 
 namespace MyFridge_Library_Client_MAUI.ClientRepository
 {
-    public class OrderClientRepository : ClientRepository<OrderDto>, IOrderClientRepository
+    public class OrderClientRepository : ClientRepository<OrderCto>, IOrderClientRepository
     {
         public OrderClientRepository(string baseAddress) : base(baseAddress) { }
     }

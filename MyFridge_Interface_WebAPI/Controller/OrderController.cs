@@ -21,14 +21,14 @@ namespace MyFridge_Interface_WebAPI.Controller
             _log = log;
         }
         [HttpPost]
-        public async Task<JsonResult> UpsertAsync([FromBody] OrderDto dto)
+        public async Task<JsonResult> UpsertAsync([FromBody] OrderCto dto)
         {
             if (!ModelState.IsValid) return new JsonResult(BadRequest());
 
-            if (dto.Id == 0) await _dataService.Orders.CreateAsync(_map.ToOrder(from: dto));
+            if (dto.Id == 0) await _dataService.Orders.CreateAsync(_map.ToOrderDto(from: dto));
             else
             {
-                bool success = await _dataService.Orders.UpdateAsync(_map.ToOrder(from: dto));
+                bool success = await _dataService.Orders.UpdateAsync(_map.ToOrderDto(from: dto));
 
                 if (!success) return new JsonResult(NotFound());
             }
@@ -40,21 +40,21 @@ namespace MyFridge_Interface_WebAPI.Controller
         [HttpGet]
         public async Task<JsonResult> GetAsync(int id)
         {
-            Order? order = await _dataService.Orders.GetAsync(id);
+            OrderDto? order = await _dataService.Orders.GetAsync(id);
 
             if (order == null) return new JsonResult(NotFound());
 
-            return new JsonResult(_map.ToOrderDto(from: order));
+            return new JsonResult(_map.ToOrderCto(from: order));
         }
         [HttpGet]
         public async Task<JsonResult> GetAllAsync()
         {
-            List<OrderDto> dtos = new List<OrderDto>();
-            List<Order> orders = await _dataService.Orders.GetAllAsync();
+            List<OrderCto> dtos = new List<OrderCto>();
+            List<OrderDto> orders = await _dataService.Orders.GetAllAsync();
 
-            foreach (Order order in orders)
+            foreach (OrderDto order in orders)
             {
-                dtos.Add(_map.ToOrderDto(from: order));
+                dtos.Add(_map.ToOrderCto(from: order));
             }
 
             return new JsonResult(dtos);

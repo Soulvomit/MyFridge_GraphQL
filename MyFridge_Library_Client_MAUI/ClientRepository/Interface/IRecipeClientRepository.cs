@@ -3,9 +3,9 @@ using MyFridge_Library_Client_MAUI.ClientModel;
 
 namespace MyFridge_Library_Client_MAUI.ClientRepository.Interface
 {
-    public interface IRecipeClientRepository : IClientRepository<RecipeDto>
+    public interface IRecipeClientRepository : IClientRepository<RecipeCto>
     {
-        public IEnumerable<RecipeDto> MakeableLazies { get; }
-        public Task<IEnumerable<RecipeDto>> GetMakeableAsync(int userId);
+        public IEnumerable<RecipeCto> MakeableLazies { get; }
+        public Task<IEnumerable<RecipeCto>> GetMakeableAsync(int userId);
     }
 }

@@ -14,7 +14,7 @@ public partial class DetailRecipePage : ContentPage
 
         _navigationService = navigationService;
 		_viewModel = viewModel;
-        _viewModel.Recipe = _navigationService.GetDataStore<RecipeDto>();
+        _viewModel.Recipe = _navigationService.GetDataStore<RecipeCto>();
         BindingContext = _viewModel;
     }
     protected override void OnAppearing()

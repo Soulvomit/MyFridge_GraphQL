@@ -5,17 +5,17 @@ using System.Net.Http.Json;
 
 namespace MyFridge_Library_Client_MAUI.ClientRepository
 {
-    public class RecipeClientRepository : ClientRepository<RecipeDto>, IRecipeClientRepository
+    public class RecipeClientRepository : ClientRepository<RecipeCto>, IRecipeClientRepository
     {
         public RecipeClientRepository(string baseAddress) : base(baseAddress) { }
 
-        public IEnumerable<RecipeDto> MakeableLazies { get; private set; }
+        public IEnumerable<RecipeCto> MakeableLazies { get; private set; }
 
-        public async Task<IEnumerable<RecipeDto>> GetMakeableAsync(int userId)
+        public async Task<IEnumerable<RecipeCto>> GetMakeableAsync(int userId)
         {
             var response = await _httpClient.GetAsync($"api/{ResolveName}/GetMakeable?userId={userId}");
             response.EnsureSuccessStatusCode();
-            MakeableLazies = await response.Content.ReadFromJsonAsync<IEnumerable<RecipeDto>>();
+            MakeableLazies = await response.Content.ReadFromJsonAsync<IEnumerable<RecipeCto>>();
             return MakeableLazies;
         }
     }

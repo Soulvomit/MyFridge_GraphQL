@@ -32,7 +32,7 @@ namespace MyFridge_Interface_MAUI.Mvvms.ViewModel
         }
         public async Task RefreshAsync()
         {
-            UserAccountDto user = await _clientService.UserClient.GetAsync(_clientService.UserClient.Lazy.Id);
+            UserAccountCto user = await _clientService.UserClient.GetAsync(_clientService.UserClient.Lazy.Id);
             UserIngredientDetails = ToViewModel(user.IngredientAmounts.OrderBy(i => i.Ingredient.Name));
         }
 
@@ -46,10 +46,10 @@ namespace MyFridge_Interface_MAUI.Mvvms.ViewModel
                     .Where(i => i.Ingredient.Name.ToLower().StartsWith(filter.ToLower()))
                     .OrderBy(i => i.Ingredient.Name));
         }
-        private ObservableCollection<DetailIngredientViewModel> ToViewModel(IEnumerable<IngredientAmountDto> ingredients)
+        private ObservableCollection<DetailIngredientViewModel> ToViewModel(IEnumerable<IngredientAmountCto> ingredients)
         {
             ObservableCollection<DetailIngredientViewModel> viewModels = new();
-            foreach (IngredientAmountDto ingredient in ingredients)
+            foreach (IngredientAmountCto ingredient in ingredients)
             {
                 DetailIngredientViewModel viewModel = new(_clientService)
                 {

@@ -6,7 +6,7 @@ using MyFridge_Library_Data.DataRepository.Interface;
 
 namespace MyFridge_Library_Data.DataRepository
 {
-    public class IngredientAmountDataRepository : DataRepository<IngredientAmount>, IIngredientAmountDataRepository
+    public class IngredientAmountDataRepository : DataRepository<IngredientAmountDto>, IIngredientAmountDataRepository
 
     {
         public IngredientAmountDataRepository(ApplicationDbContext context, ILogger log)
@@ -14,11 +14,11 @@ namespace MyFridge_Library_Data.DataRepository
         {
         }
 
-        public override async Task<bool> UpdateAsync(IngredientAmount updateEntity)
+        public override async Task<bool> UpdateAsync(IngredientAmountDto updateEntity)
         {
             if (updateEntity == null) return false;
 
-            IngredientAmount? entityInDb = await dbSet.FindAsync(updateEntity.Id);
+            IngredientAmountDto? entityInDb = await dbSet.FindAsync(updateEntity.Id);
 
             if (entityInDb == null) return false;
 

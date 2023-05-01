@@ -20,14 +20,14 @@ namespace MyFridge_Interface_WebAPI.Controller
             _log = log;
         }
         [HttpPost]
-        public async Task<JsonResult> UpsertAsync([FromBody] RecipeDto dto)
+        public async Task<JsonResult> UpsertAsync([FromBody] RecipeCto dto)
         {
             if (!ModelState.IsValid) return new JsonResult(BadRequest());
 
-            if (dto.Id == 0) await _dataService.Recipes.CreateAsync(_map.ToRecipe(from: dto));
+            if (dto.Id == 0) await _dataService.Recipes.CreateAsync(_map.ToRecipeDto(from: dto));
             else
             {
-                bool success = await _dataService.Recipes.UpdateAsync(_map.ToRecipe(from: dto));
+                bool success = await _dataService.Recipes.UpdateAsync(_map.ToRecipeDto(from: dto));
 
                 if (!success) return new JsonResult(NotFound());
             }
@@ -39,69 +39,84 @@ namespace MyFridge_Interface_WebAPI.Controller
         [HttpGet]
         public async Task<JsonResult> GetAsync(int id)
         {
-            Recipe? recipe = await _dataService.Recipes.GetAsync(id);
+            RecipeDto? recipe = await _dataService.Recipes.GetAsync(id);
 
             if (recipe == null) return new JsonResult(NotFound());
 
-            return new JsonResult(_map.ToRecipeDto(from: recipe));
+            return new JsonResult(_map.ToRecipeCto(from: recipe));
         }
         [HttpGet]
         public async Task<JsonResult> GetFilteredAsync(string filter, int minLength = 2)
         {
-            Func<Recipe, bool> filterFunc = recipe =>
-                recipe.Name.ToLower().Contains(filter.ToLower()) ||
-                recipe.IngredientAmounts.Any(ia => 
-                ia.Ingredient.Name.ToLower().Contains(filter.ToLower()));
+            Func<RecipeDto, bool> filterFunc = recipe =>
+            {
+                bool nameMatches = recipe.Name.ToLower().Contains(filter.ToLower());
+                
+                bool ingredientNameMatches = recipe.IngredientAmounts.Any(ia =>
+                    ia.Ingredient.Name.ToLower().Contains(filter.ToLower()));
 
-            Func<Recipe, object> orderByFunc = recipe => recipe.Name;
+                return nameMatches || ingredientNameMatches;
+            };
 
-            List<RecipeDto> dtos = new();
-            IEnumerable<Recipe>? filteredRecipes = 
+            Func<RecipeDto, object> orderByFunc = recipe => recipe.Name;
+
+            List<RecipeCto> dtos = new();
+            IEnumerable<RecipeDto>? filteredRecipes = 
                 await _dataService.Recipes.Query(filterFunc, orderByFunc, filter, minLength);
 
             if (filteredRecipes == null) return new JsonResult(NotFound());
 
-            foreach (Recipe recipe in filteredRecipes)
+            foreach (RecipeDto recipe in filteredRecipes)
             {
-                dtos.Add(_map.ToRecipeDto(from: recipe));
+                dtos.Add(_map.ToRecipeCto(from: recipe));
             }
             return new JsonResult(dtos);
         }
         [HttpGet]
         public async Task<JsonResult> GetMakeableAsync(int userId)
         {
-            UserAccount user = await _dataService.Users.GetAsync(userId);
+            UserAccountDto user = await _dataService.Users.GetAsync(userId);
             
             if (user == null) return new JsonResult(NotFound());
 
-            Func<Recipe, bool> filterFunc = recipe => 
-                recipe.IngredientAmounts.All(recipeIngredient => 
-                    user.IngredientAmounts.Any(userIngredient => 
-                        recipeIngredient.Ingredient.Id == userIngredient.Ingredient.Id &&
-                        recipeIngredient.Amount <= userIngredient.Amount));
+            Func<RecipeDto, bool> filterFunc = recipe =>
+            {
+                bool allIngredientsSatisfy = recipe.IngredientAmounts.All(recipeIngredient =>
+                {
+                    bool anyMatchingUserIngredient = user.IngredientAmounts.Any(userIngredient =>
+                    {
+                        bool anyMatchingIngredient = recipeIngredient.Ingredient.Id == userIngredient.Ingredient.Id;
+                        bool anyMatchingAmount = recipeIngredient.Amount <= userIngredient.Amount;
 
-            Func<Recipe, object> orderByFunc = recipe => recipe.Name;
+                        return anyMatchingIngredient && anyMatchingAmount;
+                    });
+                    return anyMatchingUserIngredient;
+                });
+                return allIngredientsSatisfy;
+            };
 
-            List<RecipeDto> dtos = new();
-            IEnumerable<Recipe>? makeableRecipes = await _dataService.Recipes.Query(filterFunc, orderByFunc);
+            Func<RecipeDto, object> orderByFunc = recipe => recipe.Name;
+
+            List<RecipeCto> dtos = new();
+            IEnumerable<RecipeDto>? makeableRecipes = await _dataService.Recipes.Query(filterFunc, orderByFunc);
 
             if (makeableRecipes == null) return new JsonResult(NotFound());
 
-            foreach (Recipe recipe in makeableRecipes)
+            foreach (RecipeDto recipe in makeableRecipes)
             {
-                dtos.Add(_map.ToRecipeDto(from: recipe));
+                dtos.Add(_map.ToRecipeCto(from: recipe));
             }
             return new JsonResult(dtos);
         }
         [HttpGet]
         public async Task<JsonResult> GetAllAsync()
         {
-            List<RecipeDto> dtos = new List<RecipeDto>();
-            List<Recipe> recipes = await _dataService.Recipes.GetAllAsync();
+            List<RecipeCto> dtos = new List<RecipeCto>();
+            List<RecipeDto> recipes = await _dataService.Recipes.GetAllAsync();
 
-            foreach (Recipe recipe in recipes)
+            foreach (RecipeDto recipe in recipes)
             {
-                dtos.Add(_map.ToRecipeDto(from: recipe));
+                dtos.Add(_map.ToRecipeCto(from: recipe));
             }
 
             return new JsonResult(dtos);

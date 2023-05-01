@@ -6,22 +6,23 @@ using MyFridge_Library_Data.DataRepository.Interface;
 
 namespace MyFridge_Library_Data.DataRepository
 {
-    public class IngredientDataRepository : DataRepository<Ingredient>, IIngredientDataRepository
+    public class IngredientDataRepository : DataRepository<IngredientDto>, IIngredientDataRepository
     {
         public IngredientDataRepository(ApplicationDbContext context, ILogger log)
             : base(context, log)
         {
         }
-        public override async Task<bool> UpdateAsync(Ingredient updateEntity)
+        public override async Task<bool> UpdateAsync(IngredientDto updateEntity)
         {
             if (updateEntity == null) return false;
 
-            Ingredient? entityInDb = await dbSet.FindAsync(updateEntity.Id);
+            IngredientDto? entityInDb = await dbSet.FindAsync(updateEntity.Id);
 
             if (entityInDb == null) return false;
 
             entityInDb.Name = updateEntity.Name;
             entityInDb.Unit = updateEntity.Unit;
+            entityInDb.Category = updateEntity.Category;
 
             return true;
         }

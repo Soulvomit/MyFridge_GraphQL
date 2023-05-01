@@ -21,12 +21,12 @@ namespace MyFridge_Interface_MAUI.Mvvms.Service.Navigation
         {
             await Shell.Current.GoToAsync($"..");
         }
-        public async Task GoToIngredientDetailAsync(IngredientAmountDto ingredientAmount)
+        public async Task GoToIngredientDetailAsync(IngredientAmountCto ingredientAmount)
         {
             SetDataStore(ingredientAmount);
             await Shell.Current.GoToAsync(nameof(DetailUserIngredientPage));
         }
-        public async Task GoToRecipeDetailAsync(RecipeDto recipe)
+        public async Task GoToRecipeDetailAsync(RecipeCto recipe)
         {
             SetDataStore(recipe);
             await Shell.Current.GoToAsync(nameof(DetailRecipePage));

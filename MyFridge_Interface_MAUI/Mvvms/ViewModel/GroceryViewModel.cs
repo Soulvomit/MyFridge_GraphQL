@@ -23,45 +23,60 @@ namespace MyFridge_Interface_MAUI.Mvvms.ViewModel
                 OnPropertyChanged(nameof(GroceryDetails));
             }
         }
+        public string Filter { get; set; } = string.Empty;
         #endregion
 
         public GroceryViewModel(IClientService clientService)
         {
             _clientService = clientService;
-
             groceryDetails = new();
         }
         public async Task RefreshAsync()
         {
-            IEnumerable<IngredientDto> groceries = await _clientService.IngredientClient.GetAllAsync();
-            GroceryDetails = ToViewModel(groceries.OrderBy(i => i.Name));
+            //IEnumerable<GroceryDto> groceries = await _clientService.GroceryClient.GetAllAsync();
+            //GroceryDetails = ToViewModel(groceries.OrderBy(i => i.IngredientAmount.Ingredient.Name));
+            await GetFiltered();
         }
         public void GetFilteredLazy(string filter)
         {
             if (string.IsNullOrEmpty(filter))
-                GroceryDetails = ToViewModel(_clientService.IngredientClient.AllLazies.OrderBy(i => i.Name).ToList());
+                GroceryDetails = ToViewModel(_clientService.GroceryClient.AllLazies
+                    .OrderBy(i => i.IngredientAmount.Ingredient.Name));
             else
-                GroceryDetails = ToViewModel(_clientService.IngredientClient.AllLazies
-                    .Where(i => i.Name.ToLower().StartsWith(filter.ToLower()))
-                    .OrderBy(i => i.Name).ToList());
+                GroceryDetails = ToViewModel(_clientService.GroceryClient.AllLazies
+                    .Where(i => i.IngredientAmount.Ingredient.Name.ToLower().StartsWith(filter.ToLower()))
+                    .OrderBy(i => i.IngredientAmount.Ingredient.Name));
+            //if (string.IsNullOrEmpty(filter))
+            //    GroceryDetails = ToViewModel(_clientService.GroceryClient.AllLazies
+            //        .OrderBy(i => i.IngredientAmount.Ingredient.Name));
+            //else
+            //    GroceryDetails = ToViewModel(_clientService.GroceryClient.AllLazies
+            //        .Where(i => i.IngredientAmount.Ingredient.Name.ToLower().StartsWith(filter.ToLower()))
+            //        .OrderBy(i => i.IngredientAmount.Ingredient.Name));
         }
-        public async Task Add(DetailGroceryViewModel ingredient, string amountResult)
+        public async Task GetFiltered()
+        {
+            if(Filter.Length > 1)
+            {
+                IEnumerable<GroceryCto> groceries = await _clientService.GroceryClient.GetFilteredAsync(Filter);
+                GroceryDetails = ToViewModel(groceries);
+            }
+        }
+        public async Task Add(DetailGroceryViewModel grocery, string amountResult)
         {
             bool parsed = uint.TryParse(amountResult, out uint amount);
             if (parsed)
             {
-                IngredientAmountDto dto = new()
+                for (int i = 0; i < amount; i++)
                 {
-                    Ingredient = ingredient.Grocery,
-                    Amount = amount
-                };
-                await _clientService.UserClient.AddIngredientAmountAsync(dto, _clientService.UserClient.Lazy.Id);
+                    await _clientService.UserClient.AddIngredientAmountAsync(grocery.Grocery.IngredientAmount, _clientService.UserClient.Lazy.Id);
+                }
             }
         }
-        private ObservableCollection<DetailGroceryViewModel> ToViewModel(IEnumerable<IngredientDto> ingredients)
+        private ObservableCollection<DetailGroceryViewModel> ToViewModel(IEnumerable<GroceryCto> groceries)
         {
             ObservableCollection<DetailGroceryViewModel> viewModels = new();
-            foreach (IngredientDto dto in ingredients)
+            foreach (GroceryCto dto in groceries)
             {
                 DetailGroceryViewModel viewModel = new(_clientService)
                 {

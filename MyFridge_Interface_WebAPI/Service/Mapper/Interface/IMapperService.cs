@@ -5,28 +5,28 @@ namespace MyFridge_Interface_WebAPI.Service.Mapper.Interface
 {
     public interface IMapperService
     {
-        public AddressDto? ToAddressDto(Address? from);
-        public Address? ToAddress(AddressDto? from);
+        public AddressCto? ToAddressCto(AddressDto? from);
+        public AddressDto? ToAddressDto(AddressCto? from);
 
-        public AdminAccountDto? ToAdminAccountDto(AdminAccount? from);
-        public AdminAccount? ToAdminAccount(AdminAccountDto? from);
+        public AdminAccountCto? ToAdminAccountCto(AdminAccountDto? from);
+        public AdminAccountDto? ToAdminAccountDto(AdminAccountCto? from);
 
-        public UserAccountDto? ToUserAccountDto(UserAccount? from);
-        public UserAccount? ToUserAccount(UserAccountDto? from);
+        public UserAccountCto? ToUserAccountCto(UserAccountDto? from);
+        public UserAccountDto? ToUserAccountDto(UserAccountCto? from);
 
-        public GroceryDto? ToGroceryDto(Grocery? from);
-        public Grocery? ToGrocery(GroceryDto? from);
+        public GroceryCto? ToGroceryCto(GroceryDto? from);
+        public GroceryDto? ToGroceryDto(GroceryCto? from);
 
-        public IngredientDto? ToIngredientDto(Ingredient? from);
-        public Ingredient? ToIngredient(IngredientDto? from);
+        public IngredientCto? ToIngredientCto(IngredientDto? from);
+        public IngredientDto? ToIngredientDto(IngredientCto? from);
 
-        public IngredientAmountDto? ToIngredientAmountDto(IngredientAmount? from);
-        public IngredientAmount? ToIngredientAmount(IngredientAmountDto? from);
+        public IngredientAmountCto? ToIngredientAmountCto(IngredientAmountDto? from);
+        public IngredientAmountDto? ToIngredientAmountDto(IngredientAmountCto? from);
 
-        public OrderDto? ToOrderDto(Order? from);
-        public Order? ToOrder(OrderDto? from);
+        public OrderCto? ToOrderCto(OrderDto? from);
+        public OrderDto? ToOrderDto(OrderCto? from);
 
-        public RecipeDto? ToRecipeDto(Recipe? from);
-        public Recipe? ToRecipe(RecipeDto? from);
+        public RecipeCto? ToRecipeCto(RecipeDto? from);
+        public RecipeDto? ToRecipeDto(RecipeCto? from);
     }
 }

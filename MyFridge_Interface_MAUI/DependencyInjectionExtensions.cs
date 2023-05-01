@@ -4,6 +4,19 @@ namespace MyFridge_Interface_MAUI
 {
     public static class DependencyInjectionExtensions
     {
+        public static void RegisterViewModels(this IServiceCollection services)
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            var viewModelTypes = assembly.GetTypes().Where(t => t.Name.EndsWith("ViewModel"));
+
+            foreach (var viewModelType in viewModelTypes)
+            {
+                if (viewModelType != null)
+                {
+                    services.AddTransient(viewModelType);
+                }
+            }
+        }
         public static void RegisterPages(this IServiceCollection services)
         {
             var assembly = Assembly.GetExecutingAssembly();
@@ -17,16 +30,16 @@ namespace MyFridge_Interface_MAUI
                 }
             }
         }
-        public static void RegisterViewModels(this IServiceCollection services)
+        public static void RegisterRoutes(this IServiceCollection services)
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var viewModelTypes = assembly.GetTypes().Where(t => t.Name.EndsWith("ViewModel"));
+            var pageTypes = assembly.GetTypes().Where(t => t.Name.EndsWith("Page"));
 
-            foreach (var viewModelType in viewModelTypes)
+            foreach (var pageType in pageTypes)
             {
-                if (viewModelType != null)
+                if (pageType != null)
                 {
-                    services.AddTransient(viewModelType);
+                    Routing.RegisterRoute(nameof(pageType), pageType);
                 }
             }
         }

@@ -22,14 +22,14 @@ namespace MyFridge_Interface_WebAPI.Controller
         }
         //create/edit
         [HttpPost]
-        public async Task<JsonResult> UpsertAsync([FromBody] UserAccountDto dto)
+        public async Task<JsonResult> UpsertAsync([FromBody] UserAccountCto dto)
         {
             if (!ModelState.IsValid) return new JsonResult(BadRequest());
 
-            if (dto.Id == 0) await _dataService.Users.CreateAsync(_map.ToUserAccount(from: dto));
+            if (dto.Id == 0) await _dataService.Users.CreateAsync(_map.ToUserAccountDto(from: dto));
             else
             {            
-                bool success = await _dataService.Users.UpdateAsync(_map.ToUserAccount(from: dto));
+                bool success = await _dataService.Users.UpdateAsync(_map.ToUserAccountDto(from: dto));
 
                 if (!success) return new JsonResult(NotFound());
             }
@@ -41,59 +41,63 @@ namespace MyFridge_Interface_WebAPI.Controller
         [HttpGet]
         public async Task<JsonResult> GetAsync(int id)
         {
-            UserAccount? user = await _dataService.Users.GetAsync(id);
+            UserAccountDto? user = await _dataService.Users.GetAsync(id);
 
             if (user == null) return new JsonResult(NotFound());
 
-            return new JsonResult(_map.ToUserAccountDto(from: user));
+            return new JsonResult(_map.ToUserAccountCto(from: user));
         }
         [HttpGet]
         public async Task<JsonResult> GetByEmailAsync(string email)
         {
-            UserAccount? user = await _dataService.Users.GetByEmailAsync(email);
+            UserAccountDto? user = await _dataService.Users.GetByEmailAsync(email);
 
             if (user == null) return new JsonResult(NotFound());
 
-            return new JsonResult(_map.ToUserAccountDto(from: user));
+            return new JsonResult(_map.ToUserAccountCto(from: user));
         }
         [HttpGet]
         public async Task<JsonResult> GetOrdersAsync(int id)
         {
-            UserAccount? user = await _dataService.Users.GetAsync(id);
+            UserAccountDto? user = await _dataService.Users.GetAsync(id);
 
             if (user == null) return new JsonResult(NotFound());
 
-            return new JsonResult(_map.ToUserAccountDto(from: user).Orders);
+            return new JsonResult(_map.ToUserAccountCto(from: user).Orders);
         }
         [HttpGet]
         public async Task<JsonResult> GetFilteredAsync(string filter, int minLength = 2)
         {
-            Func<UserAccount, bool> filterFunc = user =>
-                user.FirstName.ToLower().Contains(filter.ToLower()) ||
-                user.LastName.ToLower().Contains(filter.ToLower());
+            Func<UserAccountDto, bool> filterFunc = user =>
+            {
+                bool firstNameMatches = user.FirstName.ToLower().Contains(filter.ToLower());
+                bool lastNameMatches = user.LastName.ToLower().Contains(filter.ToLower());
 
-            Func<UserAccount, object> orderByFunc = user => user.LastName + " " + user.FirstName;
+                return firstNameMatches || lastNameMatches;
+            };
 
-            List<UserAccountDto> dtos = new();
-            List<UserAccount>? filteredUsers = await _dataService.Users.Query(filterFunc, orderByFunc, filter, minLength);
+            Func<UserAccountDto, object> orderByFunc = user => user.LastName + " " + user.FirstName;
+
+            List<UserAccountCto> dtos = new();
+            List<UserAccountDto>? filteredUsers = await _dataService.Users.Query(filterFunc, orderByFunc, filter, minLength);
 
             if (filteredUsers == null) return new JsonResult(NotFound());
 
-            foreach (UserAccount user in filteredUsers)
+            foreach (UserAccountDto user in filteredUsers)
             {
-                dtos.Add(_map.ToUserAccountDto(from: user));
+                dtos.Add(_map.ToUserAccountCto(from: user));
             }
             return new JsonResult(dtos);
         }
         [HttpGet]
         public async Task<JsonResult> GetAllAsync()
         {
-            List<UserAccountDto> dtos = new List<UserAccountDto>();
-            List<UserAccount> users = await _dataService.Users.GetAllAsync();
+            List<UserAccountCto> dtos = new List<UserAccountCto>();
+            List<UserAccountDto> users = await _dataService.Users.GetAllAsync();
 
-            foreach (UserAccount user in users)
+            foreach (UserAccountDto user in users)
             {
-                dtos.Add(_map.ToUserAccountDto(from: user));
+                dtos.Add(_map.ToUserAccountCto(from: user));
             }
 
             return new JsonResult(dtos);

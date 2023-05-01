@@ -1,6 +1,5 @@
 ﻿using MyFridge_Interface_MAUI.Mvvms.View;
 using MyFridge_Interface_MAUI.Mvvms.View.Detail;
-using System.Windows.Input;
 
 namespace MyFridge_Interface_MAUI.Mvvms
 {

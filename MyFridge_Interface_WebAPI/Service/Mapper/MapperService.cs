@@ -8,7 +8,24 @@ namespace MyFridge_Interface_WebAPI.Service.Mapper
     public class MapperService: IMapperService
     {
         #region Address
-        public AddressDto? ToAddressDto(Address? from)
+        public AddressCto? ToAddressCto(AddressDto? from)
+        {
+            if (from == null) return null;
+
+            AddressCto cto = new()
+            {
+                Id = from.Id,
+                Street = from.Street,
+                Extension = from.Extension,
+                City = from.City,
+                State = from.State,
+                ZipCode = from.ZipCode,
+                Country = (int)from.Country
+            };
+
+            return cto;
+        }
+        public AddressDto? ToAddressDto(AddressCto? from)
         {
             if (from == null) return null;
 
@@ -20,32 +37,30 @@ namespace MyFridge_Interface_WebAPI.Service.Mapper
                 City = from.City,
                 State = from.State,
                 ZipCode = from.ZipCode,
-                Country = (int)from.Country
+                Country = (ECountry)from.Country
             };
 
             return dto;
         }
-        public Address? ToAddress(AddressDto? from)
-        {
-            if (from == null) return null;
-
-            Address address = new()
-            {
-                Id = from.Id,
-                Street = from.Street,
-                Extension = from.Extension,
-                City = from.City,
-                State = from.State,
-                ZipCode = from.ZipCode,
-                Country = (ECountry)from.Country
-            };
-
-            return address;
-        }
         #endregion
 
         #region AdminAccount
-        public AdminAccountDto? ToAdminAccountDto(AdminAccount? from)
+        public AdminAccountCto? ToAdminAccountCto(AdminAccountDto? from)
+        {
+            if (from == null) return null;
+
+            AdminAccountCto cto = new()
+            {
+                Id = from.Id,
+                FirstName = from.FirstName,
+                LastName = from.LastName,
+                Password = from.Password,
+                EmployeeNumber = from.EmployeeNumber
+            };
+
+            return cto;
+        }
+        public AdminAccountDto? ToAdminAccountDto(AdminAccountCto? from)
         {
             if (from == null) return null;
 
@@ -60,25 +75,35 @@ namespace MyFridge_Interface_WebAPI.Service.Mapper
 
             return dto;
         }
-        public AdminAccount? ToAdminAccount(AdminAccountDto? from)
+        #endregion
+
+        #region UserAccount
+        public UserAccountCto? ToUserAccountCto(UserAccountDto? from)
         {
             if (from == null) return null;
 
-            AdminAccount admin = new()
+            UserAccountCto cto = new()
             {
                 Id = from.Id,
                 FirstName = from.FirstName,
                 LastName = from.LastName,
                 Password = from.Password,
-                EmployeeNumber = from.EmployeeNumber
+                Email = from.Email,
+                PhoneNumber = from.PhoneNumber,
+                BirthDate = from.BirthDate,
+                Address = ToAddressCto(from.Address!)
             };
-
-            return admin;
+            foreach (OrderDto order in from.Orders)
+            {
+                cto.Orders.Add(ToOrderCto(from: order));
+            }
+            foreach (IngredientAmountDto ingredientAmount in from.IngredientAmounts)
+            {
+                cto.IngredientAmounts.Add(ToIngredientAmountCto(from: ingredientAmount));
+            }
+            return cto;
         }
-        #endregion
-
-        #region UserAccount
-        public UserAccountDto? ToUserAccountDto(UserAccount? from)
+        public UserAccountDto? ToUserAccountDto(UserAccountCto? from)
         {
             if (from == null) return null;
 
@@ -90,47 +115,37 @@ namespace MyFridge_Interface_WebAPI.Service.Mapper
                 Password = from.Password,
                 Email = from.Email,
                 PhoneNumber = from.PhoneNumber,
-                BirthDate = from.BirthDate,
-                Address = ToAddressDto(from.Address!)
-            };
-            foreach (Order order in from.Orders)
-            {
-                dto.Orders.Add(ToOrderDto(from: order));
-            }
-            foreach (IngredientAmount ingredientAmount in from.IngredientAmounts)
-            {
-                dto.IngredientAmounts.Add(ToIngredientAmountDto(from: ingredientAmount));
-            }
-            return dto;
-        }
-        public UserAccount? ToUserAccount(UserAccountDto? from)
-        {
-            if (from == null) return null;
-
-            UserAccount user = new()
-            {
-                Id = from.Id,
-                FirstName = from.FirstName,
-                LastName = from.LastName,
-                Password = from.Password,
-                Email = from.Email,
-                PhoneNumber = from.PhoneNumber,
                 BirthDate = from.BirthDate
             };
-            foreach (OrderDto dto in from.Orders)
+            foreach (OrderCto cto in from.Orders)
             {
-                user.Orders.Add(ToOrder(from: dto));
+                dto.Orders.Add(ToOrderDto(from: cto));
             }
-            foreach (IngredientAmountDto dto in from.IngredientAmounts)
+            foreach (IngredientAmountCto cto in from.IngredientAmounts)
             {
-                user.IngredientAmounts.Add(ToIngredientAmount(from: dto));
+                dto.IngredientAmounts.Add(ToIngredientAmountDto(from: cto));
             }
-            return user;
+            return dto;
         }
         #endregion
 
         #region Grocery
-        public GroceryDto? ToGroceryDto(Grocery? from)
+        public GroceryCto? ToGroceryCto(GroceryDto? from)
+        {
+            if (from == null) return null;
+
+            GroceryCto cto = new()
+            {
+                Id = from.Id,
+                Brand = from.Brand,
+                SalePrice = from.SalePrice,
+                ItemIdentifier = from.ItemIdentifier,
+                ImageUrl = from.ImageUrl,
+                IngredientAmount = ToIngredientAmountCto(from.IngredientAmount)
+            };
+            return cto;
+        }
+        public GroceryDto? ToGroceryDto(GroceryCto? from)
         {
             if (from == null) return null;
 
@@ -139,34 +154,31 @@ namespace MyFridge_Interface_WebAPI.Service.Mapper
                 Id = from.Id,
                 Brand = from.Brand,
                 SalePrice = from.SalePrice,
-                Category = from.Category,
                 ItemIdentifier = from.ItemIdentifier,
                 ImageUrl = from.ImageUrl,
-                Ingredient = ToIngredientAmountDto(from.IngredientAmount)
+                IngredientAmount = ToIngredientAmountDto(from.IngredientAmount)
             };
+
             return dto;
-        }
-        public Grocery? ToGrocery(GroceryDto? from)
-        {
-            if (from == null) return null;
-
-            Grocery grocery = new()
-            {
-                Id = from.Id,
-                Brand = from.Brand,
-                SalePrice = from.SalePrice,
-                Category = from.Category,
-                ItemIdentifier = from.ItemIdentifier,
-                ImageUrl = from.ImageUrl,
-                IngredientAmount = ToIngredientAmount(from.Ingredient)
-            };
-
-            return grocery;
         }
         #endregion
 
         #region Ingredient
-        public IngredientDto? ToIngredientDto(Ingredient? from)
+        public IngredientCto? ToIngredientCto(IngredientDto? from)
+        {
+            if (from == null) return null;
+
+            IngredientCto cto = new()
+            {
+                Id = from.Id,
+                Name = from.Name,
+                Unit = (int)from.Unit,
+                Category = from.Category
+            };
+
+            return cto;
+        }
+        public IngredientDto? ToIngredientDto(IngredientCto? from)
         {
             if (from == null) return null;
 
@@ -174,28 +186,30 @@ namespace MyFridge_Interface_WebAPI.Service.Mapper
             {
                 Id = from.Id,
                 Name = from.Name,
-                Unit = (int)from.Unit
+                Unit = (EUnit)from.Unit,
+                Category = from.Category,
             };
 
             return dto;
         }
-        public Ingredient? ToIngredient(IngredientDto? from)
-        {
-            if (from == null) return null;
-
-            Ingredient ingredient = new()
-            {
-                Id = from.Id,
-                Name = from.Name,
-                Unit = (EUnit)from.Unit
-            };
-
-            return ingredient;
-        }
         #endregion
 
         #region IngredientAmount
-        public IngredientAmountDto? ToIngredientAmountDto(IngredientAmount? from)
+        public IngredientAmountCto? ToIngredientAmountCto(IngredientAmountDto? from)
+        {
+            if (from == null) return null;
+
+            IngredientAmountCto cto = new()
+            {
+                Id = from.Id,
+                Ingredient = ToIngredientCto(from.Ingredient),
+                Amount = from.Amount,
+                ExpirationDate = from.ExpirationDate
+            };
+
+            return cto;
+        }
+        public IngredientAmountDto? ToIngredientAmountDto(IngredientAmountCto? from)
         {
             if (from == null) return null;
 
@@ -209,60 +223,64 @@ namespace MyFridge_Interface_WebAPI.Service.Mapper
 
             return dto;
         }
-        public IngredientAmount? ToIngredientAmount(IngredientAmountDto? from)
-        {
-            if (from == null) return null;
-
-            IngredientAmount ingredient = new()
-            {
-                Id = from.Id,
-                Ingredient = ToIngredient(from.Ingredient),
-                Amount = from.Amount,
-                ExpirationDate = from.ExpirationDate
-            };
-
-            return ingredient;
-        }
         #endregion
 
         #region Order
-        public OrderDto? ToOrderDto(Order? from)
+        public OrderCto? ToOrderCto(OrderDto? from)
+        {
+            if (from == null) return null;
+
+            OrderCto cto = new()
+            {
+                Id = from.Id,
+                Created = from.CreationTime,
+                Status = (int)from.Status
+            };
+            foreach (GroceryDto dto in from.Groceries)
+            {
+                cto.Groceries.Add(ToGroceryCto(from: dto));
+            }
+
+            return cto;
+        }
+        public OrderDto? ToOrderDto(OrderCto? from)
         {
             if (from == null) return null;
 
             OrderDto dto = new()
             {
                 Id = from.Id,
-                Created = from.CreationTime,
-                Status = (int)from.Status
+                Status = (EOrderStatus)from.Status
             };
-            foreach (Grocery grocery in from.Groceries)
+            foreach (GroceryCto cto in from.Groceries)
             {
-                dto.Groceries.Add(ToGroceryDto(from: grocery));
+                dto.Groceries.Add(ToGroceryDto(from: cto));
             }
 
             return dto;
         }
-        public Order? ToOrder(OrderDto? from)
-        {
-            if (from == null) return null;
-
-            Order order = new()
-            {
-                Id = from.Id,
-                Status = (EOrderStatus)from.Status
-            };
-            foreach (GroceryDto dto in from.Groceries)
-            {
-                order.Groceries.Add(ToGrocery(from: dto));
-            }
-
-            return order;
-        }
         #endregion
 
         #region Recipy
-        public RecipeDto? ToRecipeDto(Recipe? from)
+        public RecipeCto? ToRecipeCto(RecipeDto? from)
+        {
+            if (from == null) return null;
+
+            RecipeCto cto = new()
+            {
+                Id = from.Id,
+                Name = from.Name,
+                Method = from.Method,
+                ImageUrl = from.ImageUrl
+            };
+            foreach (IngredientAmountDto dto in from.IngredientAmounts)
+            {
+                cto.IngredientAmounts.Add(ToIngredientAmountCto(from: dto));
+            }
+
+            return cto;
+        }
+        public RecipeDto? ToRecipeDto(RecipeCto? from)
         {
             if (from == null) return null;
 
@@ -273,30 +291,13 @@ namespace MyFridge_Interface_WebAPI.Service.Mapper
                 Method = from.Method,
                 ImageUrl = from.ImageUrl
             };
-            foreach (IngredientAmount ingredientAmount in from.IngredientAmounts)
+
+            foreach (IngredientAmountCto cto in from.IngredientAmounts)
             {
-                dto.IngredientAmounts.Add(ToIngredientAmountDto(from: ingredientAmount));
+                dto.IngredientAmounts.Add(ToIngredientAmountDto(from: cto));
             }
 
             return dto;
-        }
-        public Recipe? ToRecipe(RecipeDto? from)
-        {
-            if (from == null) return null;
-
-            Recipe recipe = new()
-            {
-                Id = from.Id,
-                Name = from.Name,
-                Method = from.Method,
-                ImageUrl = from.ImageUrl
-            };
-
-            foreach (IngredientAmountDto dto in from.IngredientAmounts)
-            {
-                recipe.IngredientAmounts.Add(ToIngredientAmount(from: dto));
-            }
-            return recipe;
         }
         #endregion
     }

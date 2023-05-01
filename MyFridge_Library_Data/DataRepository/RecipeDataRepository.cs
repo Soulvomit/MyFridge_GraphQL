@@ -7,18 +7,18 @@ using MyFridge_Library_Data.DataRepository.Interface;
 
 namespace MyFridge_Library_Data.DataRepository
 {
-    public class RecipeDataRepository : DataRepository<Recipe>, IRecipeDataRepository
+    public class RecipeDataRepository : DataRepository<RecipeDto>, IRecipeDataRepository
     {
         public RecipeDataRepository(ApplicationDbContext context, ILogger log)
             : base(context, log)
         {
         }
 
-        public override async Task<bool> UpdateAsync(Recipe updateEntity)
+        public override async Task<bool> UpdateAsync(RecipeDto updateEntity)
         {
             if (updateEntity == null) return false;
 
-            Recipe? entityInDb = await dbSet.FindAsync(updateEntity.Id);
+            RecipeDto? entityInDb = await dbSet.FindAsync(updateEntity.Id);
 
             if (entityInDb == null) return false;
 
@@ -30,22 +30,22 @@ namespace MyFridge_Library_Data.DataRepository
         }
 
         #region Ingredients
-        public async Task<bool> AddIngredientAmountAsync(int id, IngredientAmount addEntity)
+        public async Task<bool> AddIngredientAmountAsync(int id, IngredientAmountDto addEntity)
         {
-            Recipe? entityInDb = await GetAsync(id);
+            RecipeDto? entityInDb = await GetAsync(id);
 
             if (entityInDb == null) return false;
 
             entityInDb.IngredientAmounts.Add(addEntity);
             return true;
         }
-        public async Task<bool> BatchIngredientAmountAsync(int id, IngredientAmount addEntity)
+        public async Task<bool> BatchIngredientAmountAsync(int id, IngredientAmountDto addEntity)
         {
-            Recipe? entityInDb = await GetAsync(id);
+            RecipeDto? entityInDb = await GetAsync(id);
 
             if (entityInDb == null) return false;
 
-            IngredientAmount? foundEntity = entityInDb.IngredientAmounts.
+            IngredientAmountDto? foundEntity = entityInDb.IngredientAmounts.
                 FirstOrDefault(ia => ia.Ingredient.Id == addEntity.Ingredient.Id);
 
             if (foundEntity != null)
@@ -57,11 +57,11 @@ namespace MyFridge_Library_Data.DataRepository
         }
         public async Task<bool> RemoveAmountAsync(int id, int ingredientAmountId, float removeAmount, bool forceRemove = true)
         {
-            Recipe? entityInDb = await GetAsync(id);
+            RecipeDto? entityInDb = await GetAsync(id);
 
             if (entityInDb == null) return false;
 
-            IngredientAmount? foundEntity = entityInDb.IngredientAmounts
+            IngredientAmountDto? foundEntity = entityInDb.IngredientAmounts
                 .FirstOrDefault(ia => ia.Id == ingredientAmountId);
 
             if (foundEntity == null) return false;
@@ -86,9 +86,9 @@ namespace MyFridge_Library_Data.DataRepository
             }
             return false;
         }
-        public async Task<bool> RemoveIngredientAmountAsync(int id, IngredientAmount removeEntity)
+        public async Task<bool> RemoveIngredientAmountAsync(int id, IngredientAmountDto removeEntity)
         {
-            Recipe? entityInDb = await GetAsync(id);
+            RecipeDto? entityInDb = await GetAsync(id);
 
             if (entityInDb == null) return false;
 
@@ -99,10 +99,10 @@ namespace MyFridge_Library_Data.DataRepository
         }
         public async Task<bool> RemoveIngredientAmountAsync(int id, int ingredientAmountId)
         {
-            Recipe? entityInDb = await GetAsync(id);
+            RecipeDto? entityInDb = await GetAsync(id);
             if (entityInDb == null) return false;
 
-            IngredientAmount? iaEntityInDb = await _context.IngredientAmounts.FindAsync(ingredientAmountId);
+            IngredientAmountDto? iaEntityInDb = await _context.IngredientAmounts.FindAsync(ingredientAmountId);
             if (iaEntityInDb == null) return false;
 
             entityInDb.IngredientAmounts.Remove(iaEntityInDb);

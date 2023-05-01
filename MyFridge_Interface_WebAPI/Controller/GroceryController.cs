@@ -21,14 +21,14 @@ namespace MyFridge_Interface_WebAPI.Controller
         }
         //create/edit
         [HttpPost]
-        public async Task<JsonResult> UpsertAsync([FromBody] GroceryDto dto)
+        public async Task<JsonResult> UpsertAsync([FromBody] GroceryCto dto)
         {
             if (!ModelState.IsValid) return new JsonResult(BadRequest());
 
-            if (dto.Id == 0) await _dataService.Groceries.CreateAsync(_map.ToGrocery(from: dto));
+            if (dto.Id == 0) await _dataService.Groceries.CreateAsync(_map.ToGroceryDto(from: dto));
             else
             {
-                bool success = await _dataService.Groceries.UpdateAsync(_map.ToGrocery(from: dto));
+                bool success = await _dataService.Groceries.UpdateAsync(_map.ToGroceryDto(from: dto));
 
                 if (!success) return new JsonResult(NotFound());
             }
@@ -40,41 +40,47 @@ namespace MyFridge_Interface_WebAPI.Controller
         [HttpGet]
         public async Task<JsonResult> GetAsync(int id)
         {
-            Grocery? grocery = await _dataService.Groceries.GetAsync(id);
+            GroceryDto? grocery = await _dataService.Groceries.GetAsync(id);
 
             if (grocery == null) return new JsonResult(NotFound());
 
-            return new JsonResult(_map.ToGroceryDto(from: grocery));
+            return new JsonResult(_map.ToGroceryCto(from: grocery));
         }
         [HttpGet]
         public async Task<JsonResult> GetFilteredAsync(string filter, int minLength = 2)
         {
-            Func<Grocery, bool> filterFunc = grocery =>
-                grocery.IngredientAmount.Ingredient.Name.ToLower().Contains(filter.ToLower()) ||
-                grocery.Brand.ToLower().Contains(filter.ToLower());
+            Func<GroceryDto, bool> filterFunc = grocery =>
+            {
+                bool nameMatches = grocery.IngredientAmount.Ingredient.Name.ToLower().StartsWith(filter.ToLower());
+                bool brandMatches = grocery.Brand.ToLower().StartsWith(filter.ToLower());
+                bool categoryMatches = grocery.IngredientAmount.Ingredient.Category.ToLower().StartsWith(filter.ToLower());
+                bool itemMatches = grocery.ItemIdentifier.ToLower().StartsWith(filter.ToLower());
 
-            Func<Grocery, object> orderByFunc = grocery => grocery.IngredientAmount.Ingredient.Name;
+                return nameMatches || brandMatches || categoryMatches || itemMatches;
+            };
 
-            List<GroceryDto> dtos = new();
-            List<Grocery>? filteredGroceries = await _dataService.Groceries.Query(filterFunc, orderByFunc, filter, minLength);
+            Func<GroceryDto, object> orderByFunc = grocery => grocery.IngredientAmount.Ingredient.Name;
+
+            List<GroceryCto> dtos = new();
+            List<GroceryDto>? filteredGroceries = await _dataService.Groceries.Query(filterFunc, orderByFunc, filter, minLength);
 
             if (filteredGroceries == null) return new JsonResult(NotFound());
 
-            foreach (Grocery grocery in filteredGroceries)
+            foreach (GroceryDto grocery in filteredGroceries)
             {
-                dtos.Add(_map.ToGroceryDto(from: grocery));
+                dtos.Add(_map.ToGroceryCto(from: grocery));
             }
             return new JsonResult(dtos);
         }
         [HttpGet]
         public async Task<JsonResult> GetAllAsync()
         {
-            List<GroceryDto> dtos = new List<GroceryDto>();
-            List<Grocery> groceries = await _dataService.Groceries.GetAllAsync();
+            List<GroceryCto> dtos = new List<GroceryCto>();
+            List<GroceryDto> groceries = await _dataService.Groceries.GetAllAsync();
 
-            foreach (Grocery grocery in groceries)
+            foreach (GroceryDto grocery in groceries)
             {
-                dtos.Add(_map.ToGroceryDto(from: grocery));
+                dtos.Add(_map.ToGroceryCto(from: grocery));
             }
 
             return new JsonResult((dtos));

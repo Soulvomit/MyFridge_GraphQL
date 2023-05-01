@@ -21,11 +21,11 @@ namespace MyFridge_Interface_WebAPI.Controller
             _log = log;
         }
         [HttpPost]
-        public async Task<JsonResult> UpsertAsync(int id, [FromBody]IngredientAmountDto dto)
+        public async Task<JsonResult> UpsertAsync(int id, [FromBody]IngredientAmountCto dto)
         {
             if (!ModelState.IsValid) return new JsonResult(BadRequest());
 
-            bool success = await _dataService.Recipes.AddIngredientAmountAsync(id, _map.ToIngredientAmount(from: dto));
+            bool success = await _dataService.Recipes.AddIngredientAmountAsync(id, _map.ToIngredientAmountDto(from: dto));
 
             if (!success) return new JsonResult(NotFound());
 
@@ -36,21 +36,21 @@ namespace MyFridge_Interface_WebAPI.Controller
         [HttpGet]
         public async Task<JsonResult> GetAsync(int id, int iaId)
         {
-            Recipe? recipe = await _dataService.Recipes.GetAsync(id);
+            RecipeDto? recipe = await _dataService.Recipes.GetAsync(id);
             if (recipe == null) return new JsonResult(NotFound());
 
-            IngredientAmount? ingredientAmount = recipe.IngredientAmounts.FirstOrDefault(ia => ia.Id == iaId);
+            IngredientAmountDto? ingredientAmount = recipe.IngredientAmounts.FirstOrDefault(ia => ia.Id == iaId);
             if (ingredientAmount == null) return new JsonResult(NotFound());
 
-            return new JsonResult(_map.ToIngredientAmountDto(from: ingredientAmount));
+            return new JsonResult(_map.ToIngredientAmountCto(from: ingredientAmount));
         }
         [HttpGet]
         public async Task<JsonResult> GetAllAsync(int id)
         {
-            Recipe? recipe = await _dataService.Recipes.GetAsync(id);
+            RecipeDto? recipe = await _dataService.Recipes.GetAsync(id);
             if (recipe == null) return new JsonResult(NotFound());
 
-            return new JsonResult(_map.ToRecipeDto(from: recipe).IngredientAmounts);
+            return new JsonResult(_map.ToRecipeCto(from: recipe).IngredientAmounts);
         }
 
         [HttpDelete]

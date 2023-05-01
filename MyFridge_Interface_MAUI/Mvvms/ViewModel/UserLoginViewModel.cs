@@ -5,10 +5,14 @@ namespace MyFridge_Interface_MAUI.Mvvms.ViewModel
 {
     public class UserLoginViewModel : BindableObject
     {
+        #region Privates
         private readonly IClientService _clientService;
         private string loginResultMessage;
         private string entryEmail;
         private string entryPassword;
+        #endregion
+
+        #region Properties
         public string EntryEmail
         {
             get => entryEmail;
@@ -36,17 +40,20 @@ namespace MyFridge_Interface_MAUI.Mvvms.ViewModel
                 OnPropertyChanged(nameof(LoginResultMessage));
             }
         }
+        #endregion
+
         public UserLoginViewModel(IClientService clientService)
         {
             _clientService = clientService;
 
+            //for testing
             EntryEmail = "email@email.com";
             EntryPassword = "password";
         }
 
         public async Task<bool> LoginAsync()
         {
-            UserAccountDto user = await _clientService.UserClient.GetByEmailAsync(EntryEmail);
+            UserAccountCto user = await _clientService.UserClient.GetByEmailAsync(EntryEmail);
 
             if (user.Id != 0)
             {
@@ -61,7 +68,7 @@ namespace MyFridge_Interface_MAUI.Mvvms.ViewModel
             }
             else
             {
-                LoginResultMessage = "No user with that email exists";
+                LoginResultMessage = "Invalid email";
             }
             return false;
         }

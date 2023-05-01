@@ -21,14 +21,14 @@ namespace MyFridge_Interface_WebAPI.Controller
             _log = log;
         }
         [HttpPost]
-        public async Task<JsonResult> UpsertAsync([FromBody] IngredientDto dto)
+        public async Task<JsonResult> UpsertAsync([FromBody] IngredientCto dto)
         {
             if (!ModelState.IsValid) return new JsonResult(BadRequest());
 
-            if (dto.Id == 0) await _dataService.Ingredients.CreateAsync(_map.ToIngredient(from: dto));
+            if (dto.Id == 0) await _dataService.Ingredients.CreateAsync(_map.ToIngredientDto(from: dto));
             else
             {
-                bool success = await _dataService.Ingredients.UpdateAsync(_map.ToIngredient(from: dto));
+                bool success = await _dataService.Ingredients.UpdateAsync(_map.ToIngredientDto(from: dto));
 
                 if (!success) return new JsonResult(NotFound());
             }
@@ -40,21 +40,21 @@ namespace MyFridge_Interface_WebAPI.Controller
         [HttpGet]
         public async Task<JsonResult> GetAsync(int id)
         {
-            Ingredient? ingredient = await _dataService.Ingredients.GetAsync(id);
+            IngredientDto? ingredient = await _dataService.Ingredients.GetAsync(id);
 
             if (ingredient == null) return new JsonResult(NotFound());
 
-            return new JsonResult(_map.ToIngredientDto(from: ingredient));
+            return new JsonResult(_map.ToIngredientCto(from: ingredient));
         }
         [HttpGet()]
         public async Task<JsonResult> GetAllAsync()
         {
-            List<IngredientDto> dtos = new List<IngredientDto>();
-            List<Ingredient> ingredients = await _dataService.Ingredients.GetAllAsync();
+            List<IngredientCto> dtos = new List<IngredientCto>();
+            List<IngredientDto> ingredients = await _dataService.Ingredients.GetAllAsync();
 
-            foreach (Ingredient ingredient in ingredients)
+            foreach (IngredientDto ingredient in ingredients)
             {
-                dtos.Add(_map.ToIngredientDto(from: ingredient));
+                dtos.Add(_map.ToIngredientCto(from: ingredient));
             }
 
             return new JsonResult(dtos);

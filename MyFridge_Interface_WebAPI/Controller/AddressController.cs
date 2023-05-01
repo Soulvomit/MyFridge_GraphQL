@@ -22,14 +22,14 @@ namespace MyFridge_Interface_WebAPI.Controller
         }
 
         [HttpPost]
-        public async Task<JsonResult> UpsertAsync([FromBody] AddressDto dto)
+        public async Task<JsonResult> UpsertAsync([FromBody] AddressCto dto)
         {
             if (!ModelState.IsValid) return new JsonResult(BadRequest());
 
-            if (dto.Id == 0) await _dataService.Addresses.CreateAsync(_map.ToAddress(from: dto));
+            if (dto.Id == 0) await _dataService.Addresses.CreateAsync(_map.ToAddressDto(from: dto));
             else
             {
-                bool success = await _dataService.Addresses.UpdateAsync(_map.ToAddress(from: dto));
+                bool success = await _dataService.Addresses.UpdateAsync(_map.ToAddressDto(from: dto));
 
                 if (!success) return new JsonResult(NotFound());
             }
@@ -41,21 +41,21 @@ namespace MyFridge_Interface_WebAPI.Controller
         [HttpGet]
         public async Task<JsonResult> GetAsync(int id)
         {
-            Address? address = await _dataService.Addresses.GetAsync(id);
+            AddressDto? address = await _dataService.Addresses.GetAsync(id);
 
             if (address == null) return new JsonResult(NotFound());
 
-            return new JsonResult(_map.ToAddressDto(from: address));
+            return new JsonResult(_map.ToAddressCto(from: address));
         }
         [HttpGet]
         public async Task<JsonResult> GetAllAsync() 
         {
-            List<AddressDto> dtos = new List<AddressDto>();
-            List<Address> addresses = await _dataService.Addresses.GetAllAsync();
+            List<AddressCto> dtos = new List<AddressCto>();
+            List<AddressDto> addresses = await _dataService.Addresses.GetAllAsync();
 
-            foreach(Address address in addresses)
+            foreach(AddressDto address in addresses)
             {
-                dtos.Add(_map.ToAddressDto(from: address)!);
+                dtos.Add(_map.ToAddressCto(from: address)!);
             }
 
             return new JsonResult(dtos);

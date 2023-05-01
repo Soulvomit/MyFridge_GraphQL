@@ -6,7 +6,7 @@ namespace MyFridge_Interface_MAUI.Mvvms.Service.Client
 {
     public class ClientService : IClientService, IDisposable, IAsyncDisposable
     {
-        private readonly string baseAddress = "https://localhost:44364/";
+        private readonly string baseAddress = "https://localhost:8001/";
         public IAddressClientRepository AddressClient { get; set; }
         public IAdminAccountClientRepository AdminClient { get; set; }
         public IUserAccountClientRepository UserClient { get; set; }
@@ -29,7 +29,7 @@ namespace MyFridge_Interface_MAUI.Mvvms.Service.Client
 
         public void Dispose()
         {
-
+            throw new NotImplementedException();
         }
 
         public ValueTask DisposeAsync()

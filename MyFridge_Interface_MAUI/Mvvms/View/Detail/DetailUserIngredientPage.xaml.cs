@@ -14,7 +14,7 @@ public partial class DetailUserIngredientPage : ContentPage
 
         _navigationService = navigationService;
         _viewModel = viewModel;
-        _viewModel.IngredientAmount = _navigationService.GetDataStore<IngredientAmountDto>();
+        _viewModel.IngredientAmount = _navigationService.GetDataStore<IngredientAmountCto>();
         BindingContext = _viewModel;
     }
     private async void OnSaveButtonClicked(object sender, EventArgs e)

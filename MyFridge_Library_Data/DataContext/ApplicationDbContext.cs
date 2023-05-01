@@ -5,21 +5,21 @@ namespace MyFridge_Library_Data.DataContext
 {
     public class ApplicationDbContext : DbContext 
     {
-        public DbSet<Ingredient> Ingredients { get; set; }
-        public DbSet<Recipe> Recipies { get; set; }
-        public DbSet<Grocery> Groceries { get; set; }
-        public DbSet<IngredientAmount> IngredientAmounts { get; set; }
-        public DbSet<Address> Addresses { get; set; }
-        public DbSet<UserAccount> Users { get; set; }
-        public DbSet<AdminAccount> Admins { get; set; }
-        public DbSet<Order> Orders { get; set; }
+        public DbSet<IngredientDto> Ingredients { get; set; }
+        public DbSet<RecipeDto> Recipies { get; set; }
+        public DbSet<GroceryDto> Groceries { get; set; }
+        public DbSet<IngredientAmountDto> IngredientAmounts { get; set; }
+        public DbSet<AddressDto> Addresses { get; set; }
+        public DbSet<UserAccountDto> Users { get; set; }
+        public DbSet<AdminAccountDto> Admins { get; set; }
+        public DbSet<OrderDto> Orders { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) 
         {
             
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<UserAccount>()
+            modelBuilder.Entity<UserAccountDto>()
                 .HasIndex(ua => ua.Email)
                 .IsUnique();
             //modelBuilder.Entity<Ingredient>()

@@ -3,7 +3,7 @@ using MyFridge_Library_Data.DataRepository.Interface.Base;
 
 namespace MyFridge_Library_Data.DataRepository.Interface
 {
-    public interface IIngredientAmountDataRepository : IDataRepository<IngredientAmount>
+    public interface IIngredientAmountDataRepository : IDataRepository<IngredientAmountDto>
     {
 
     }

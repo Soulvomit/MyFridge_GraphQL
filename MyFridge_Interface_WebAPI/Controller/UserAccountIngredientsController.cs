@@ -22,11 +22,11 @@ namespace MyFridge_Interface_WebAPI.Controller
         }
 
         [HttpPost]
-        public async Task<JsonResult> UpsertAsync(int id, [FromBody] IngredientAmountDto dto)
+        public async Task<JsonResult> UpsertAsync(int id, [FromBody] IngredientAmountCto dto)
         {
             if (!ModelState.IsValid) return new JsonResult(BadRequest());
 
-            bool success = await _dataService.Users.AddIngredientAmountAsync(id, _map.ToIngredientAmount(from: dto));
+            bool success = await _dataService.Users.AddIngredientAmountAsync(id, _map.ToIngredientAmountDto(from: dto));
 
             if (!success) return new JsonResult(NotFound());
 
@@ -37,25 +37,25 @@ namespace MyFridge_Interface_WebAPI.Controller
         [HttpGet]
         public async Task<JsonResult> GetAsync(int id, int ingredientAmountId)
         {
-            UserAccount? user = await _dataService.Users.GetAsync(id);
+            UserAccountDto? user = await _dataService.Users.GetAsync(id);
 
             if (user == null) return new JsonResult(NotFound());
 
-            IngredientAmount? ingredientAmount = user.IngredientAmounts
+            IngredientAmountDto? ingredientAmount = user.IngredientAmounts
                 .FirstOrDefault(ingredientAmount => ingredientAmount.Id == ingredientAmountId);
             
             if (ingredientAmount == null) return new JsonResult(NotFound());
 
-            return new JsonResult(_map.ToIngredientAmountDto(from: ingredientAmount));
+            return new JsonResult(_map.ToIngredientAmountCto(from: ingredientAmount));
         }
         [HttpGet]
         public async Task<JsonResult> GetAllAsync(int id)
         {
-            UserAccount? user = await _dataService.Users.GetAsync(id);
+            UserAccountDto? user = await _dataService.Users.GetAsync(id);
 
             if (user == null) return new JsonResult(NotFound());
 
-            return new JsonResult(_map.ToUserAccountDto(from: user).IngredientAmounts);
+            return new JsonResult(_map.ToUserAccountCto(from: user).IngredientAmounts);
         }
         [HttpDelete]
         public async Task<JsonResult> DeleteAsync(int id, int ingredientAmountId, float removeAmount, bool forceRemove = true)

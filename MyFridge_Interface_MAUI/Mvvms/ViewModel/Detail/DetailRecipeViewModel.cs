@@ -9,10 +9,19 @@ namespace MyFridge_Interface_MAUI.Mvvms.ViewModel.Detail
         #region Privates
         private readonly IClientService _clientService;
         private ObservableCollection<DetailIngredientViewModel> recipeIngredientDetails;
+        private RecipeCto recipe;
         #endregion
 
         #region Properties
-        public RecipeDto Recipe { get; set; }
+        public RecipeCto Recipe
+        {
+            get => recipe;
+            set 
+            {
+                recipe = value;
+                OnPropertyChanged(nameof(Recipe));
+            }
+        }
         public ObservableCollection<DetailIngredientViewModel> RecipeIngredientDetails
         {
             get => recipeIngredientDetails;
@@ -26,32 +35,22 @@ namespace MyFridge_Interface_MAUI.Mvvms.ViewModel.Detail
         {
             get
             {
-                UserAccountDto user = _clientService.UserClient.Lazy;
-                return Recipe.IngredientAmounts
-                    .All(recipeIngredient => user.IngredientAmounts
-                        .Any(userIngredient => recipeIngredient.Ingredient.Id == userIngredient.Ingredient.Id &&
-                                recipeIngredient.Amount <= userIngredient.Amount));
+                UserAccountCto user = _clientService.UserClient.Lazy;
+                return Recipe.IngredientAmounts.All(recipeIngredient => 
+                    user.IngredientAmounts.Any(userIngredient => 
+                        recipeIngredient.Ingredient.Id == userIngredient.Ingredient.Id &&
+                        recipeIngredient.Amount <= userIngredient.Amount));
             }
         }
-        public Color TextColor { get; set; } = Colors.White;
         public string Name
         {
             get => Recipe.Name;
-            private set
-            {
-                Recipe.Name = value;
-                OnPropertyChanged(nameof(Name));
-            }
         }
         public string Method
         {
             get => Recipe.Method;
-            private set
-            {
-                Recipe.Method = value;
-                OnPropertyChanged(nameof(Method));
-            }
         }
+        public Color TextColor { get; set; }
         #endregion
 
         public DetailRecipeViewModel(IClientService clientService)
@@ -64,15 +63,15 @@ namespace MyFridge_Interface_MAUI.Mvvms.ViewModel.Detail
         public void RefreshAsync()
         {
             RecipeIngredientDetails = ToViewModel(Recipe.IngredientAmounts.OrderBy(i => i.Ingredient.Name));
-            foreach (DetailIngredientViewModel ivm in RecipeIngredientDetails)
+            foreach (DetailIngredientViewModel viewModel in RecipeIngredientDetails)
             {
-                ivm.Update();
+                viewModel.Update();
             }
         }
-        private ObservableCollection<DetailIngredientViewModel> ToViewModel(IEnumerable<IngredientAmountDto> ingredients)
+        private ObservableCollection<DetailIngredientViewModel> ToViewModel(IEnumerable<IngredientAmountCto> ingredients)
         {
             ObservableCollection<DetailIngredientViewModel> viewModels = new();
-            foreach (IngredientAmountDto dto in ingredients)
+            foreach (IngredientAmountCto dto in ingredients)
             {
                 DetailIngredientViewModel viewModel = new(_clientService)
                 {
