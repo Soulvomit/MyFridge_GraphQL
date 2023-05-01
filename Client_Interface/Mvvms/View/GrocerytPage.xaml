@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:Client_Interface.Mvvms.ViewModel"
+             xmlns:viewModelDetail="clr-namespace:Client_Interface.Mvvms.ViewModel.Detail"
+             x:Class="Client_Interface.Mvvms.View.GroceryPage"
+             x:DataType="viewModel:GroceryViewModel"
+             Title="Your Ingredients"
+             BackgroundColor="#f0f4f8">
+
+    <ScrollView>
+        <StackLayout Padding="20">
+            <SearchBar x:Name="SearchBar" 
+                       Placeholder="Search"
+                       TextChanged="OnSearchTextChanged"
+                       SearchButtonPressed="OnSearchButtonPressed"/>
+            <CollectionView ItemsSource="{Binding GroceryDetails}"
+                        SelectionMode="Single"
+                        SelectionChanged="OnIngredientSelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="viewModelDetail:DetailGroceryViewModel">
+                        <Frame Grid.RowSpan="2"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="2"
+                           Padding="0"
+                           Margin="0, 5"
+                           HasShadow="True"
+                           CornerRadius="10"
+                           BackgroundColor="#ffffff">
+                            <Grid Padding="10"
+                                  ColumnSpacing="10"
+                                  RowSpacing="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="3"/>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="3"/>
+                                    <ColumnDefinition Width="130"/>
+                                    <ColumnDefinition Width="3"/>
+                                    <ColumnDefinition Width="90"/>
+                                    <ColumnDefinition Width="3"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="3"/>
+                                    <ColumnDefinition Width="50"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Image Grid.RowSpan="2"
+                                       Grid.Row="0"
+                                       Grid.Column="0"
+                                       Source="dotnet_bot.png"
+                                       Aspect="AspectFill"
+                                       HeightRequest="60"
+                                       WidthRequest="60" />
+                                <!--<Image Source="{Binding ImageUrl}" />-->
+                                <StackLayout Grid.Row="0"
+                                             Grid.Column="1">
+                                    <Label Text="{Binding Name}"
+                                           FontAttributes="Bold"
+                                           FontSize="Small"/>
+                                    <Label FontSize="Small">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding Amount}"
+                                                      FontAttributes="Italic"/>
+                                                <Span Text="{Binding UnitStr}"
+                                                      FontAttributes="Italic"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
+                                <BoxView Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" BackgroundColor="Black" />
+                                <StackLayout Grid.Row="0"
+                                             Grid.Column="3"
+                                             HorizontalOptions="CenterAndExpand">
+                                    <Label Text="Price"
+                                           FontAttributes="Bold"
+                                           FontSize="Small"/>
+                                    <Label FontSize="Small">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding Price}"
+                                                      FontAttributes="Italic"/>
+                                                <Span Text="$"
+                                                      FontAttributes="Italic"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
+                                <BoxView Grid.Row="0" Grid.Column="4" Grid.RowSpan="2" BackgroundColor="Black" />
+                                <StackLayout Grid.Row="0"
+                                             Grid.Column="5"
+                                             HorizontalOptions="CenterAndExpand">
+                                    <Label Text="Item Number"
+                                           FontAttributes="Bold"
+                                           FontSize="Small"/>
+                                    <Label Text="{Binding ItemIdentifier}"
+                                           FontAttributes="Italic"
+                                           FontSize="Small"/>
+                                </StackLayout>
+                                <BoxView Grid.Row="0" Grid.Column="6" Grid.RowSpan="2" BackgroundColor="Black" />
+                                <StackLayout Grid.Row="0"
+                                             Grid.Column="7"
+                                             HorizontalOptions="CenterAndExpand">
+                                    <Label Text="Category"
+                                           FontAttributes="Bold"
+                                           FontSize="Small"/>
+                                    <Label Text="{Binding Category}"
+                                           FontAttributes="Italic"
+                                           FontSize="Small"/>
+                                </StackLayout>
+                                <BoxView Grid.Row="0" Grid.Column="8" Grid.RowSpan="2" BackgroundColor="Black" />
+                                <StackLayout Grid.Row="0"
+                                             Grid.Column="9">
+                                    <Label  Text="Brand"
+                                            FontAttributes="Bold"
+                                            FontSize="Small"/>
+                                    <Label  Text="{Binding Brand}"
+                                            FontAttributes="Italic"
+                                            FontSize="Small"/>
+                                </StackLayout>
+                                <BoxView Grid.Row="0" Grid.Column="10" Grid.RowSpan="2" BackgroundColor="Black" />
+                                <StackLayout Grid.Row="0"
+                                             Grid.Column="11">
+                                    <Button Text="+" 
+                                            FontSize="Medium"
+                                            BackgroundColor="Violet"
+                                            TextColor="White"            
+                                            HorizontalOptions="FillAndExpand"
+                                            VerticalOptions="FillAndExpand"
+                                            HeightRequest="40"
+                                            WidthRequest="40"
+                                            CornerRadius="20"/>
+                                </StackLayout>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

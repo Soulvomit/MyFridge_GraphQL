@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Client_Interface.Mvvms.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Client_Interface"
+    xmlns:view="clr-namespace:Client_Interface.Mvvms.View"
+    BackgroundColor="#f0f4f8"
+    Shell.BackgroundColor="#f0f4f8"
+    Shell.TitleColor="#f0f4f8"
+    Shell.DisabledColor="#BDBDBD"
+    Shell.UnselectedColor="#E0E0E0"
+    Shell.FlyoutBehavior="Flyout"
+    Shell.FlyoutBackgroundColor = "#8BC34A"
+    Shell.TabBarBackgroundColor="#8BC34A"
+    Shell.TabBarTitleColor="#f0f4f8"
+    Shell.TabBarUnselectedColor="#E0E0E0"
+    Shell.TabBarDisabledColor="#BDBDBD"
+    Shell.TabBarIsVisible="True"
+    Shell.NavBarIsVisible="False">
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="Roboto" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="TextColor" Value="#4a4a4a" />
+            </Style>
+            <Style TargetType="Editor">
+                <Setter Property="FontFamily" Value="Roboto" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="TextColor" Value="#4a4a4a" />
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="FontFamily" Value="Roboto" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="TextColor" Value="#4a4a4a" />
+                <Setter Property="BackgroundColor" Value="#e0e0e0" />
+                <Setter Property="Margin" Value="0,10" />
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="Roboto" /> 
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="TextColor" Value="#f0f4f8"/>
+                <Setter Property="BackgroundColor" Value="#6ab04c" />
+                <Setter Property="CornerRadius" Value="5" />
+            </Style>
+            <Style TargetType="DatePicker">
+                <Setter Property="FontFamily" Value="Roboto" />
+                <Setter Property="TextColor" Value="#4a4a4a"/>
+                <Setter Property="BackgroundColor" Value="#d0d0d0" />
+            </Style>
+            <Style TargetType="SearchBar">
+                <Setter Property="FontFamily" Value="Roboto" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="TextColor" Value="#4a4a4a" />
+                <Setter Property="BackgroundColor" Value="#e0e0e0" />
+                <Setter Property="Margin" Value="0,10" />
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <ShellItem Route="UserLoginPage" 
+               FlyoutItemIsVisible="False">
+        <ShellContent 
+            ContentTemplate="{DataTemplate view:UserLoginPage}"
+            Route="UserLoginPage"/>
+    </ShellItem>
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <Tab Title="User">
+            <ShellContent
+                Title="Information"
+                Icon="dotnet_bot.png"
+                ContentTemplate="{DataTemplate view:UserInfoPage}"
+                Route="UserInfoPage" />
+            <ShellContent
+                Title="Ingredients"
+                Icon="dotnet_bot.png"
+                ContentTemplate="{DataTemplate view:UserIngredientPage}"
+                Route="UserIngredientPage" />
+            <ShellContent
+                Title="Logout"
+                Icon="dotnet_bot.png"
+                ContentTemplate="{DataTemplate view:UserLoginPage}"
+                Route="UserLoginPage" />
+        </Tab>
+        <ShellContent
+            Title="Groceries"
+            Icon="dotnet_bot.png"
+            ContentTemplate="{DataTemplate view:GroceryPage}"
+            Route="GroceryPage" />
+        <ShellContent
+            Title="Recipes"
+            Icon="dotnet_bot.png"
+            ContentTemplate="{DataTemplate view:RecipePage}"
+            Route="RecipePage" />
+    </FlyoutItem>
+
+
+    <!--<TabBar IsVisible="True">
+        --><!--<ShellContent
+            Title="Login"
+            Icon="dotnet_bot.png"
+            ContentTemplate="{DataTemplate view:UserLoginPage}"
+            Route="UserLoginPage" />--><!--
+        <ShellContent
+            Title="Information"
+            Icon="dotnet_bot.png"
+            ContentTemplate="{DataTemplate view:UserInfoPage}"
+            Route="UserInfoPage" />
+        <ShellContent
+            Title="Ingredients"
+            Icon="dotnet_bot.png"
+            ContentTemplate="{DataTemplate view:UserIngredientPage}"
+            Route="UserIngredientPage" />
+        <ShellContent
+            Title="Recipies"
+            Icon="dotnet_bot.png"
+            ContentTemplate="{DataTemplate view:RecipyPage}"
+            Route="RecipyPage" />
+    </TabBar>-->
+</Shell>
