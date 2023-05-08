@@ -18,14 +18,14 @@ The Expiration Date Reminder sends notifications to users when items in their fr
 The User Authentication and Authorization feature allows users to create accounts, log in, and manage their own fridge inventory, recipes, and shopping lists securely.
 
 Back-end technologies used:
-.Net
-Azure
-MSSQL Server
-Entity Framwork
-Web-API (REST)
-GraphQL (HotChocolate)
+  - .Net
+  - Azure
+  - MSSQL Server
+  - Entity Framwork
+  - Web-API (REST)
+  - GraphQL (HotChocolate)
 
 Front-end technoligies:
-.Net
-Xaml
-MAUI
+  - .Net
+  - Xaml
+  - MAUI
