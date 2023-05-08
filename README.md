@@ -29,3 +29,9 @@ Front-end technoligies:
   - .Net
   - Xaml
   - MAUI
+
+Data_Model: 
+
+The Data Model project is responsible for defining and managing the database schema and interactions. By utilizing Entity Framwork, a powerful and flexible Object Relational Mapper (ORM), it enables seamless communication between the application and the database. This project contains models for essential entities, such as users, fridge items, and recipes, ensuring proper data storage and retrieval. Additionally, it handles database migrations to support the evolution of the application schema over time. Overall, the Data Model project serves as the foundation for the MyFridge System, facilitating efficient and organized data management.
+
+
