@@ -46,5 +46,12 @@ The Data Interface sub-project within MyFridge System is a critical component th
 
 [OBSELETE: Key features of the Data Interface include REST APIs for managing fridge inventory, recipe recommendations, grocery shopping lists, and user authentication. By implementing standard HTTP methods, such as GET, POST, PUT, and DELETE, it supports a wide range of operations for a seamless user experience. The Data Interface also handles error and exception handling, providing meaningful responses to the frontend in case of issues.]
 
+Client_Model:
+
+The Client Model project serves as a representation of the Data Model tailored for client-server communication. It essentially converts the Data Model into a format that is easily consumable and transferable between the frontend and the backend. By providing a consistent structure for data exchange, it ensures seamless communication between the client and the web service. The Client Model acts as an intermediary layer, handling data conversion and validation, which simplifies interactions with the Data Interface.
+
+Client_Library:
+
+Client_Interface:
 
 
