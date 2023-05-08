@@ -1,1 +1,30 @@
-# MyFridge
+#MyFridge System Documentation
+MyFridge System is an innovative and user-friendly solution to manage and optimize your fridge's inventory. It simplifies the tedious task of tracking grocery items, ensuring you never run out of essential ingredients or let food go to waste:
+
+1. Fridge Inventory Manager
+The Fridge Inventory Manager allows users to keep track of their fridge's contents, including item names, quantities, and expiration dates. Users can add, update, or delete items and view a list of all items in their fridge.
+
+2. Recipe Recommendation Engine
+The Recipe Recommendation Engine suggests recipes based on the available ingredients in the user's fridge. It helps users discover new meal ideas, minimize food waste, and optimize their grocery shopping.
+
+3. Grocery Shopping Assistant
+The Grocery Shopping Assistant generates a dynamic shopping list based on the user's fridge inventory and their preferred recipes. It helps users plan their grocery shopping more efficiently and avoid purchasing unnecessary items.
+
+4. Expiration Date Reminder
+The Expiration Date Reminder sends notifications to users when items in their fridge are about to expire. This feature helps users consume their perishable goods in time and minimize food waste.
+
+5. User Authentication and Authorization
+The User Authentication and Authorization feature allows users to create accounts, log in, and manage their own fridge inventory, recipes, and shopping lists securely.
+
+Back-end technologies used:
+.Net
+Azure
+MSSQL Server
+Entity Framwork
+Web-API (REST)
+GraphQL (HotChocolate)
+
+Front-end technoligies:
+.Net
+Xaml
+MAUI
