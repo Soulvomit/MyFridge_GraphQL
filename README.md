@@ -38,4 +38,13 @@ Data_Lbrary:
 
 The Data Library project serves as an abstraction layer between the application logic and the Data Model, simplifying data access and manipulation. It consists of Entity Framwork functions that streamline database interactions, allowing other components of the system to work seamlessly with the underlying data. The Data Library ensures that business logic remains separate from data access, promoting code readability and maintainability. By providing a consistent and easy-to-use interface, it enables testability and focuses on building robust features without getting entangled in the complexities of database operations. It also provides a mechanism to create seed data for the database.
 
+Data_Interface:
+
+The Data Interface sub-project within MyFridge System is a critical component that facilitates communication between the frontend and the backend, acting as a bridge for data exchange. It exposes well-defined APIs to enable smooth interaction with the Data Model and Data Library, allowing the frontend to access and manipulate data as needed. Built using a .Net Web-API, the Data Interface ensures a clean and modular architecture.
+
+[NEW: Key features of the Data Interface include a GraphQL API for managing fridge inventory, recipe recommendations, grocery shopping lists, and user authentication. By implementing standard GraphQL methods, such as Queries, Mutations and Subscriptions, it supports a wide range of operations for a seamless user experience. The Data Interface also handles error and exception handling, providing meaningful responses to the frontend in case of issues.]
+
+[OBSELETE: Key features of the Data Interface include REST APIs for managing fridge inventory, recipe recommendations, grocery shopping lists, and user authentication. By implementing standard HTTP methods, such as GET, POST, PUT, and DELETE, it supports a wide range of operations for a seamless user experience. The Data Interface also handles error and exception handling, providing meaningful responses to the frontend in case of issues.]
+
+
 
