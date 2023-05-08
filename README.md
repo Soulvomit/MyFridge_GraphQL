@@ -34,4 +34,8 @@ Data_Model:
 
 The Data Model project is responsible for defining and managing the database schema and interactions. By utilizing Entity Framwork, a powerful and flexible Object Relational Mapper (ORM), it enables seamless communication between the application and the database. This project contains models for essential entities, such as users, fridge items, and recipes, ensuring proper data storage and retrieval. Additionally, it handles database migrations to support the evolution of the application schema over time. Overall, the Data Model project serves as the foundation for the MyFridge System, facilitating efficient and organized data management.
 
+Data_Lbrary:
+
+The Data Library project serves as an abstraction layer between the application logic and the Data Model, simplifying data access and manipulation. It consists of Entity Framwork functions that streamline database interactions, allowing other components of the system to work seamlessly with the underlying data. The Data Library ensures that business logic remains separate from data access, promoting code readability and maintainability. By providing a consistent and easy-to-use interface, it enables testability and focuses on building robust features without getting entangled in the complexities of database operations. It also provides a mechanism to create seed data for the database.
+
 
