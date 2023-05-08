@@ -58,5 +58,9 @@ This library abstracts the complexity of making API calls, simplifying the proce
 
 Client_Interface:
 
+The Client Interface is responsible for creating a user-friendly and visually appealing frontend that interacts with the backend services through the Client Library. It utilizes modern web technologies, such as .Net MAUI, to build a responsive and dynamic user interface that offers an engaging user experience. The interface is designed with a modular approach, using reusable components to ensure maintainability and scalability.
+
+It encompasses various key features, including inventory management, recipe recommendations, grocery shopping assistance, and expiration date reminders. It offers seamless integration with the backend services, making use of the Client Library to interact with the Data Interface efficiently. Additionally, the Client Interface provides user authentication and authorization to ensure secure access to the application's features.
+
 
 
