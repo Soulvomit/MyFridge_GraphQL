@@ -42,7 +42,7 @@ The Data Library project serves as an abstraction layer between the application 
 
 Data_Interface:
 
-The Data Interface sub-project within MyFridge System is a critical component that facilitates communication between the frontend and the backend, acting as a bridge for data exchange. It exposes well-defined APIs to enable smooth interaction with the Data Model and Data Library, allowing the frontend to access and manipulate data as needed. Built using a .Net Web-API, the Data Interface ensures a clean and modular architecture.
+The Data Interface project within MyFridge System is a critical component that facilitates communication between the frontend and the backend, acting as a bridge for data exchange. It exposes well-defined APIs to enable smooth interaction with the Data Model and Data Library, allowing the frontend to access and manipulate data as needed. Built using a .Net Web-API, the Data Interface ensures a clean and modular architecture.
 
 [NEW: Key features of the Data Interface include a GraphQL API for managing fridge inventory, recipe recommendations, grocery shopping lists, and user authentication. By implementing standard GraphQL methods, such as Queries, Mutations and Subscriptions, it supports a wide range of operations for a seamless user experience. The Data Interface also handles error and exception handling, providing meaningful responses to the frontend in case of issues.]
 
@@ -54,6 +54,9 @@ The Client Model project serves as a representation of the Data Model tailored f
 
 Client_Library:
 
+This library abstracts the complexity of making API calls, simplifying the process for the frontend components. By utilizing the Client Model, the library ensures data consistency and proper formatting while sending and receiving data from the backend. The Client Library promotes code reusability and maintainability by centralizing API interactions, allowing developers to focus on building the frontend without worrying about low-level data exchange details. It also handles client side caching so calls are not always made to the Data Interface. 
+
 Client_Interface:
+
 
 
