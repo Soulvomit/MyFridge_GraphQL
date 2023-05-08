@@ -1,4 +1,5 @@
 MyFridge System Documentation
+
 MyFridge System is an innovative and user-friendly solution to manage and optimize your fridge's inventory. It simplifies the tedious task of tracking grocery items, ensuring you never run out of essential ingredients or let food go to waste:
 
 1. Fridge Inventory Manager
