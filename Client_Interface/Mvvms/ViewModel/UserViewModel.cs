@@ -81,12 +81,12 @@ namespace Client_Interface.Mvvms.ViewModel
         }
         public string PhoneNumber
         {
-            get => User.PhoneNumber.ToString();
+            get => User.PhoneNumber;
             set
             {
                 if (!ulong.TryParse(value, out ulong phoneNumber)) return;
 
-                User.PhoneNumber = phoneNumber;
+                User.PhoneNumber = phoneNumber.ToString();
                 OnPropertyChanged(nameof(PhoneNumber));
             }
         }
