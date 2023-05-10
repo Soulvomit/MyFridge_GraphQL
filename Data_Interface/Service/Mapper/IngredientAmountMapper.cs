@@ -1,12 +1,15 @@
 ﻿using Client_Model;
 using Data_Interface.Service.Mapper.Interface;
 using Data_Model;
+using Data_Model.Enum;
+using System.Linq.Expressions;
 
 namespace Data_Interface.Service.Mapper
 {
     public class IngredientAmountMapper : IMapperService<IngredientAmountDto, IngredientAmountCto>
     {
         private readonly IngredientMapper _mapIngredient = new();
+
         public IngredientAmountCto? ToCto(IngredientAmountDto? from)
         {
             if (from == null) return null;
@@ -34,6 +37,38 @@ namespace Data_Interface.Service.Mapper
             };
 
             return dto;
+        }
+        public Expression<Func<IngredientAmountDto, IngredientAmountCto>> ProjectToCto()
+        {
+            return dto => new IngredientAmountCto
+            {
+                Id = dto.Id,
+                Amount = dto.Amount,
+                ExpirationDate = dto.ExpirationDate,
+                Ingredient = new IngredientCto
+                {
+                    Id = dto.Ingredient.Id,
+                    Name = dto.Ingredient.Name,
+                    Unit = (int)dto.Ingredient.Unit,
+                    Category = dto.Ingredient.Category
+                }
+            };
+        }
+        public Expression<Func<IngredientAmountCto, IngredientAmountDto>> ProjectToDto()
+        {
+            return cto => new IngredientAmountDto
+            {
+                Id = cto.Id,
+                Amount = cto.Amount,
+                ExpirationDate = cto.ExpirationDate,
+                Ingredient = new IngredientDto
+                {
+                    Id = cto.Id,
+                    Name = cto.Ingredient.Name,
+                    Unit = (EUnit)cto.Ingredient.Unit,
+                    Category = cto.Ingredient.Category
+                }
+            };
         }
     }
 }

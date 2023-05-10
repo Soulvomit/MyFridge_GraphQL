@@ -32,10 +32,11 @@ namespace Data_Interface.Query
         [UseFiltering]
         [UseSorting]
         public IQueryable<AddressCto?> GetAddresses(ApplicationDbContext context)
-        {   
-            IQueryable<AddressCto?> addressCtos = context.Addresses.Select(dto => _map.Address.ToCto(dto));
+        {
+            var mappingExpression = _map.Address.ProjectToCto();
+            IQueryable<AddressCto?> ctos = context.Addresses.Select(mappingExpression);
 
-            return addressCtos;
+            return ctos;
         }
     }
 }

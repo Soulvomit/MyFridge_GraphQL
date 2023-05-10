@@ -33,7 +33,8 @@ namespace Data_Interface.Query
         [UseSorting]
         public IQueryable<OrderCto?> GetOrders(ApplicationDbContext context)
         {
-            IQueryable<OrderCto?> ctos = context.Orders.Select(dto => _map.Order.ToCto(dto));
+            var mappingExpression = _map.Order.ProjectToCto();
+            IQueryable<OrderCto?> ctos = context.Orders.Select(mappingExpression);
 
             return ctos;
         }

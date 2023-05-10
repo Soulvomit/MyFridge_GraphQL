@@ -33,7 +33,8 @@ namespace Data_Interface.Query
         [UseSorting]
         public IQueryable<IngredientAmountCto?> GetIngredientAmounts(ApplicationDbContext context)
         {
-            IQueryable<IngredientAmountCto?> ctos = context.IngredientAmounts.Select(dto => _map.IngredientAmount.ToCto(dto));
+            var mappingExpression = _map.IngredientAmount.ProjectToCto();
+            IQueryable<IngredientAmountCto?> ctos = context.IngredientAmounts.Select(mappingExpression);
 
             return ctos;
         }

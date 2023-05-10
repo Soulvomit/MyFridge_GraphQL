@@ -2,6 +2,7 @@
 using Data_Interface.Service.Mapper.Interface;
 using Data_Model;
 using Data_Model.Enum;
+using System.Linq.Expressions;
 
 namespace Data_Interface.Service.Mapper
 {
@@ -40,6 +41,34 @@ namespace Data_Interface.Service.Mapper
             };
 
             return dto;
+        }
+
+        public Expression<Func<AddressDto, AddressCto>> ProjectToCto()
+        {
+            return dto => new AddressCto()
+            {
+                Id = dto.Id,
+                Street = dto.Street,
+                Extension = dto.Extension,
+                City = dto.City,
+                State = dto.State,
+                ZipCode = dto.ZipCode,
+                Country = (int)dto.Country
+            };
+        }
+
+        public Expression<Func<AddressCto, AddressDto>> ProjectToDto()
+        {
+            return dto => new AddressDto()
+            {
+                Id = dto.Id,
+                Street = dto.Street,
+                Extension = dto.Extension,
+                City = dto.City,
+                State = dto.State,
+                ZipCode = dto.ZipCode,
+                Country = (ECountry)dto.Country
+            };
         }
     }
 }

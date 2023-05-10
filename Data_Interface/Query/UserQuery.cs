@@ -43,7 +43,8 @@ namespace Data_Interface.Query
         [UseSorting]
         public IQueryable<UserAccountCto?> GetUsers(ApplicationDbContext context)
         {
-            IQueryable<UserAccountCto?> ctos = context.Users.Select(dto => _map.User.ToCto(dto));
+            var mappingExpression = _map.User.ProjectToCto();
+            IQueryable<UserAccountCto> ctos = context.Users.Select(mappingExpression);
 
             return ctos;
         }

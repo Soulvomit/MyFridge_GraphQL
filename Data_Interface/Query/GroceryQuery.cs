@@ -1,5 +1,6 @@
 ﻿using Client_Model;
 using Data_Interface.Query.Base;
+using Data_Interface.Service.Mapper;
 using Data_Interface.Service.Mapper.UoW.Interface;
 using Data_Library.DataContext;
 using Data_Model;
@@ -33,7 +34,8 @@ namespace Data_Interface.Query
         [UseSorting]
         public IQueryable<GroceryCto?> GetGroceries(ApplicationDbContext context)
         {
-            IQueryable<GroceryCto?> ctos = context.Groceries.Select(dto => _map.Grocery.ToCto(dto));
+            var mappingExpression = _map.Grocery.ProjectToCto();
+            IQueryable<GroceryCto> ctos = context.Groceries.Select(mappingExpression);
 
             return ctos;
         }

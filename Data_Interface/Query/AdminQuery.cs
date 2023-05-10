@@ -33,7 +33,8 @@ namespace Data_Interface.Query
         [UseSorting]
         public IQueryable<AdminAccountCto?> GetAdmins(ApplicationDbContext context)
         {
-            IQueryable<AdminAccountCto?> ctos = context.Admins.Select(dto => _map.Admin.ToCto(dto));
+            var mappingExpression = _map.Admin.ProjectToCto();
+            IQueryable<AdminAccountCto?> ctos = context.Admins.Select(mappingExpression);
 
             return ctos;
         }

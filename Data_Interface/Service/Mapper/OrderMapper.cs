@@ -2,13 +2,14 @@
 using Data_Interface.Service.Mapper.Interface;
 using Data_Model;
 using Data_Model.Enum;
-using Microsoft.AspNetCore.Http.HttpResults;
+using System.Linq.Expressions;
 
 namespace Data_Interface.Service.Mapper
 {
     public class OrderMapper : IMapperService<OrderDto, OrderCto>
     {
         private readonly GroceryMapper _mapGrocery = new();
+
         public OrderCto? ToCto(OrderDto? from)
         {
             if (from == null) return null;
@@ -33,8 +34,8 @@ namespace Data_Interface.Service.Mapper
             OrderDto dto = new()
             {
                 Id = from.Id,
-                Status = (EOrderStatus)from.Status,
-                CreationTime = from.Created
+                CreationTime = from.Created,
+                Status = (EOrderStatus)from.Status
             };
             foreach (GroceryCto cto in from.Groceries)
             {
@@ -42,6 +43,29 @@ namespace Data_Interface.Service.Mapper
             }
 
             return dto;
+        }
+        public Expression<Func<OrderDto, OrderCto>> ProjectToCto()
+        {
+            var mappingExpression = _mapGrocery.ProjectToCto();
+            return dto => new OrderCto()
+            {
+                Id = dto.Id,
+                Created = dto.CreationTime,
+                Status = (int)dto.Status,
+                Groceries = dto.Groceries.AsQueryable().Select(mappingExpression).ToList()
+            };
+        }
+
+        public Expression<Func<OrderCto, OrderDto>> ProjectToDto()
+        {
+            var mappingExpression = _mapGrocery.ProjectToDto();
+            return cto => new OrderDto()
+            {
+                Id = cto.Id,
+                CreationTime = cto.Created,
+                Status = (EOrderStatus)cto.Status,
+                Groceries = cto.Groceries.AsQueryable().Select(mappingExpression).ToList()
+            };
         }
     }
 }

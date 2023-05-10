@@ -1,6 +1,7 @@
 ﻿using Client_Model;
 using Data_Interface.Service.Mapper.Interface;
 using Data_Model;
+using System.Linq.Expressions;
 
 namespace Data_Interface.Service.Mapper
 {
@@ -35,6 +36,30 @@ namespace Data_Interface.Service.Mapper
             };
 
             return dto;
+        }
+
+        public Expression<Func<AdminAccountDto, AdminAccountCto>> ProjectToCto()
+        {
+            return dto => new AdminAccountCto()
+            {
+                Id = dto.Id,
+                FirstName = dto.FirstName,
+                LastName = dto.LastName,
+                Password = dto.Password,
+                EmployeeNumber = dto.EmployeeNumber
+            };
+        }
+
+        public Expression<Func<AdminAccountCto, AdminAccountDto>> ProjectToDto()
+        {
+            return cto => new AdminAccountDto()
+            {
+                Id = cto.Id,
+                FirstName = cto.FirstName,
+                LastName = cto.LastName,
+                Password = cto.Password,
+                EmployeeNumber = cto.EmployeeNumber
+            };
         }
     }
 }

@@ -33,7 +33,8 @@ namespace Data_Interface.Query
         [UseSorting]
         public IQueryable<RecipeCto?> GetRecipes(ApplicationDbContext context)
         {
-            IQueryable<RecipeCto?> ctos = context.Recipes.Select(dto => _map.Recipe.ToCto(dto));
+            var mappingExpression = _map.Recipe.ProjectToCto();
+            IQueryable<RecipeCto?> ctos = context.Recipes.Select(mappingExpression);
 
             return ctos;
         }
