@@ -1,5 +1,5 @@
 ﻿using Client_Interface.Mvvms.Service.Client.Interface;
-using Client_Model;
+using Client_Model.Model;
 
 namespace Client_Interface.Mvvms.ViewModel.Detail
 {

@@ -1,4 +1,4 @@
-﻿using Client_Model;
+﻿using Client_Model.Model;
 using Data_Interface.Query.Base;
 using Data_Interface.Service.Mapper;
 using Data_Interface.Service.Mapper.UoW.Interface;

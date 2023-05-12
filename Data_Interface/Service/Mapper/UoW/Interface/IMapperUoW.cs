@@ -1,4 +1,4 @@
-﻿using Client_Model;
+﻿using Client_Model.Model;
 using Data_Interface.Service.Mapper.Interface;
 using Data_Model;
 

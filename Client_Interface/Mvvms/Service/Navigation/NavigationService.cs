@@ -1,7 +1,7 @@
 ﻿using Client_Interface.Mvvms.Service.Navigation.Interface;
 using Client_Interface.Mvvms.View;
 using Client_Interface.Mvvms.View.Detail;
-using Client_Model;
+using Client_Model.Model;
 
 namespace Client_Interface.Mvvms.Service.Navigation
 {

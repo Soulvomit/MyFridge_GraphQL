@@ -1,6 +1,6 @@
 using Client_Interface.Mvvms.Service.Navigation.Interface;
 using Client_Interface.Mvvms.ViewModel.Detail;
-using Client_Model;
+using Client_Model.Model;
 
 namespace Client_Interface.Mvvms.View.Detail;
 

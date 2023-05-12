@@ -1,6 +1,6 @@
 ﻿using Client_Interface.Mvvms.Service.Client.Interface;
 using Client_Interface.Mvvms.ViewModel.Detail;
-using Client_Model;
+using Client_Model.Model;
 using System.Collections.ObjectModel;
 
 namespace Client_Interface.Mvvms.ViewModel

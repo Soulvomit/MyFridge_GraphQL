@@ -1,4 +1,4 @@
-﻿using Client_Model;
+﻿using Client_Model.Model;
 
 namespace Client_Interface.Mvvms.Service.Navigation.Interface
 {

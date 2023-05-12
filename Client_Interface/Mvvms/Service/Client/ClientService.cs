@@ -1,6 +1,6 @@
 ﻿using Client_Interface.Mvvms.Service.Client.Interface;
-using Client_Library.ClientRepository;
-using Client_Library.Interface;
+using Client_Library.Repository;
+using Client_Library.Repository.Interface;
 
 namespace Client_Interface.Mvvms.Service.Client
 {

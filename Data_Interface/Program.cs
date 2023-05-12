@@ -4,7 +4,6 @@ using Data_Interface.Query;
 using Data_Interface.Query.Base;
 using Data_Interface.Service.Mapper.UoW;
 using Data_Interface.Service.Mapper.UoW.Interface;
-using Data_Interface.Subscription.Base;
 using Data_Library.DataContext;
 
 namespace Data_Interface

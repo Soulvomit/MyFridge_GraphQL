@@ -11,9 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client_Interface", "Client_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client_Library", "Client_Library\Client_Library.csproj", "{88DF3E14-F2FB-45CE-8B9E-E9A63B45CEFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client_Model", "Client_Model\Client_Model.csproj", "{BF2BB454-4854-4250-9920-A501D61BD1D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client_Model", "Client_Model\Client_Model.csproj", "{BF2BB454-4854-4250-9920-A501D61BD1D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data_Model", "Data_Model\Data_Model.csproj", "{713852D0-EEC1-4834-89BC-29707ABC69E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data_Model", "Data_Model\Data_Model.csproj", "{713852D0-EEC1-4834-89BC-29707ABC69E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client_TestConsole", "Client_TestConsole\Client_TestConsole.csproj", "{0E6008AA-2BB7-42A8-97A7-955D365DA14F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{713852D0-EEC1-4834-89BC-29707ABC69E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{713852D0-EEC1-4834-89BC-29707ABC69E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{713852D0-EEC1-4834-89BC-29707ABC69E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E6008AA-2BB7-42A8-97A7-955D365DA14F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E6008AA-2BB7-42A8-97A7-955D365DA14F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E6008AA-2BB7-42A8-97A7-955D365DA14F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E6008AA-2BB7-42A8-97A7-955D365DA14F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

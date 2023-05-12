@@ -1,4 +1,4 @@
-﻿using Client_Model;
+﻿using Client_Model.Model;
 
 namespace Data_Interface.Subscription.Base
 {

@@ -1,4 +1,4 @@
-﻿using Client_Library.Interface;
+﻿using Client_Library.Repository.Interface;
 
 namespace Client_Interface.Mvvms.Service.Client.Interface
 {

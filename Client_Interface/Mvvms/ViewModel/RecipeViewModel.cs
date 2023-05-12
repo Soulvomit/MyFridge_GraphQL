@@ -1,6 +1,6 @@
 ﻿using Client_Interface.Mvvms.Service.Client.Interface;
 using Client_Interface.Mvvms.ViewModel.Detail;
-using Client_Model;
+using Client_Model.Model;
 using System.Collections.ObjectModel;
 
 namespace Client_Interface.Mvvms.ViewModel
@@ -51,8 +51,8 @@ namespace Client_Interface.Mvvms.ViewModel
         {
             IEnumerable<RecipeCto> show;
 
-            if (toggle) show = _clientService.RecipeClient.AllCache;
-            else show = _clientService.RecipeClient.MakeableCache;
+            if (toggle) show = _clientService.RecipeClient.CachedItems;
+            else show = _clientService.RecipeClient.CachedMakeableItems;
 
             RecipeDetails = ToViewModel(show.Where(recipe =>
                         recipe.Name.ToLower().Contains(filter) || recipe.IngredientAmounts.Any(ia =>

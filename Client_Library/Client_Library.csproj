@@ -18,7 +18,21 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Generated\**" />
+	  <EmbeddedResource Remove="Generated\**" />
+	  <GraphQL Remove="Generated\**" />
+	  <GraphQLConfig Remove="Generated\**" />
+	  <MauiCss Remove="Generated\**" />
+	  <MauiXaml Remove="Generated\**" />
+	  <None Remove="Generated\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <ProjectReference Include="..\Client_Model\Client_Model.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <GraphQLConfig Include="Query\Address\GetAddressById.graphql" />
 	</ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
 ﻿using Client_Interface.Mvvms.Service.Client.Interface;
 using Client_Interface.Mvvms.ViewModel.Detail;
-using Client_Model;
+using Client_Model.Model;
 using System.Collections.ObjectModel;
 
 namespace Client_Interface.Mvvms.ViewModel
@@ -40,10 +40,10 @@ namespace Client_Interface.Mvvms.ViewModel
         public void GetFilteredLazy(string filter)
         {
             if (string.IsNullOrEmpty(filter))
-                GroceryDetails = ToViewModel(_clientService.GroceryClient.AllCache
+                GroceryDetails = ToViewModel(_clientService.GroceryClient.CachedItems
                     .OrderBy(i => i.IngredientAmount.Ingredient.Name));
             else
-                GroceryDetails = ToViewModel(_clientService.GroceryClient.AllCache
+                GroceryDetails = ToViewModel(_clientService.GroceryClient.CachedItems
                     .Where(i => i.IngredientAmount.Ingredient.Name.ToLower().StartsWith(filter.ToLower()))
                     .OrderBy(i => i.IngredientAmount.Ingredient.Name));
             //if (string.IsNullOrEmpty(filter))
