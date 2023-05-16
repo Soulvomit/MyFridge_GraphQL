@@ -10,6 +10,7 @@ namespace Client_Library.Repository.Interface.Base
         public IEnumerable<T> CachedItems { get; }
         public Task<T> CreateAsync(T cto, string nodeItems);
         public Task<T> UpdateAsync(T cto, string nodeItems);
+        public Task<T> ChangeAsync(T cto, string nodeItems);
         public Task<T> DeleteAsync(int id, string nodeItems);
         public Task<T> GetAsync(int id, string nodeItems);
         public Task<(IEnumerable<T>, PageInfo)> GetAllAsync(

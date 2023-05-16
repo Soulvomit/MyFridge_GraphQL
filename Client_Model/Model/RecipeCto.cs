@@ -12,5 +12,27 @@ namespace Client_Model.Model
             = new List<IngredientAmountCto>();
         public string Method { get; set; }
         public string ImageUrl { get; set; }
+
+        public string SerializeToCreateInputType()
+        {
+            return $$"""
+                    {
+                        {{FormatHelper.PascalToCamel(nameof(Name))}}:{{FormatHelper.FormatNullableInput(Name)}}
+                        {{FormatHelper.PascalToCamel(nameof(Method))}}:{{FormatHelper.FormatNullableInput(Method)}}
+                        {{FormatHelper.PascalToCamel(nameof(ImageUrl))}}:{{FormatHelper.FormatNullableInput(ImageUrl)}}
+                    }
+                    """;
+        }
+        public string SerializeToUpdateInputType()
+        {
+            return $$"""
+                    {
+                        {{FormatHelper.PascalToCamel(nameof(Id))}}:{{Id}}
+                        {{FormatHelper.PascalToCamel(nameof(Name))}}:{{FormatHelper.FormatNullableInput(Name)}}
+                        {{FormatHelper.PascalToCamel(nameof(Method))}}:{{FormatHelper.FormatNullableInput(Method)}}
+                        {{FormatHelper.PascalToCamel(nameof(ImageUrl))}}:{{FormatHelper.FormatNullableInput(ImageUrl)}}
+                    }
+                    """;
+        }
     }
 }

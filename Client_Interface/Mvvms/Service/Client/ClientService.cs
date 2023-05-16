@@ -6,7 +6,7 @@ namespace Client_Interface.Mvvms.Service.Client
 {
     public class ClientService : IClientService, IDisposable, IAsyncDisposable
     {
-        private readonly string baseAddress = "https://localhost:8001/";
+        private readonly string baseAddress = "https://localhost:7001/";
         public IAddressClientRepository AddressClient { get; set; }
         public IAdminAccountClientRepository AdminClient { get; set; }
         public IUserAccountClientRepository UserClient { get; set; }

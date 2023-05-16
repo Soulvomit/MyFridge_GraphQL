@@ -18,60 +18,115 @@ namespace Data_Interface.Mutation
         }
         public async Task<UserAccountCto?> CreateUserAccountAsync(ApplicationDbContext context, UserAccountCto cto)
         {
-            cto.Id = 0;
+            if (cto == null) return null;
+
+            cto.Id = default;
             UserAccountDto? dto = _map.User.ToDto(from: cto);
 
+            if (dto == null) return null;
+
             await context.Users.AddAsync(dto);
+
             await context.SaveChangesAsync();
             return _map.User.ToCto(from: dto);
         }
         public async Task<UserAccountCto?> UpdateUserAccountAsync(ApplicationDbContext context, UserAccountCto cto)
         {
+            if (cto == null) return null;
+
             UserAccountDto? dto = _map.User.ToDto(from: cto);
 
+            if (dto == null) return null;
+
             context.Users.Update(dto);
+
             await context.SaveChangesAsync();
             return _map.User.ToCto(from: dto);
         }
         public async Task<bool> DeleteUserAccountAsync(ApplicationDbContext context, UserAccountCto cto)
         {
+            if (cto == null) return false;
+
             UserAccountDto? dto = await context.Users.FindAsync(cto.Id);
 
-            if (dto == null)
-                return false;
+            if (dto == null) return false;
 
             context.Users.Remove(dto);
+
             await context.SaveChangesAsync();
             return true;
+        }
+
+        public async Task<UserAccountCto?> ChangeUserAccountCoreAsync(ApplicationDbContext context, UserAccountCto cto)
+        {
+            if (cto == null) return null;
+
+            UserAccountDto? dto = await context.Users.FindAsync(cto.Id);
+
+            if (dto == null) return null;
+
+            dto.FirstName = cto.FirstName;
+            dto.LastName = cto.LastName;
+            dto.Password = cto.Password;
+            dto.PhoneNumber = ulong.Parse(cto.PhoneNumber);
+            dto.Email = cto.Email;
+            dto.BirthDate = cto.BirthDate ?? default;
+
+            await context.SaveChangesAsync();
+            return _map.User.ToCto(from: dto);
+        }
+
+        public async Task<UserAccountCto?> ChangeUserAddressAsync(
+            ApplicationDbContext context, 
+            UserAccountCto cto,
+            AddressCto addressCto)
+        {
+            if (cto == null) return null;
+
+            UserAccountDto? dto = await context.Users.FindAsync(cto.Id);
+
+            if (dto == null) return null;
+
+            AddressDto? addressDto = await context.Addresses.FindAsync(addressCto.Id);
+
+            if (addressDto == null)
+            {
+                dto.Address = _map.Address.ToDto(addressCto);
+            }
+            else
+            {
+                dto.Address = addressDto;
+            }
+
+            await context.SaveChangesAsync();
+            return _map.User.ToCto(dto);
         }
 
         public async Task<UserAccountCto?> AddAmountAsync
         (
             ApplicationDbContext context, 
-            UserAccountCto cto, 
-            int ingredientId, 
-            float amount,
-            DateTime? expirationDate = null,
+            UserAccountCto cto,
+            IngredientAmountCto ingredientAmountCto,
             bool newBatch = false 
         )
         {
             //ensure amount is positive
-            if (amount <= 0) return null;
+            if (ingredientAmountCto.Amount <= 0) return null;
             //ensure user exists
             UserAccountDto? dto = await context.Users.FindAsync(cto.Id);
             if (dto == null) return null;
             //ensure ingredient exists
-            IngredientDto? ingredientDto = await context.Ingredients.FindAsync(ingredientId);
+            IngredientDto? ingredientDto = await context.Ingredients.FindAsync(ingredientAmountCto.Id);
             if (ingredientDto == null) return null;
             //get any ingredient amount which matches the ingredient 
             IngredientAmountDto? ingredientAmountDto = 
-                dto.IngredientAmounts.FirstOrDefault(i => i.Ingredient.Id == ingredientDto.Id);
+                dto.IngredientAmounts.FirstOrDefault(i => i.Ingredient?.Id  == ingredientDto.Id);
             //if the ingredient exists on user and a new batch is not specified
             if (ingredientAmountDto != null && !newBatch)
             {
                 //add the amount to the existing ingredient amount, and set a new expiration 
-                ingredientAmountDto.Amount += amount;
-                ingredientAmountDto.ExpirationDate = expirationDate;
+                ingredientAmountDto.Amount += ingredientAmountCto.Amount;
+                ingredientAmountDto.ExpirationDate = ingredientAmountCto.ExpirationDate;
             }
             //if the ingredient does not exist on user or if an new batch is specified
             else
@@ -81,9 +136,9 @@ namespace Data_Interface.Mutation
                 (
                     new IngredientAmountDto
                     {
-                        Amount = amount,
+                        Amount = ingredientAmountCto.Amount,
                         Ingredient = ingredientDto,
-                        ExpirationDate = expirationDate
+                        ExpirationDate = ingredientAmountCto.ExpirationDate
                     }
                 );
             }
@@ -96,18 +151,17 @@ namespace Data_Interface.Mutation
         (
             ApplicationDbContext context,
             UserAccountCto cto, 
-            int ingredientId, 
-            float amount
+            IngredientAmountCto ingredientAmountCto
         )
         {
             //ensure amount is positive
-            if (amount <= 0) return null;
+            if (ingredientAmountCto.Amount <= 0) return null;
             //ensure user exists
             UserAccountDto? dto = await context.Users.FindAsync(cto.Id);
             if (dto == null) return null;
             //get all ingredient amounts which matches the ingredient, and sort by expiration date 
             List<IngredientAmountDto> matches = dto.IngredientAmounts
-                .Where(ia => ia.Ingredient.Id == ingredientId)
+                .Where(ia => ia.Ingredient?.Id == ingredientAmountCto.Id)
                 .OrderBy(ia => ia.ExpirationDate)
                 .ToList();
             //ensure the user has the ingredient
@@ -117,19 +171,19 @@ namespace Data_Interface.Mutation
             foreach (IngredientAmountDto ia in matches)
                 totalAmount += ia.Amount;
             //ensure the user has enough
-            if (totalAmount < amount) return null;
+            if (totalAmount < ingredientAmountCto.Amount) return null;
             //remove ingredient amounts, starting with the oldest ingredients
-            foreach (IngredientAmountDto ia in matches)
+            foreach (IngredientAmountDto ingredientAmountDto in matches)
             {
                 //remove the oldest ingredient amount from the required amount 
-                amount -= ia.Amount;
+                ingredientAmountCto.Amount -= ingredientAmountDto.Amount;
                 //if required amount reached
-                if (amount <= 0)
+                if (ingredientAmountCto.Amount <= 0)
                 {
                     //remove the overshoot amount from current ingredient
-                    ia.Amount = -amount;
+                    ingredientAmountDto.Amount = -ingredientAmountCto.Amount;
                     //if the amount goes down to 0 
-                    if (ia.Amount == 0)
+                    if (ingredientAmountDto.Amount == 0)
                     {
                         //remove the amount from user and db
                         dto.IngredientAmounts.Remove(matches[0]);
@@ -139,8 +193,8 @@ namespace Data_Interface.Mutation
                     break;
                 }
                 //remove the amount from user and db
-                dto.IngredientAmounts.Remove(ia);
-                context.IngredientAmounts.Remove(ia);
+                dto.IngredientAmounts.Remove(ingredientAmountDto);
+                context.IngredientAmounts.Remove(ingredientAmountDto);
             }
             //save changes to db
             await context.SaveChangesAsync();

@@ -25,5 +25,22 @@ namespace Client_Model.Model
                 return total;
             }
         }
+        public string SerializeToCreateInputType()
+        {
+            return $$"""
+                    {
+                        {{FormatHelper.PascalToCamel(nameof(Status))}}:{{Status}}
+                    }
+                    """;
+        }
+        public string SerializeToUpdateInputType()
+        {
+            return $$"""
+                    {
+                        {{FormatHelper.PascalToCamel(nameof(Id))}}:{{Id}}
+                        {{FormatHelper.PascalToCamel(nameof(Status))}}:{{Status}}
+                    }
+                    """;
+        }
     }
 }

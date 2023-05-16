@@ -17,5 +17,39 @@ namespace Client_Model.Model
         public List<IngredientAmountCto> IngredientAmounts { get; set; }
             = new List<IngredientAmountCto>();
         public List<OrderCto> Orders { get; set; } = new List<OrderCto>();
+
+        public string SerializeToCreateInputType()
+        {
+            return $$"""
+                    {    
+                        {{FormatHelper.PascalToCamel(nameof(FirstName))}}:{{FormatHelper.FormatNullableInput(FirstName)}}
+                        {{FormatHelper.PascalToCamel(nameof(LastName))}}:{{FormatHelper.FormatNullableInput(LastName)}}
+                        {{FormatHelper.PascalToCamel(nameof(Password))}}:{{FormatHelper.FormatNullableInput(Password)}}
+                        {{FormatHelper.PascalToCamel(nameof(Email))}}:{{FormatHelper.FormatNullableInput(Email)}} 
+                        {{FormatHelper.PascalToCamel(nameof(BirthDate))}}:{{FormatHelper.FormatNullableInput(BirthDate)}}
+                        {{SerializeAddressToInputType}}
+                    }
+                    """;
+        }
+        public string SerializeToUpdateInputType()
+        {
+            return $$"""
+                    { 
+                        {{FormatHelper.PascalToCamel(nameof(Id))}}:{{Id}}
+                        {{FormatHelper.PascalToCamel(nameof(FirstName))}}:{{FormatHelper.FormatNullableInput(FirstName)}}
+                        {{FormatHelper.PascalToCamel(nameof(LastName))}}:{{FormatHelper.FormatNullableInput(LastName)}}
+                        {{FormatHelper.PascalToCamel(nameof(Password))}}:{{FormatHelper.FormatNullableInput(Password)}}
+                        {{FormatHelper.PascalToCamel(nameof(Email))}}:{{FormatHelper.FormatNullableInput(Email)}} 
+                        {{FormatHelper.PascalToCamel(nameof(BirthDate))}}:{{FormatHelper.FormatNullableInput(BirthDate)}}
+                        {{SerializeAddressToInputType}}
+                    }
+                    """;
+        }
+        private string SerializeAddressToInputType()
+        {
+            if (Address == null) return string.Empty;
+
+            return $"address{Address.SerializeToCreateInputType()}";
+        }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using Client_Library.Repository.Interface.Base;
+using Client_Model;
 using Client_Model.GraphQL;
 using Client_Model.GraphQL.Response;
 using Client_Model.Model;
+using Client_Model.Model.Interface;
 using System.Net.Http.Json;
 using System.Text.Json;
 
@@ -42,7 +44,7 @@ namespace Client_Library.Repository.Abstract
                 {
                     nameof(AddressCto) => "Addresses",
                     nameof(AdminAccountCto) => "Admins",
-                    nameof(GroceryCto) => "Grocery",
+                    nameof(GroceryCto) => "Groceries",
                     nameof(IngredientAmountCto) => "IngredientAmounts",
                     nameof(IngredientCto) => "Ingredients",
                     nameof(OrderCto) => "Orders",
@@ -56,6 +58,11 @@ namespace Client_Library.Repository.Abstract
         }
         public virtual T CachedItem { get; protected set; }
         public virtual IEnumerable<T> CachedItems { get; protected set; }
+
+        T IClientRepository<T>.CachedItem => throw new NotImplementedException();
+
+        IEnumerable<T> IClientRepository<T>.CachedItems => throw new NotImplementedException();
+
         protected ClientRepository(string baseAddress)
         {
             //Uri uri = new("https://localhost:7001/graphql");
@@ -66,13 +73,13 @@ namespace Client_Library.Repository.Abstract
         }
         public virtual async Task<T> CreateAsync(T cto, string nodeItems)
         {
-            var ctoJson = JsonSerializer.Serialize(cto);
+            string ctoStr = (cto as ICto).SerializeToCreateInputType();
 
             string mutation = FormatHelper.FormatMutation(
             $$"""
             mutation
             { 
-                create{{ResolveName}} (cto: {{ctoJson}}) 
+                create{{ResolveName}} (cto: {{ctoStr}}) 
                 { 
                     {{nodeItems}}
                 } 
@@ -88,18 +95,18 @@ namespace Client_Library.Repository.Abstract
             var graphQLResponse
                 = await response.Content.ReadFromJsonAsync<GraphQLResponse<Dictionary<string, T>>>();
 
-            T responseCto = graphQLResponse.Data[ResolveName.ToLower()];
+            T responseCto = graphQLResponse.Data[$"create{ResolveName}"];
             return responseCto;
         }
         public virtual async Task<T> UpdateAsync(T cto, string nodeItems)
         {
-            var ctoJson = JsonSerializer.Serialize(cto);
+            string ctoStr = (cto as ICto).SerializeToUpdateInputType();
 
             string mutation = FormatHelper.FormatMutation(
             $$"""
             mutation
             { 
-                update{{ResolveName}} (cto: {{ctoJson}}) 
+                update{{ResolveName}} (cto: {{ctoStr}}) 
                 { 
                     {{nodeItems}}
                 } 
@@ -115,7 +122,34 @@ namespace Client_Library.Repository.Abstract
             var graphQLResponse
                 = await response.Content.ReadFromJsonAsync<GraphQLResponse<Dictionary<string, T>>>();
 
-            T responseCto = graphQLResponse.Data[ResolveName.ToLower()];
+            T responseCto = graphQLResponse.Data[$"update{ResolveName}"];
+            return responseCto;
+        }
+        public virtual async Task<T> ChangeAsync(T cto, string nodeItems)
+        {
+            string ctoStr = (cto as ICto).SerializeToUpdateInputType();
+
+            string mutation = FormatHelper.FormatMutation(
+            $$"""
+            mutation
+            { 
+                change{{ResolveName}}Core (cto: {{ctoStr}}) 
+                { 
+                    {{nodeItems}}
+                } 
+            }
+            """);
+
+            StringContent content = new(mutation, System.Text.Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = await _httpClient.PostAsync("", content);
+
+            response.EnsureSuccessStatusCode();
+
+            var graphQLResponse
+                = await response.Content.ReadFromJsonAsync<GraphQLResponse<Dictionary<string, T>>>();
+
+            T responseCto = graphQLResponse.Data[$"update{ResolveName}"];
             return responseCto;
         }
         public virtual async Task<T> DeleteAsync(int id, string nodeItems)
@@ -140,7 +174,7 @@ namespace Client_Library.Repository.Abstract
             var graphQLResponse
                 = await response.Content.ReadFromJsonAsync<GraphQLResponse<Dictionary<string, T>>>();
 
-            T cto = graphQLResponse.Data[ResolveName.ToLower()];
+            T cto = graphQLResponse.Data[$"delete{ResolveName}"];
             return cto;
         }
         public virtual async Task<T> GetAsync(int id, string nodeItems)

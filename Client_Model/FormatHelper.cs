@@ -1,27 +1,47 @@
 ﻿using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Client_Library
+namespace Client_Model
 {
     public static partial class FormatHelper
     {
-        public static string FormatNullable(string cursor)
+        public static string PascalToCamel(string pascalStr)
         {
-            if (cursor != "null")
+            if (pascalStr == null)
+                return null;
+            if (pascalStr.Length < 3)
+                return pascalStr.ToLower();
+
+            return char.ToLower(pascalStr[0]) + pascalStr.Substring(1);
+        }
+        public static string FormatNullableOutput(string nullable)
+        {
+            if (nullable != "null")
             {
-                cursor = $$"""
-                            \"{{cursor}}\"
+                nullable = $$"""
+                            \"{{nullable}}\"
                             """;
             }
 
-            return cursor;
+            return nullable;
+        }
+        public static string FormatNullableInput(object nullable)
+        {
+            if (nullable != null)
+            {
+                return $$"""
+                            \"{{nullable}}\"
+                            """;
+            }
+
+            return "null";
         }
         public static string FormatPagination(int entries, string cursor = "null")
         {
             if (entries == -1)
                 return string.Empty;
 
-            cursor = FormatNullable(cursor);
+            cursor = FormatNullableOutput(cursor);
 
             return $$"""
                     first: {{entries}} after: {{cursor}}
@@ -72,7 +92,7 @@ namespace Client_Library
         {
             mutation = $$"""
                     {
-                        "mutation": 
+                        "query": 
                         "
                         {{mutation}}
                         " 
