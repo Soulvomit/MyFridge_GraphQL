@@ -5,8 +5,16 @@ namespace Client_Library.Repository.Interface
 {
     public interface IUserAccountClientRepository : IClientRepository<UserAccountCto>
     {
-        public Task<UserAccountCto> GetByEmailAsync(string email);
-        public Task<IngredientAmountCto> AddIngredientAmountAsync(IngredientAmountCto dto, int id);
-        public Task<bool> RemoveIngredientAmountAsync(int id, int ingredientId, int removeAmount, bool force = false);
+        public Task<UserAccountCto> ChangeAsync(UserAccountCto cto, string nodeItems, bool core = false);
+        public Task<UserAccountCto> GetByEmailAsync(string email, string nodeItems);
+        public Task<UserAccountCto> AddIngredientAmountAsync(
+            UserAccountCto cto, 
+            IngredientAmountCto ingredientAmountCto, 
+            string nodeItems, 
+            bool newBatch = false);
+        public Task<bool> RemoveIngredientAmountAsync(
+            UserAccountCto cto, 
+            IngredientAmountCto ingredientAmountCto, 
+            string nodeItems);
     }
 }

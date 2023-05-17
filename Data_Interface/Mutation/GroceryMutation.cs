@@ -43,6 +43,30 @@ namespace Data_Interface.Mutation
             await context.SaveChangesAsync();
             return _map.Grocery.ToCto(from: dto);
         }
+        public async Task<GroceryCto?> ChangeGroceryAsync(ApplicationDbContext context, GroceryCto cto)
+        {
+            if (cto == null) return null;
+
+            GroceryDto? dto = await context.Groceries.FindAsync(cto.Id);
+
+            if (dto == null) return null;
+
+            dto.Brand = cto.Brand;
+            dto.SalePrice = cto.SalePrice;
+            dto.ItemIdentifier = cto.ItemIdentifier;
+            dto.ImageUrl = cto.ImageUrl;
+
+            if (dto.IngredientAmount != null) 
+            {
+                context.IngredientAmounts.Remove(dto.IngredientAmount);
+                dto.IngredientAmount = null;
+            }
+
+            dto.IngredientAmount = _map.IngredientAmount.ToDto(cto.IngredientAmount);
+
+            await context.SaveChangesAsync();
+            return _map.Grocery.ToCto(dto);
+        }
         public async Task<bool> DeleteGroceryAsync(ApplicationDbContext context, GroceryCto cto)
         {
             if (cto == null) return false;
@@ -91,8 +115,11 @@ namespace Data_Interface.Mutation
             }
             else
             {
-                if(dto.IngredientAmount != null)
+                if (dto.IngredientAmount != null)
+                {
                     context.IngredientAmounts.Remove(dto.IngredientAmount);
+                    dto.IngredientAmount = null;
+                }
 
                 dto.IngredientAmount = ingredientAmountDto;
             }

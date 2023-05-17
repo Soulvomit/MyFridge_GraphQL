@@ -18,9 +18,9 @@ namespace Data_Interface.Query
         {
         }
 
-        public async Task<RecipeCto?> GetRecipeAsync(RecipeCto cto)
+        public async Task<RecipeCto?> GetRecipeAsync(ApplicationDbContext context, RecipeCto cto)
         {
-            await using ApplicationDbContext context = await _dbContextFactory.CreateDbContextAsync();
+            if (cto == null) return null;
 
             RecipeDto? dto = await context.Recipes.FindAsync(cto.Id);
 
@@ -39,15 +39,16 @@ namespace Data_Interface.Query
 
             return ctos;
         }
+
         [UsePaging]
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<RecipeCto?> GetMakeableRecipes(ApplicationDbContext context, UserAccountCto cto)
+        public async Task<IQueryable<RecipeCto?>> GetMakeableRecipes(ApplicationDbContext context, UserAccountCto cto)
         {
             if (cto == null) return Enumerable.Empty<RecipeCto?>().AsQueryable();
 
-            UserAccountDto? dto = context.Users.Find(cto.Id);
+            UserAccountDto? dto = await context.Users.FindAsync(cto.Id);
 
             if (dto == null) return Enumerable.Empty<RecipeCto?>().AsQueryable();
 

@@ -5,7 +5,6 @@ using Client_Model.GraphQL.Response;
 using Client_Model.Model;
 using Client_Model.Model.Interface;
 using System.Net.Http.Json;
-using System.Text.Json;
 
 namespace Client_Library.Repository.Abstract
 {
@@ -58,10 +57,6 @@ namespace Client_Library.Repository.Abstract
         }
         public virtual T CachedItem { get; protected set; }
         public virtual IEnumerable<T> CachedItems { get; protected set; }
-
-        T IClientRepository<T>.CachedItem => throw new NotImplementedException();
-
-        IEnumerable<T> IClientRepository<T>.CachedItems => throw new NotImplementedException();
 
         protected ClientRepository(string baseAddress)
         {
@@ -149,7 +144,7 @@ namespace Client_Library.Repository.Abstract
             var graphQLResponse
                 = await response.Content.ReadFromJsonAsync<GraphQLResponse<Dictionary<string, T>>>();
 
-            T responseCto = graphQLResponse.Data[$"update{ResolveName}"];
+            T responseCto = graphQLResponse.Data[$"change{ResolveName}Core"];
             return responseCto;
         }
         public virtual async Task<T> DeleteAsync(int id, string nodeItems)

@@ -43,6 +43,25 @@ namespace Data_Interface.Mutation
             await context.SaveChangesAsync();
             return _map.User.ToCto(from: dto);
         }
+        public async Task<UserAccountCto?> ChangeUserAccountAsync(ApplicationDbContext context, UserAccountCto cto)
+        {
+            if (cto == null) return null;
+
+            UserAccountDto? dto = await context.Users.FindAsync(cto.Id);
+
+            if (dto == null) return null;
+
+            dto.FirstName = cto.FirstName;
+            dto.LastName = cto.LastName;
+            dto.Password = cto.Password;
+            dto.PhoneNumber = ulong.Parse(cto.PhoneNumber);
+            dto.Email = cto.Email;
+            dto.BirthDate = cto.BirthDate ?? default;
+            dto.Address = _map.Address.ToDto(cto.Address);
+
+            await context.SaveChangesAsync();
+            return _map.User.ToCto(from: dto);
+        }
         public async Task<bool> DeleteUserAccountAsync(ApplicationDbContext context, UserAccountCto cto)
         {
             if (cto == null) return false;
@@ -102,7 +121,7 @@ namespace Data_Interface.Mutation
             return _map.User.ToCto(dto);
         }
 
-        public async Task<UserAccountCto?> AddAmountAsync
+        public async Task<UserAccountCto?> AddAmountUserAsync
         (
             ApplicationDbContext context, 
             UserAccountCto cto,
@@ -147,7 +166,7 @@ namespace Data_Interface.Mutation
             //return a copy of the user
             return _map.User.ToCto(dto);
         }
-        public async Task<UserAccountCto?> RemoveAmountAsync
+        public async Task<UserAccountCto?> RemoveAmountUserAsync
         (
             ApplicationDbContext context,
             UserAccountCto cto, 

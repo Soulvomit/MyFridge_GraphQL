@@ -5,5 +5,6 @@ namespace Client_Library.Repository.Interface
 {
     public interface IIngredientAmountClientRepository : IClientRepository<IngredientAmountCto>
     {
+        public Task<IngredientAmountCto> ChangeAsync(IngredientAmountCto cto, string nodeItems, bool core = false);
     }
 }

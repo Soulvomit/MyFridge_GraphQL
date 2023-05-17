@@ -71,7 +71,7 @@ namespace Data_Interface.Mutation
             await context.SaveChangesAsync();
             return _map.Recipe.ToCto(from: dto);
         }
-        public async Task<RecipeCto?> AddAmountAsync
+        public async Task<RecipeCto?> AddAmountRecipeAsync
         (
             ApplicationDbContext context,
             RecipeCto cto,
@@ -116,7 +116,7 @@ namespace Data_Interface.Mutation
             //return a copy of the user
             return _map.Recipe.ToCto(dto);
         }
-        public async Task<RecipeCto?> RemoveAmountAsync
+        public async Task<RecipeCto?> RemoveAmountRecipeAsync
         (
             ApplicationDbContext context,
             RecipeCto cto,

@@ -43,6 +43,21 @@ namespace Data_Interface.Mutation
             await context.SaveChangesAsync();
             return _map.IngredientAmount.ToCto(from: dto);
         }
+        public async Task<IngredientAmountCto?> ChangeIngredientAmountAsync(ApplicationDbContext context, IngredientAmountCto cto)
+        {
+            if (cto == null) return null;
+
+            IngredientAmountDto? dto = await context.IngredientAmounts.FindAsync(cto.Id);
+
+            if (dto == null) return null;
+
+            dto.Amount = cto.Amount;
+            dto.ExpirationDate = cto.ExpirationDate;
+            dto.Ingredient = _map.Ingredient.ToDto(cto.Ingredient);
+
+            await context.SaveChangesAsync();
+            return _map.IngredientAmount.ToCto(from: dto);
+        }
         public async Task<bool> DeleteIngredientAmountAsync(ApplicationDbContext context, IngredientAmountCto cto)
         {
             if (cto == null) return false;
